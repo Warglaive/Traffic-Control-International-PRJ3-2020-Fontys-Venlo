@@ -1,0 +1,14 @@
+#Visual paradigm log files
+*vpp.bak_*
+
+#Visual paradigm temp file
+*.vpp.lck
+
+#Java class files
+*.class
+
+#Intellij idea folder and subdirectories
+**/.idea
+
+#Intellij project file
+*.iml
