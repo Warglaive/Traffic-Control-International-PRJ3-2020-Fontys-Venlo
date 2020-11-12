@@ -12,3 +12,6 @@
 
 #Intellij project file
 *.iml
+
+#Temp files
+*~$*
