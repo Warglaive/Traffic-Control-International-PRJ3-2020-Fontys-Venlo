@@ -1,0 +1,14 @@
+Scpe should contain A, B , C and D
+And the MVP contains A and B
+
+Product Perspective
+The planned output is going to be in the UI. 
+As soon as the product is going life, the output will be changed to interact with actual traffic lights.
+
+Product Functions
+Right now only the already mentioned Potints in the overview from Fontys.
+Plus the UI.
+
+User Characteristics
+Road Administrator (A guy who plans traffic for the city)
+The cites council
