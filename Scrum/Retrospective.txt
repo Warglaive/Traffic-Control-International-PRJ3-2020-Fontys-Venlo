@@ -1,0 +1,12 @@
+This document sums up all decissions made during the Retrospective metting. 
+The next sprint column decides what shall be done in the next sprint.
+
+Retrospektive 2nd sprint
+-Being on time during meetings.
+-Communication
+ Spoken things should be either written down or implmented directly.
+ Communication over Whatsapp should be improved
+ 
+Vague Jira Tickets
+-Split up the tickets into managable tasks. The tasks should be doable in one sprint.
+-Better discription of tickets.
