@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import scrapped.StraightTrafficLightGermany;
 import ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

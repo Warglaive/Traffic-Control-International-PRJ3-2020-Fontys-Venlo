@@ -1,12 +1,14 @@
-package lights;
+package scrapped;
 
 import lightBehaviours.LightBehaviour;
-import lightBehaviours.PedestrianLightBehaviourExtended;
+import lightBehaviours.PedestrianLightBehaviourStandard;
+import lights.Location;
+import lights.PedestrianLight;
 import ui.Ui;
 
-public class PedestrianLightExtended extends PedestrianLight{
-    public PedestrianLightExtended(Ui output, Location location) {
-        super(PedestrianLightBehaviourExtended.RED, output, location);
+public class PedestrianLightStandard extends PedestrianLight {
+    public PedestrianLightStandard(Ui output, Location location) {
+        super(PedestrianLightBehaviourStandard.RED, output, location);
     }
 
     /**
@@ -16,8 +18,8 @@ public class PedestrianLightExtended extends PedestrianLight{
     @Override
     public void setChangeBehaviour(LightBehaviour changeBehaviour) {
         try {
-            PedestrianLightBehaviourExtended pedestrianLightBehaviourExtended = (PedestrianLightBehaviourExtended) changeBehaviour;
-            super.setChangeBehaviour(pedestrianLightBehaviourExtended);
+            PedestrianLightBehaviourStandard pedestrianLightBehaviourStandard = (PedestrianLightBehaviourStandard) changeBehaviour;
+            super.setChangeBehaviour(pedestrianLightBehaviourStandard);
         } catch (Exception e) {
             throw new IllegalArgumentException("PedestrianLightStandard requires a parameter of type PedestrianLightBehaviourStandard");
         }

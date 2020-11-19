@@ -1,13 +1,16 @@
-package lights;
+package scrapped;
 
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
+import lights.Light;
+import lights.Location;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import scrapped.StraightTrafficLightGermany;
 import ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

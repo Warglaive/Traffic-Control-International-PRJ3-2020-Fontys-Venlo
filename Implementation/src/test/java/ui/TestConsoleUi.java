@@ -2,7 +2,7 @@ package ui;
 
 import lights.Light;
 import lights.Location;
-import lights.StraightTrafficLightGermany;
+import scrapped.StraightTrafficLightGermany;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;

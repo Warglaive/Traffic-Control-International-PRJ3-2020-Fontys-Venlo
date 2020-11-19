@@ -1,7 +1,9 @@
-package lights;
+package scrapped;
 
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
+import lights.Location;
+import lights.StraightTrafficLight;
 import ui.Ui;
 
 public class StraightTrafficLightGermany extends StraightTrafficLight {
