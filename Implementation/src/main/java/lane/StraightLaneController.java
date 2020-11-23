@@ -15,10 +15,8 @@ public class StraightLaneController implements LaneController {
                                   StraightTrafficLightBehaviour lightsBehaviour,
                                   Ui userInterface,
                                   Location location) {
-        if (numberLights <= 0) {
-            throw new IllegalArgumentException("The number of lights has to be greater than 0");
-        }
 
+        lights = new ArrayList<StraightTrafficLight>();
         addLights(numberLights,
                 lightsBehaviour,
                 userInterface,
@@ -29,6 +27,9 @@ public class StraightLaneController implements LaneController {
                           StraightTrafficLightBehaviour lightsBehaviour,
                           Ui userInterface,
                           Location location) {
+        if (numberLights <= 0) {
+            throw new IllegalArgumentException("The number of lights has to be greater than 0");
+        }
         for (int i = 0; i < numberLights; i++) {
             lights.add(new StraightTrafficLight(lightsBehaviour, userInterface, location));
         }

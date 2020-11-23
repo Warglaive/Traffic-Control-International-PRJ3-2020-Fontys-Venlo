@@ -27,6 +27,8 @@ public abstract class Light extends Observable {
         }
     }
 
+
+
     public void setChangeBehaviour(LightBehaviour changeBehaviour) {this.changeBehaviour = changeBehaviour;}
 
     public LightBehaviour getChangeBehaviour() {
