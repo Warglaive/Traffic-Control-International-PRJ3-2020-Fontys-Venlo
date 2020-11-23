@@ -2,8 +2,8 @@ package scrapped;
 
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.PedestrianLightBehaviourExtended;
-import locations.Location;
 import lights.PedestrianLight;
+import locations.Location;
 import ui.Ui;
 
 public class PedestrianLightExtended extends PedestrianLight {

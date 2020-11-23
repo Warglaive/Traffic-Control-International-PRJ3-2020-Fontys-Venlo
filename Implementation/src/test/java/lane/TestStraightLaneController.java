@@ -1,5 +1,7 @@
 package lane;
 
+import lightBehaviours.PedestrianLightBehaviourStandard;
+import lightBehaviours.StraightTrafficLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
 import lights.StraightTrafficLight;
 import locations.Location;
@@ -34,21 +36,21 @@ public class TestStraightLaneController {
             "-1",
             "0"
     })
-    public void testConstructorThrowsException(int numberLights) {
+    public void testAddLightsThrowsExceptionNumberLights(int numberLights) {
         ThrowableAssert.ThrowingCallable exceptionCode = () ->
                 straightLaneController = new StraightLaneController(
-                numberLights,
-                StraightTrafficLightBehaviourGermany.RED,
-                userInterface,
-                location
-        );
+                        numberLights,
+                        StraightTrafficLightBehaviourGermany.RED,
+                        userInterface,
+                        location
+                );
         Assertions.assertThatCode(exceptionCode)
                 .hasMessage("The number of lights has to be greater than 0")
                 .isExactlyInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    public void testConstructorNoException() {
+    public void testAddLightsNoException() {
         ThrowableAssert.ThrowingCallable exceptionCode = () ->
                 straightLaneController = new StraightLaneController(
                         1,
@@ -58,5 +60,26 @@ public class TestStraightLaneController {
                 );
         Assertions.assertThatCode(exceptionCode)
                 .doesNotThrowAnyException();
+    }
+
+    @Test
+    public void testAddLightsThrowsExceptionBehaviour() {
+        straightLaneController = new StraightLaneController(
+                2,
+                StraightTrafficLightBehaviourGermany.RED,
+                userInterface,
+                location
+        );
+
+        ThrowableAssert.ThrowingCallable exceptionCode = () -> {
+            straightLaneController.addLights(2,
+                    PedestrianLightBehaviourStandard.RED,
+                    userInterface,
+                    location);
+        };
+
+        Assertions.assertThatCode(exceptionCode)
+                .hasMessage("The light behaviour has to be of type StraightTrafficLightBehaviour")
+                .isExactlyInstanceOf(ClassCastException.class);
     }
 }

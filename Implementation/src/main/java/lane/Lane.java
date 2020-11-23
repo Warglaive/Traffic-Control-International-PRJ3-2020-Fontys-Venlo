@@ -1,5 +1,5 @@
 package lane;
 
-public abstract class Lane implements LightControlling {
+public class Lane implements LightControlling {
 
 }
