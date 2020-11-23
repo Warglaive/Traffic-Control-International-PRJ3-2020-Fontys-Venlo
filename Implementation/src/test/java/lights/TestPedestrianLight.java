@@ -2,6 +2,7 @@ package lights;
 
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.PedestrianLightBehaviour;
+import locations.Location;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

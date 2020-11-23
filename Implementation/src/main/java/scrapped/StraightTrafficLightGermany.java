@@ -2,7 +2,7 @@ package scrapped;
 
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
-import lights.Location;
+import locations.Location;
 import lights.StraightTrafficLight;
 import ui.Ui;
 

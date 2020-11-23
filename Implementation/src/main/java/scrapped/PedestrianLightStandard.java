@@ -2,7 +2,7 @@ package scrapped;
 
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.PedestrianLightBehaviourStandard;
-import lights.Location;
+import locations.Location;
 import lights.PedestrianLight;
 import ui.Ui;
 

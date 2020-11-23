@@ -3,14 +3,13 @@ package scrapped;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.PedestrianLightBehaviourStandard;
 import lights.Light;
-import lights.Location;
+import locations.Location;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import scrapped.PedestrianLightStandard;
 import ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

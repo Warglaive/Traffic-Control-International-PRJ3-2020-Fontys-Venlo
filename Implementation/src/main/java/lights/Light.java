@@ -1,6 +1,7 @@
 package lights;
 
 import lightBehaviours.LightBehaviour;
+import locations.Location;
 import ui.Ui;
 import java.util.Observable;
 

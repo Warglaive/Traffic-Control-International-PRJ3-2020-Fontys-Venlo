@@ -11,7 +11,7 @@ public enum StraightTrafficLightBehaviourGermany implements StraightTrafficLight
         }
     },
 
-    REDYELLOW("red and yellow") {
+    REDYELLOW("redYellow") {
         @Override
         public String changeColor(StraightTrafficLight straightTrafficLight) {
             straightTrafficLight.setChangeBehaviour(GREEN);

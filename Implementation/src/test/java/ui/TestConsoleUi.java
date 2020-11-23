@@ -1,7 +1,7 @@
 package ui;
 
 import lights.Light;
-import lights.Location;
+import locations.Location;
 import scrapped.StraightTrafficLightGermany;
 import org.junit.jupiter.api.Test;
 
