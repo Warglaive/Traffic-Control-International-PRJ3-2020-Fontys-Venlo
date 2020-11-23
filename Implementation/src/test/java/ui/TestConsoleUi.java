@@ -23,6 +23,6 @@ public class TestConsoleUi {
         );
 
         trafficLightGermany.changeColor();
-        assertEquals("The traffic light shows: red and yellow", output.toString().trim());
+        assertEquals("The traffic light shows: redYellow", output.toString().trim());
     }
 }

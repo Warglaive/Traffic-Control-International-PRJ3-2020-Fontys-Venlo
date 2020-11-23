@@ -35,7 +35,7 @@ public class TestStraightStraightTrafficLightBehaviourGermany {
     @ParameterizedTest
     @CsvSource({
             //startBehaviour, expectedBehaviour
-            "RED, red and yellow",
+            "RED, redYellow",
             "REDYELLOW, green",
             "GREEN, yellow",
             "YELLOW, red"
@@ -50,7 +50,7 @@ public class TestStraightStraightTrafficLightBehaviourGermany {
     @CsvSource({
             //behaviour, expectedColor
             "RED, red",
-            "REDYELLOW, red and yellow",
+            "REDYELLOW, redYellow",
             "YELLOW, yellow",
             "GREEN, green"
     })
