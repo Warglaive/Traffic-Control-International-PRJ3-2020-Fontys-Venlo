@@ -17,7 +17,7 @@ import ui.Ui;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-public class TestStraightLaneController {
+public class TestStraightLaneControllerStandard {
     @Mock
     Location location;
     @Mock
@@ -38,7 +38,7 @@ public class TestStraightLaneController {
     })
     public void testAddLightsThrowsExceptionNumberLights(int numberLights) {
         ThrowableAssert.ThrowingCallable exceptionCode = () ->
-                straightLaneController = new StraightLaneController(
+                straightLaneController = new StraightLaneControllerStandard(
                         numberLights,
                         StraightTrafficLightBehaviourGermany.RED,
                         userInterface,
@@ -52,7 +52,7 @@ public class TestStraightLaneController {
     @Test
     public void testAddLightsNoException() {
         ThrowableAssert.ThrowingCallable exceptionCode = () ->
-                straightLaneController = new StraightLaneController(
+                straightLaneController = new StraightLaneControllerStandard(
                         1,
                         StraightTrafficLightBehaviourGermany.RED,
                         userInterface,
@@ -64,7 +64,7 @@ public class TestStraightLaneController {
 
     @Test
     public void testAddLightsThrowsExceptionBehaviour() {
-        straightLaneController = new StraightLaneController(
+        straightLaneController = new StraightLaneControllerStandard(
                 2,
                 StraightTrafficLightBehaviourGermany.RED,
                 userInterface,

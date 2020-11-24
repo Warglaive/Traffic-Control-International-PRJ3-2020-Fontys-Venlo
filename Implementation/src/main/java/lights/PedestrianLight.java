@@ -5,7 +5,7 @@ import lightBehaviours.PedestrianLightBehaviour;
 import locations.Location;
 import ui.Ui;
 
-public class PedestrianLight extends Light{
+public abstract class PedestrianLight extends Light{
     public PedestrianLight(LightBehaviour changeBehaviour, Ui output, Location location) {
         super(changeBehaviour, output, location);
     }

@@ -5,7 +5,7 @@ import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
 import ui.Ui;
 
-public class StraightTrafficLight extends Light {
+public abstract class StraightTrafficLight extends Light {
     public StraightTrafficLight(StraightTrafficLightBehaviour changeBehaviour, Ui output, Location location) {
         super(changeBehaviour, output, location);
     }

@@ -36,15 +36,6 @@ public class TestLights {
                 straightTrafficLight.getChangeBehaviour());
     }
 
-    /*@ParameterizedTest
-    @CsvSource({
-            //color to receive
-            "RED, red and yellow",
-            "REDYELLOW, green",
-            "GREEN, yellow",
-            "YELLOW, red"
-    })
-    public void changeColorNotifiesObservers(TrafficLightBehaviourGermany behaviour, String color) {*/
     @Test
     public void changeColorNotifiesObservers() {
         StraightTrafficLight straightTrafficLight = new StraightTrafficLightGermany(mockedUi, mockedLocation);
