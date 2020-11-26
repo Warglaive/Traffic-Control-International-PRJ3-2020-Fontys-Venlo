@@ -1,4 +1,5 @@
 package crossings;
 
-public abstract class CrossingController {
+public interface CrossingController {
+
 }
