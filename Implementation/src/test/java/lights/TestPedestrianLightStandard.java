@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import ui.UIObserver;
 import ui.Ui;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,7 +15,7 @@ import static org.mockito.Mockito.mock;
 
 public class TestPedestrianLightStandard {
     @Mock
-    Ui mockedUi;
+    UIObserver mockedUi;
     Location mockedLocation;
 
     PedestrianLight pedestrianLight;

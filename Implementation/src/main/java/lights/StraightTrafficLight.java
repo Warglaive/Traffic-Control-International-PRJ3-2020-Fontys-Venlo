@@ -3,10 +3,12 @@ package lights;
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
+import ui.UILight;
+import ui.UIObserver;
 import ui.Ui;
 
-public abstract class StraightTrafficLight extends Light {
-    public StraightTrafficLight(StraightTrafficLightBehaviour changeBehaviour, Ui output, Location location) {
+public abstract class StraightTrafficLight extends ObserverLight {
+    public StraightTrafficLight(StraightTrafficLightBehaviour changeBehaviour, UIObserver output, Location location) {
         super(changeBehaviour, output, location);
     }
 

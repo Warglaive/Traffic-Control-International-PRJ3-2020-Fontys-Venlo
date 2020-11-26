@@ -2,6 +2,7 @@ package lane;
 
 import lightBehaviours.LightBehaviour;
 import locations.Location;
+import ui.UIOutput;
 import ui.Ui;
 
 public interface LightControlling {
@@ -14,6 +15,6 @@ public interface LightControlling {
      */
     void addLights(int numberLights,
                    LightBehaviour lightsBehaviour,
-                   Ui userInterface,
+                   UIOutput userInterface,
                    Location location);
 }

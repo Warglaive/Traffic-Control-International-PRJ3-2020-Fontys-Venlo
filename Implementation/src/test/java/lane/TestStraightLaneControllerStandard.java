@@ -12,8 +12,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import ui.UIObserver;
+import ui.UIOutput;
 import ui.Ui;
 
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
@@ -21,14 +25,13 @@ public class TestStraightLaneControllerStandard {
     @Mock
     Location location;
     @Mock
-    Ui userInterface;
+    UIObserver userInterface;
 
     StraightLaneController straightLaneController;
 
     @BeforeEach
     public void setUp() {
-        location = mock(Location.class);
-        userInterface = mock(Ui.class);
+        MockitoAnnotations.openMocks(this);
     }
 
     @ParameterizedTest
@@ -44,7 +47,7 @@ public class TestStraightLaneControllerStandard {
                         userInterface,
                         location
                 );
-        Assertions.assertThatCode(exceptionCode)
+        assertThatCode(exceptionCode)
                 .hasMessage("The number of lights has to be greater than 0")
                 .isExactlyInstanceOf(IllegalArgumentException.class);
     }
@@ -58,7 +61,7 @@ public class TestStraightLaneControllerStandard {
                         userInterface,
                         location
                 );
-        Assertions.assertThatCode(exceptionCode)
+        assertThatCode(exceptionCode)
                 .doesNotThrowAnyException();
     }
 
@@ -78,8 +81,32 @@ public class TestStraightLaneControllerStandard {
                     location);
         };
 
-        Assertions.assertThatCode(exceptionCode)
+        assertThatCode(exceptionCode)
                 .hasMessage("The light behaviour has to be of type StraightTrafficLightBehaviour")
                 .isExactlyInstanceOf(ClassCastException.class);
+    }
+
+    @Test
+    public void testAddLightsThrowsExceptionUi() {
+        UIOutput falseUserInterface = mock(UIOutput.class);
+
+        straightLaneController = new StraightLaneControllerStandard(
+                2,
+                StraightTrafficLightBehaviourGermany.RED,
+                userInterface,
+                location
+        );
+
+        ThrowableAssert.ThrowingCallable exceptionCode = () -> {
+            straightLaneController.addLights(
+                    2,
+                    StraightTrafficLightBehaviourGermany.RED,
+                    falseUserInterface,
+                    location
+            );
+        };
+        assertThatCode(exceptionCode)
+                .isExactlyInstanceOf(ClassCastException.class)
+                .hasMessage("The userInterface has to be of type UIObserver");
     }
 }

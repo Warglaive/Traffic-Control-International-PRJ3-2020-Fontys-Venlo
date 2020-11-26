@@ -3,10 +3,12 @@ package lights;
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.PedestrianLightBehaviour;
 import locations.Location;
+import ui.UILight;
+import ui.UIObserver;
 import ui.Ui;
 
-public abstract class PedestrianLight extends Light{
-    public PedestrianLight(LightBehaviour changeBehaviour, Ui output, Location location) {
+public abstract class PedestrianLight extends ObserverLight{
+    public PedestrianLight(LightBehaviour changeBehaviour, UIObserver output, Location location) {
         super(changeBehaviour, output, location);
     }
 

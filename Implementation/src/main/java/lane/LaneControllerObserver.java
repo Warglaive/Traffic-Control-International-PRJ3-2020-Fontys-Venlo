@@ -1,4 +1,5 @@
 package lane;
 
-public class LaneControllerObserver {
+public abstract class LaneControllerObserver extends LaneController{
+
 }

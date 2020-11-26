@@ -1,5 +1,6 @@
 package lights;
 
+import annotations.Generated;
 import lightBehaviours.LightBehaviour;
 import locations.Location;
 
@@ -9,7 +10,7 @@ public abstract class Light extends Observable {
     private LightBehaviour changeBehaviour;
     private Location location;
 
-    protected Light(LightBehaviour changeBehaviour,Location location) {
+    protected Light(LightBehaviour changeBehaviour, Location location) {
         this.changeBehaviour = changeBehaviour;
         this.location = location;
     }
@@ -22,6 +23,7 @@ public abstract class Light extends Observable {
         return changeBehaviour;
     }
 
+    @Generated
     public Location getLocation() {
         return location;
     }
