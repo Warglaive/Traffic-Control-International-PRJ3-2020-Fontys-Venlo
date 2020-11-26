@@ -9,7 +9,7 @@ import ui.UIObserver;
 import ui.UIOutput;
 
 public class FourWayCrossingControllerEntranceStandard extends FourWayCrossingControllerEntrance {
-    public FourWayCrossingControllerEntranceStandard(int numberStraightLightsLeft, StraightTrafficLightBehaviour straightLightBehaviour, UIOutput userInterface, Location location) {
+    public FourWayCrossingControllerEntranceStandard(int numberStraightLightsLeft, StraightTrafficLightBehaviour straightLightBehaviour, UIObserver userInterface, Location location) {
         super(numberStraightLightsLeft, straightLightBehaviour, userInterface, location);
     }
 
