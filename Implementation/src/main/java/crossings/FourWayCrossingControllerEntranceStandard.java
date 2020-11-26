@@ -16,7 +16,7 @@ public class FourWayCrossingControllerEntranceStandard extends FourWayCrossingCo
     @Override
     public void changeLeftLane(int numberStraightLights, StraightTrafficLightBehaviour straightLightBehaviour, UIOutput userInterface, Location location) {
         UIObserver uiObserver;
-        sample {
+        try {
             uiObserver = (UIObserver) userInterface;
         } catch (ClassCastException e) {
             throw new ClassCastException("The userInterface has to be of type UIObserver");

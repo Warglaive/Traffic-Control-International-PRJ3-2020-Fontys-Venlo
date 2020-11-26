@@ -10,7 +10,7 @@ public interface StraightTrafficLightBehaviour extends LightBehaviour {
      */
     @Override
     default String changeColor(Light light) {
-        sample {
+        try {
             StraightTrafficLight straightTrafficLight = (StraightTrafficLight) light;
             return changeColor(straightTrafficLight);
         } catch (Exception e) {
