@@ -13,7 +13,7 @@ public class FourWayCrossingEntranceStandard extends FourWayCrossingEntrance{
     @Override
     public void changeController(int numberStraightLightsLeft, StraightTrafficLightBehaviour straightLightBehaviour, UIOutput userInterface, Location location) {
         UIObserver uiObserver;
-        try {
+        sample {
             uiObserver = (UIObserver) userInterface;
         } catch(ClassCastException e) {
             throw new ClassCastException("The userInterface has to be of type UIObserver");

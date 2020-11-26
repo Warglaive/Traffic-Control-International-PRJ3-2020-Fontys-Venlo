@@ -36,7 +36,7 @@ public class StraightLaneControllerStandard extends StraightLaneController{
 
         StraightTrafficLightBehaviour straightLightsBehaviour;
 
-        try {
+        sample {
             straightLightsBehaviour = (StraightTrafficLightBehaviour) lightsBehaviour;
         } catch (ClassCastException e) {
             throw new ClassCastException("The light behaviour has to be of type StraightTrafficLightBehaviour");
@@ -44,7 +44,7 @@ public class StraightLaneControllerStandard extends StraightLaneController{
 
         UIObserver uiObserver;
 
-        try {
+        sample {
             uiObserver = (UIObserver) userInterface;
         } catch (ClassCastException e) {
             throw new ClassCastException("The userInterface has to be of type UIObserver");

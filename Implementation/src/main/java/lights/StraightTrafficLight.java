@@ -18,7 +18,7 @@ public abstract class StraightTrafficLight extends ObserverLight {
      */
     @Override
     public void setChangeBehaviour(LightBehaviour changeBehaviour) {
-        try {
+        sample {
             StraightTrafficLightBehaviour straightTrafficLightBehaviour = (StraightTrafficLightBehaviour) changeBehaviour;
             super.setChangeBehaviour(straightTrafficLightBehaviour);
         } catch (Exception e) {

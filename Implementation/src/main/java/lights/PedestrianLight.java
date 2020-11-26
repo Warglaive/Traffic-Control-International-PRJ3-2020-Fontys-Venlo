@@ -18,7 +18,7 @@ public abstract class PedestrianLight extends ObserverLight{
      */
     @Override
     public void setChangeBehaviour(LightBehaviour changeBehaviour) {
-        try {
+        sample {
             PedestrianLightBehaviour pedestrianLightBehaviour = (PedestrianLightBehaviour) changeBehaviour;
             super.setChangeBehaviour(pedestrianLightBehaviour);
         } catch (Exception e) {

@@ -10,7 +10,7 @@ public interface PedestrianLightBehaviour extends LightBehaviour{
      */
     @Override
     default String changeColor(Light light) {
-        try {
+        sample {
             PedestrianLight pedestrianLight = (PedestrianLight) light;
             return changeColor(pedestrianLight);
         } catch (Exception e) {
