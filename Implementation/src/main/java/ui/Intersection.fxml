@@ -11,7 +11,7 @@
 
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
-<AnchorPane prefHeight="477.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.Intersection">
+<AnchorPane prefHeight="477.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TabPane layoutX="41.0" layoutY="20.0" prefHeight="441.0" prefWidth="538.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>

@@ -12,13 +12,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-
-
-        Parent root = FXMLLoader.load(new URL("Intersection.fxml"));
-        Scene LogInScene = new Scene(root);
+        Parent root = FXMLLoader.load(new URL("file:/C:/Users/Maxi/Documents/Fontys_Venlo/Semester_3/PRJ3/Repository/prj3-2020-traffic-control-international-prj3-2020-group-05/Implementation/src/main/java/ui/Intersection.fxml"));
+        Scene Intersections = new Scene(root);
 
         primaryStage.setTitle("Traffic");
-        primaryStage.setScene(LogInScene);
+        primaryStage.setScene(Intersections);
 
         primaryStage.show();
     }
