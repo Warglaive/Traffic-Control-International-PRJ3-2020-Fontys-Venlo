@@ -1,4 +1,5 @@
 package crossings;
 
-public interface FourWayCrossing {
+public abstract class FourWayCrossing {
+    private FourWayCrossingController controller;
 }
