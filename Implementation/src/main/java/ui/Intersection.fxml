@@ -81,15 +81,12 @@
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a7b7c6" height="153.0" layoutX="4.0" layoutY="279.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="873.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a7b7c6" height="753.0" layoutX="329.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="153.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="14.0" layoutX="4.0" layoutY="344.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="52.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="14.0" layoutX="81.0" layoutY="344.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="52.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="14.0" layoutX="316.0" layoutY="344.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="52.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="52.0" layoutX="398.0" layoutY="268.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="14.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="14.0" layoutX="22.0" layoutY="344.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="52.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="52.0" layoutX="398.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="14.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="14.0" layoutX="807.0" layoutY="344.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="52.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="52.0" layoutX="398.0" layoutY="637.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="14.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="52.0" layoutX="398.0" layoutY="710.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="14.0" />
-                        <Pane layoutX="133.0" layoutY="279.0" prefHeight="166.0" prefWidth="168.0">
+                        <Pane layoutX="68.0" layoutY="279.0" prefHeight="166.0" prefWidth="168.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="17.0" layoutX="44.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="80.0" />
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="18.0" layoutX="44.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="80.0" />
@@ -134,8 +131,6 @@
                            </children>
                         </Pane>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="14.0" layoutX="724.0" layoutY="344.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="52.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="52.0" layoutX="398.0" layoutY="419.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="14.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="14.0" layoutX="456.0" layoutY="344.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="52.0" />
                         <Pane fx:id="PedestrianLight21" layoutX="198.0" layoutY="222.0" prefHeight="46.0" prefWidth="38.0" style="-fx-background-color: grey;">
                            <children>
                               <Circle fx:id="PL2_Circle11" fill="DODGERBLUE" layoutX="20.0" layoutY="12.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
@@ -191,6 +186,31 @@
                               <Circle fx:id="TL2_Circle31" fill="DODGERBLUE" layoutX="24.0" layoutY="70.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
                            </children>
                         </Pane>
+                        <Pane fx:id="TrafficLight211" layoutX="236.0" layoutY="309.0" prefHeight="84.0" prefWidth="47.0">
+                           <children>
+                              <Circle fx:id="TL2_Circle111" fill="DODGERBLUE" layoutX="24.0" layoutY="14.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="TL2_Circle211" fill="DODGERBLUE" layoutX="24.0" layoutY="42.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="TL2_Circle311" fill="DODGERBLUE" layoutX="24.0" layoutY="70.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </Pane>
+                        <Pane fx:id="TrafficLight2121" layoutX="389.0" layoutY="403.0" prefHeight="84.0" prefWidth="47.0" rotate="90.0">
+                           <children>
+                              <Circle fx:id="TL2_Circle1121" fill="DODGERBLUE" layoutX="24.0" layoutY="14.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="TL2_Circle2121" fill="DODGERBLUE" layoutX="24.0" layoutY="42.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="TL2_Circle3121" fill="DODGERBLUE" layoutX="24.0" layoutY="70.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </Pane>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="14.0" layoutX="466.0" layoutY="344.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="52.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="14.0" layoutX="290.0" layoutY="344.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="52.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="52.0" layoutX="405.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="14.0" />
+                        <Pane fx:id="TrafficLight212" layoutX="389.0" layoutY="223.0" prefHeight="84.0" prefWidth="47.0" rotate="90.0">
+                           <children>
+                              <Circle fx:id="TL2_Circle112" fill="DODGERBLUE" layoutX="24.0" layoutY="14.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="TL2_Circle212" fill="DODGERBLUE" layoutX="24.0" layoutY="42.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="TL2_Circle312" fill="DODGERBLUE" layoutX="24.0" layoutY="70.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </Pane>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="52.0" layoutX="405.0" layoutY="367.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="14.0" />
                      </children>
                   </AnchorPane>
               </content>
