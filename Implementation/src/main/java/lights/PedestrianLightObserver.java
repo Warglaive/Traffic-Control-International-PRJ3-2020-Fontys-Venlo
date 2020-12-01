@@ -1,14 +1,17 @@
 package lights;
 
 import lightBehaviours.LightBehaviour;
+import lightBehaviours.PedestrianLightBehaviour;
 import locations.Location;
 import ui.UIObserver;
+import ui.UIOutput;
 
-public abstract class ObserverLight extends Light {
+import java.util.Observable;
+import java.util.Observer;
 
-    protected ObserverLight(LightBehaviour changeBehaviour, UIObserver output, Location location) {
+public abstract class PedestrianLightObserver extends PedestrianLight {
+    public PedestrianLightObserver(PedestrianLightBehaviour changeBehaviour, Location location) {
         super(changeBehaviour, location);
-        this.addObserver(output);
     }
 
     /**
@@ -23,5 +26,4 @@ public abstract class ObserverLight extends Light {
             notifyObservers(newColor);
         }
     }
-
 }
