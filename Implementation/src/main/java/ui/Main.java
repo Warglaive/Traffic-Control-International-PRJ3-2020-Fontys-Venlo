@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import lights.StraightTrafficLight;
+import lights.StraightTrafficLightObserver;
+import lights.StraightTrafficLightObserverStandard;
 
 
 public class Main extends Application {
@@ -19,6 +21,7 @@ public class Main extends Application {
         primaryStage.setScene(Intersections);
 
         primaryStage.show();
+
     }
 
 

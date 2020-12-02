@@ -5,15 +5,13 @@ import locations.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import ui.UIObserver;
-import ui.Ui;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-public class TestPedestrianLightStandard {
+public class TestPedestrianLightObserverStandard {
     @Mock
     UIObserver mockedUi;
     Location mockedLocation;
@@ -23,14 +21,14 @@ public class TestPedestrianLightStandard {
     @BeforeEach
     public void init() {
         MockitoAnnotations.openMocks(this);
-        this.pedestrianLight = new PedestrianLightStandard(
+        this.pedestrianLight = new PedestrianLightObserverStandard(
                 mock(PedestrianLightBehaviour.class),
-                mockedUi,
+      //          mockedUi,
                 mockedLocation);
     }
 
     @Test
     public void testConstructorCreates() {
-        assertThat(this.pedestrianLight).isExactlyInstanceOf(PedestrianLightStandard.class);
+        assertThat(this.pedestrianLight).isExactlyInstanceOf(PedestrianLightObserverStandard.class);
     }
 }
