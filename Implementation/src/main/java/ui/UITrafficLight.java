@@ -4,11 +4,14 @@ import javafx.scene.paint.Color;
 
 import java.lang.reflect.Array;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 public class UITrafficLight implements UILight {
 
     //contains the desired color as a value and connects it to the representation
-    private HashMap state;
+    private HashMap<String, Color[]> state;
 
     // The arrays represent the three lights and there state as colors from top to bottom.
     private Color[] greenLightRepresentation = {black, black, green};
@@ -29,9 +32,20 @@ public class UITrafficLight implements UILight {
     }
 
     @Override
-    public String changeColor(String color) {
+    public Color[] getColorArray(String color) {
 
+        Color[] returnValue = null;
 
-        return null;
+        Set set = state.entrySet();
+        Iterator iterator = set.iterator();
+
+        while(iterator.hasNext()) {
+
+            Map.Entry mentry = (Map.Entry)iterator.next();
+            if(mentry.getKey() == color){
+                returnValue = (Color[]) mentry.getValue();
+            }
+        }
+        return  returnValue;
     }
 }

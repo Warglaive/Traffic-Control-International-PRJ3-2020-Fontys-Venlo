@@ -1,8 +1,10 @@
 package ui;
 
+import javafx.scene.paint.Color;
+
 public interface UILight extends UIOutput {
 
     //Takes the String from the Buisness Logic and translates it to a lighting state.
-    String changeColor(String color);
+    Color[] getColorArray(String color);
 
 }
