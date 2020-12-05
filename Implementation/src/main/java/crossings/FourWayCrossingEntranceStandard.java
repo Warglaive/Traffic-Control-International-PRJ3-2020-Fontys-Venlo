@@ -5,25 +5,28 @@ import locations.Location;
 import ui.UIObserver;
 import ui.UIOutput;
 
-public class FourWayCrossingEntranceStandard extends FourWayCrossingEntrance{
-    public FourWayCrossingEntranceStandard(int numberStraightLightsLeft, StraightTrafficLightBehaviour straightLightBehaviour, UIObserver userInterface, Location location) {
-        super(numberStraightLightsLeft, straightLightBehaviour, userInterface, location);
+public class FourWayCrossingEntranceStandard extends FourWayCrossingEntrance {
+    public FourWayCrossingEntranceStandard(int numberStraightLightsLeft,
+                                           StraightTrafficLightBehaviour straightLightBehaviour,
+                                           Location location,
+                                           int straightGoDurationLeft,
+                                           int straightCycleTimeLeft) {
+        super(numberStraightLightsLeft, straightLightBehaviour, location, straightGoDurationLeft, straightCycleTimeLeft);
     }
 
     @Override
-    public void changeController(int numberStraightLightsLeft, StraightTrafficLightBehaviour straightLightBehaviour, UIOutput userInterface, Location location) {
-        UIObserver uiObserver;
-        try {
-            uiObserver = (UIObserver) userInterface;
-        } catch(ClassCastException e) {
-            throw new ClassCastException("The userInterface has to be of type UIObserver");
-        }
+    public void changeController(int numberStraightLightsLeft,
+                                 StraightTrafficLightBehaviour straightLightBehaviour,
+                                 Location location,
+                                 int straightGoDurationLeft,
+                                 int straightCycleTimeLeft) {
 
         FourWayCrossingControllerEntranceStandard crossingController = new FourWayCrossingControllerEntranceStandard(
-               numberStraightLightsLeft,
-               straightLightBehaviour,
-               uiObserver,
-               location
+                numberStraightLightsLeft,
+                straightLightBehaviour,
+                location,
+                straightGoDurationLeft,
+                straightCycleTimeLeft
         );
 
         super.setController(crossingController);

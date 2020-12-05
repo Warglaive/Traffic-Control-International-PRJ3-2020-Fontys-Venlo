@@ -19,6 +19,6 @@ public interface LaneController {
      */
     void proceedOneState();
 
-
+    void cycleLights() throws InterruptedException;
 }
 

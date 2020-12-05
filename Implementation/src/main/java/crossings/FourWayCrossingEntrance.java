@@ -9,20 +9,23 @@ public abstract class FourWayCrossingEntrance implements FourWayCrossing {
 
     public FourWayCrossingEntrance(int numberStraightLightsLeft,
                                    StraightTrafficLightBehaviour straightLightBehaviour,
-                                   UIOutput userInterface,
-                                   Location location) {
+                                   Location location,
+                                   int straightGoDurationLeft,
+                                   int straightCycleTimeLeft) {
         this.changeController(
                 numberStraightLightsLeft,
                 straightLightBehaviour,
-                userInterface,
-                location
+                location,
+                straightGoDurationLeft,
+                straightCycleTimeLeft
         );
     }
 
     public abstract void changeController(int numberStraightLightsLeft,
-                                   StraightTrafficLightBehaviour straightLightBehaviour,
-                                   UIOutput userInterface,
-                                   Location location);
+                                          StraightTrafficLightBehaviour straightLightBehaviour,
+                                          Location location,
+                                          int straightGoDurationLeft,
+                                          int straightCycleTimeLeft);
 
     public FourWayCrossingControllerEntrance getController() {
         return controller;

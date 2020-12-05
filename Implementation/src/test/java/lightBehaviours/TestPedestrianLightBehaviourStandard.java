@@ -2,15 +2,17 @@ package lightBehaviours;
 
 import lights.PedestrianObserverLight;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mockito;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class TestPedestrianObserverLightBehaviourStandard {
+public class TestPedestrianLightBehaviourStandard {
     PedestrianObserverLight mockedPedestrianLight;
 
     @BeforeEach
@@ -52,5 +54,27 @@ public class TestPedestrianObserverLightBehaviourStandard {
     public void testGetColor(PedestrianLightBehaviourStandard behaviour, String expected) {
         String color = behaviour.getColor();
         assertEquals(expected, color);
+    }
+
+    @Test
+    public void testGoStateCorrect() {
+        assertThat(PedestrianLightBehaviourStandard.RED.getGoState())
+                .isEqualTo(PedestrianLightBehaviourStandard.GREEN);
+    }
+    @Test
+    public void testStopStateCorrect() {
+        assertThat(PedestrianLightBehaviourStandard.RED.getStopState())
+                .isEqualTo(PedestrianLightBehaviourStandard.RED);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            //startBehaviour, expectedBehaviour
+            "RED, GREEN",
+            "GREEN, RED"
+    })
+    public void testNextStateCorrect(PedestrianLightBehaviourStandard startBehaviour,
+                                     PedestrianLightBehaviourStandard expected) {
+        assertThat(startBehaviour.getNextState()).isEqualTo(expected);
     }
 }

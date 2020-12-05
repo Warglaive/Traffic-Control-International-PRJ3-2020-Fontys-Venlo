@@ -1,6 +1,6 @@
 package lane;
 
-import lane.laneControllers.StraightLaneController;
+import lane.laneControllers.StraightLaneControllerStandard;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
 import org.assertj.core.api.SoftAssertions;
@@ -18,25 +18,31 @@ public class TestLaneStandard {
     @Mock
     StraightTrafficLightBehaviour straightTrafficLightBehaviour;
 
+    int straightGoDuration;
+    int straightCycleTime;
     LaneStandard laneStandard;
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
 
+        straightGoDuration = 25;
+        straightCycleTime = 2;
+
         laneStandard = new LaneStandard(
                 2,
                 straightTrafficLightBehaviour,
-                uiObserver,
-                location
+                location,
+                straightGoDuration,
+                straightCycleTime
         );
     }
 
     @Test
     public void changeStraightLaneController() {
-        StraightLaneController straightLaneController = laneStandard.getStraightLaneController();
+        StraightLaneControllerStandard straightLaneControllerStandard = laneStandard.getStraightLaneController();
 
         SoftAssertions.assertSoftly(softly -> {
-            softly.assertThat(straightLaneController.getLights().size()).isEqualTo(2);
+            softly.assertThat(straightLaneControllerStandard.getLights().size()).isEqualTo(2);
         });
     }
 }

@@ -4,4 +4,6 @@ import lane.laneControllers.LaneController;
 
 public interface Lane {
     LaneController getStraightLaneController();
+
+    void cycleStraightLights() throws InterruptedException;
 }

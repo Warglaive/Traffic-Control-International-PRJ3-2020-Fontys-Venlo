@@ -28,17 +28,22 @@ public class TestFourWayCrossingEntranceStandard {
     @Mock
     StraightTrafficLightBehaviour straightTrafficLightBehaviour;
 
+    int straightGoDuration;
+    int straightCycleTime;
     FourWayCrossingEntrance crossing;
 
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
 
+        straightGoDuration = 25;
+        straightCycleTime = 2;
         crossing = new FourWayCrossingEntranceStandard(
                 2,
                 straightTrafficLightBehaviour,
-                uiObserver,
-                location
+                location,
+                straightGoDuration,
+                straightCycleTime
         );
     }
 
@@ -47,26 +52,12 @@ public class TestFourWayCrossingEntranceStandard {
         FourWayCrossingControllerEntrance crossingController = new FourWayCrossingControllerEntranceStandard (
                 2,
                 straightTrafficLightBehaviour,
-                uiObserver,
-                location
+                location,
+                straightGoDuration,
+                straightCycleTime
         );
 
         assertThat(crossing.getController()).isNotNull();
     }
 
-    @Test
-    public void changeControllerFalseUi() {
-        ThrowableAssert.ThrowingCallable exceptionCode = () -> {
-            crossing.changeController(
-                    2,
-                    straightTrafficLightBehaviour,
-                    mock(UIOutput.class),
-                    location
-            );
-        };
-
-        assertThatCode(exceptionCode)
-                .isExactlyInstanceOf(ClassCastException.class)
-                .hasMessage("The userInterface has to be of type UIObserver");
-    }
 }

@@ -5,9 +5,10 @@ import lights.StraightTrafficObserverLight;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-public class TestStraightStraightTrafficObserverLightBehaviour {
+public class TestStraightTrafficLightBehaviour {
 
     @Test
     public void testChangeColorCorrectCallNoException() {
@@ -25,4 +26,6 @@ public class TestStraightStraightTrafficObserverLightBehaviour {
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> lightBehaviour.changeColor(observerLight));
     }
+
+
 }

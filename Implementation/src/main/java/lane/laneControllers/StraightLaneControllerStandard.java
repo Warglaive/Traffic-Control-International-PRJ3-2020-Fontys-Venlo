@@ -5,12 +5,9 @@ import lightBehaviours.StraightTrafficLightBehaviour;
 import lights.StraightTrafficObserverLightStandard;
 import locations.Location;
 
-public class StraightLaneControllerStandard extends StraightLaneController{
-
-    public StraightLaneControllerStandard(int numberLights,
-                                          StraightTrafficLightBehaviour lightsBehaviour,
-                                          Location location) {
-        super(numberLights, lightsBehaviour, location);
+public class StraightLaneControllerStandard extends LaneControllerStandard {
+    public StraightLaneControllerStandard(int numberLights, StraightTrafficLightBehaviour lightsBehaviour, Location location, int goDuration, int cycleDuration) {
+        super(numberLights, lightsBehaviour, location, goDuration, cycleDuration);
     }
 
     /**
@@ -35,14 +32,6 @@ public class StraightLaneControllerStandard extends StraightLaneController{
         } catch (ClassCastException e) {
             throw new ClassCastException("The light behaviour has to be of type StraightTrafficLightBehaviour");
         }
-
-        /*UIObserver uiObserver;
-
-        try {
-            uiObserver = (UIObserver) userInterface;
-        } catch (ClassCastException e) {
-            throw new ClassCastException("The userInterface has to be of type UIObserver");
-        }*/
 
         for (int i = 0; i < numberLights; i++) {
             super.getLights().add(new StraightTrafficObserverLightStandard(straightLightsBehaviour, location));

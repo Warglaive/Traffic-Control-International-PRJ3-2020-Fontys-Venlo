@@ -9,24 +9,26 @@ import ui.UIObserver;
 import ui.UIOutput;
 
 public class FourWayCrossingControllerEntranceStandard extends FourWayCrossingControllerEntrance {
-    public FourWayCrossingControllerEntranceStandard(int numberStraightLightsLeft, StraightTrafficLightBehaviour straightLightBehaviour, UIObserver userInterface, Location location) {
-        super(numberStraightLightsLeft, straightLightBehaviour, userInterface, location);
+    public FourWayCrossingControllerEntranceStandard(int numberStraightLightsLeft,
+                                                     StraightTrafficLightBehaviour straightLightBehaviour,
+                                                     Location location,
+                                                     int straightGoDurationLeft,
+                                                     int straightCycleTimeLeft) {
+        super(numberStraightLightsLeft, straightLightBehaviour, location, straightGoDurationLeft, straightCycleTimeLeft);
     }
 
     @Override
-    public void changeLeftLane(int numberStraightLights, StraightTrafficLightBehaviour straightLightBehaviour, UIOutput userInterface, Location location) {
-        UIObserver uiObserver;
-        try {
-            uiObserver = (UIObserver) userInterface;
-        } catch (ClassCastException e) {
-            throw new ClassCastException("The userInterface has to be of type UIObserver");
-        }
-
+    public void changeLeftLane(int numberStraightLights,
+                               StraightTrafficLightBehaviour straightLightBehaviour,
+                               Location location,
+                               int straightGoDurationLeft,
+                               int straightCycleTimeLeft) {
         Lane newLane = new LaneStandard(
                 numberStraightLights,
                 straightLightBehaviour,
-                uiObserver,
-                location
+                location,
+                straightGoDurationLeft,
+                straightCycleTimeLeft
         );
 
         super.setLeftLane(newLane);

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
 
-public class TestPedestrianObserverLightBehaviour {
+public class TestPedestrianLightBehaviour {
     @Test
     public void testChangeColorCorrectCallNoException() {
         LightBehaviour lightBehaviour = PedestrianLightBehaviourStandard.RED;

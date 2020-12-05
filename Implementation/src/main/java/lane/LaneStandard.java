@@ -1,37 +1,47 @@
 package lane;
 
-import lane.laneControllers.StraightLaneController;
 import lane.laneControllers.StraightLaneControllerStandard;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
-import ui.UIObserver;
 
 public class LaneStandard implements Lane {
-    private StraightLaneController straightLaneController;
+    private StraightLaneControllerStandard straightLaneControllerStandard;
 
     public LaneStandard(int numberStraightLights,
                         StraightTrafficLightBehaviour straightLightBehaviour,
-                        UIObserver userInterfaceStraight,
-                        Location locationStraight) {
+                        Location location,
+                        int straightGoDurationLeft,
+                        int straightCycleTimeLeft) {
 
         this.changeStraightLaneController(
                 numberStraightLights,
                 straightLightBehaviour,
-                locationStraight
+                location,
+                straightGoDurationLeft,
+                straightCycleTimeLeft
         );
     }
 
     public void changeStraightLaneController(int numberLights,
                                              StraightTrafficLightBehaviour lightBehaviour,
-                                             Location location) {
-        this.straightLaneController = new StraightLaneControllerStandard(
+                                             Location location,
+                                             int goDuration,
+                                             int cycleTime) {
+        this.straightLaneControllerStandard = new StraightLaneControllerStandard(
                 numberLights,
                 lightBehaviour,
-                location);
+                location,
+                goDuration,
+                cycleTime);
     }
 
-    public StraightLaneController getStraightLaneController() {
-        return straightLaneController;
+    public StraightLaneControllerStandard getStraightLaneController() {
+        return straightLaneControllerStandard;
+    }
+
+    @Override
+    public void cycleStraightLights() throws InterruptedException {
+        this.straightLaneControllerStandard.cycleLights();
     }
 
 

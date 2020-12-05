@@ -11,21 +11,24 @@ public abstract class FourWayCrossingControllerEntrance {
     public FourWayCrossingControllerEntrance(
             int numberStraightLightsLeft,
             StraightTrafficLightBehaviour straightLightBehaviour,
-            UIOutput userInterface,
-            Location location) {
+            Location location,
+            int straightGoDuration,
+            int straightCycleTime) {
 
         this.changeLeftLane(numberStraightLightsLeft,
-        straightLightBehaviour,
-        userInterface,
-        location);
+                straightLightBehaviour,
+                location,
+                straightGoDuration,
+                straightCycleTime);
 
     }
 
     public abstract void changeLeftLane(
             int numberStraightLights,
             StraightTrafficLightBehaviour straightLightBehaviour,
-            UIOutput userInterface,
-            Location location
+            Location location,
+            int straightGoDuration,
+            int straightCycleTime
     );
 
 
