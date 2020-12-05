@@ -10,11 +10,11 @@ public interface LightControlling {
      * Adds lights to controller. Checks for correct typage in subclasses.
      * @param numberLights The number of lights to be added.
      * @param lightsBehaviour Behaviour the light is getting
-     * @param userInterface The user interface the lights are connected to.
      * @param location The location of the light.
      */
     void addLights(int numberLights,
                    LightBehaviour lightsBehaviour,
-                   UIOutput userInterface,
                    Location location);
+
+    void proceedOneState();
 }

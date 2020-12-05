@@ -11,9 +11,8 @@ public class StraightLaneControllerStandard extends StraightLaneController{
 
     public StraightLaneControllerStandard(int numberLights,
                                           StraightTrafficLightBehaviour lightsBehaviour,
-                                          UIObserver userInterface,
                                           Location location) {
-        super(numberLights, lightsBehaviour, userInterface, location);
+        super(numberLights, lightsBehaviour, location);
     }
 
     /**
@@ -21,12 +20,10 @@ public class StraightLaneControllerStandard extends StraightLaneController{
      *
      * @param numberLights    The number of lights to be added.
      * @param lightsBehaviour Behaviour the light is getting
-     * @param userInterface   The user interface the lights are connected to.
      * @param location        The location of the light.
      */
     public void addLights(int numberLights,
                           LightBehaviour lightsBehaviour,
-                          UIOutput userInterface,
                           Location location) {
 
         if (numberLights <= 0) {
@@ -41,13 +38,13 @@ public class StraightLaneControllerStandard extends StraightLaneController{
             throw new ClassCastException("The light behaviour has to be of type StraightTrafficLightBehaviour");
         }
 
-        UIObserver uiObserver;
+        /*UIObserver uiObserver;
 
         try {
             uiObserver = (UIObserver) userInterface;
         } catch (ClassCastException e) {
             throw new ClassCastException("The userInterface has to be of type UIObserver");
-        }
+        }*/
 
         for (int i = 0; i < numberLights; i++) {
             super.getLights().add(new StraightTrafficLightObserverStandard(straightLightsBehaviour, location));

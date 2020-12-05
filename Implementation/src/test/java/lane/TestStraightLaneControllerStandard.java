@@ -3,10 +3,12 @@ package lane;
 import lightBehaviours.PedestrianLightBehaviourStandard;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
-import lights.StraightTrafficLight;
 import locations.Location;
-import org.assertj.core.api.Assertions;
+import org.assertj.core.api.SoftAssertions;
 import org.assertj.core.api.ThrowableAssert;
+import org.hamcrest.beans.HasPropertyWithValue;
+import org.hamcrest.core.Every;
+import org.hamcrest.core.Is;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -15,9 +17,10 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import ui.UIObserver;
 import ui.UIOutput;
-import ui.Ui;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
@@ -28,10 +31,17 @@ public class TestStraightLaneControllerStandard {
     UIObserver userInterface;
 
     StraightLaneController straightLaneController;
-
+    StraightTrafficLightBehaviour lightBehaviour;
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
+        lightBehaviour = StraightTrafficLightBehaviourGermany.RED;
+
+        straightLaneController = new StraightLaneControllerStandard(
+                2,
+                lightBehaviour,
+                location
+        );
     }
 
     @ParameterizedTest
@@ -44,7 +54,6 @@ public class TestStraightLaneControllerStandard {
                 straightLaneController = new StraightLaneControllerStandard(
                         numberLights,
                         StraightTrafficLightBehaviourGermany.RED,
-                        userInterface,
                         location
                 );
         assertThatCode(exceptionCode)
@@ -58,7 +67,6 @@ public class TestStraightLaneControllerStandard {
                 straightLaneController = new StraightLaneControllerStandard(
                         1,
                         StraightTrafficLightBehaviourGermany.RED,
-                        userInterface,
                         location
                 );
         assertThatCode(exceptionCode)
@@ -67,17 +75,10 @@ public class TestStraightLaneControllerStandard {
 
     @Test
     public void testAddLightsThrowsExceptionBehaviour() {
-        straightLaneController = new StraightLaneControllerStandard(
-                2,
-                StraightTrafficLightBehaviourGermany.RED,
-                userInterface,
-                location
-        );
-
         ThrowableAssert.ThrowingCallable exceptionCode = () -> {
             straightLaneController.addLights(2,
                     PedestrianLightBehaviourStandard.RED,
-                    userInterface,
+                    //userInterface,
                     location);
         };
 
@@ -87,13 +88,25 @@ public class TestStraightLaneControllerStandard {
     }
 
     @Test
+    public void proceedOneStateProceedsAllLights() {
+        straightLaneController.proceedOneState();
+        var lights = straightLaneController.getLights();
+
+        SoftAssertions.assertSoftly(softly -> {
+            for(var light : lights) {
+                softly.assertThat(light.getChangeBehaviour())
+                        .isEqualTo(StraightTrafficLightBehaviourGermany.REDYELLOW);
+            }
+        });
+    }
+
+    /*@Test
     public void testAddLightsThrowsExceptionUi() {
         UIOutput falseUserInterface = mock(UIOutput.class);
 
         straightLaneController = new StraightLaneControllerStandard(
                 2,
                 StraightTrafficLightBehaviourGermany.RED,
-                userInterface,
                 location
         );
 
@@ -108,5 +121,5 @@ public class TestStraightLaneControllerStandard {
         assertThatCode(exceptionCode)
                 .isExactlyInstanceOf(ClassCastException.class)
                 .hasMessage("The userInterface has to be of type UIObserver");
-    }
+    }*/
 }
