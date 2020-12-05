@@ -1,23 +1,23 @@
 package lightBehaviours;
 
-import lights.Light;
-import lights.PedestrianLight;
+import lights.ObserverLight;
+import lights.PedestrianObserverLight;
 
 public interface PedestrianLightBehaviour extends LightBehaviour{
     /**
      * Ensures that light is of acceptable type for the specified behaviour
-     * @param light The light
+     * @param observerLight The light
      */
     @Override
-    default String changeColor(Light light) {
+    default String changeColor(ObserverLight observerLight) {
         try {
-            PedestrianLight pedestrianLight = (PedestrianLight) light;
+            PedestrianObserverLight pedestrianLight = (PedestrianObserverLight) observerLight;
             return changeColor(pedestrianLight);
         } catch (Exception e) {
             throw new IllegalArgumentException("PedestrianLightBehaviour requires a parameter of type PedestrianLight");
         }
     }
 
-    String changeColor(PedestrianLight pedestrianLight);
+    String changeColor(PedestrianObserverLight pedestrianLight);
 }
 

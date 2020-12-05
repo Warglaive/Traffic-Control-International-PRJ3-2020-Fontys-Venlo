@@ -3,13 +3,13 @@ package lights;
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.PedestrianLightBehaviour;
 import locations.Location;
-import ui.UILight;
-import ui.UIObserver;
-import ui.UIOutput;
-import ui.Ui;
 
-public abstract class PedestrianLight extends Light{
-    protected PedestrianLight(PedestrianLightBehaviour changeBehaviour, Location location) {
+public abstract class PedestrianObserverLight extends ObserverLight {
+    /**
+     * Ensures that changeBehaviour is of acceptable type for the specified light
+     * @param changeBehaviour The new LightBehaviour
+     */
+    protected PedestrianObserverLight(PedestrianLightBehaviour changeBehaviour, Location location) {
         super(changeBehaviour, location);
 
     }
@@ -23,9 +23,4 @@ public abstract class PedestrianLight extends Light{
         }
         super.setChangeBehaviour(changeBehaviour);
     }
-
-    /*public PedestrianLight(LightBehaviour changeBehaviour, UIOutput output, Location location) {
-        super(changeBehaviour, output, location);
-    }*/
-
 }

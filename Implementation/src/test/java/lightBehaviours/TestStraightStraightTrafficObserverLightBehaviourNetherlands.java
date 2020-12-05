@@ -1,6 +1,6 @@
 package lightBehaviours;
 
-import lights.StraightTrafficLight;
+import lights.StraightTrafficObserverLight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -10,12 +10,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class TestStraightStraightTrafficLightBehaviourNetherlands {
-    StraightTrafficLight mockedStraightTrafficLight;
+public class TestStraightStraightTrafficObserverLightBehaviourNetherlands {
+    StraightTrafficObserverLight mockedStraightTrafficLight;
 
     @BeforeEach
     public void init() {
-        mockedStraightTrafficLight = mock(StraightTrafficLight.class, Mockito.CALLS_REAL_METHODS);
+        mockedStraightTrafficLight = mock(StraightTrafficObserverLight.class, Mockito.CALLS_REAL_METHODS);
     }
 
     @ParameterizedTest

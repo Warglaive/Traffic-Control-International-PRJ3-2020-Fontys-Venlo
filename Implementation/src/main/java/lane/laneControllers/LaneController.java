@@ -1,11 +1,9 @@
-package lane;
+package lane.laneControllers;
 
 import lightBehaviours.LightBehaviour;
 import locations.Location;
-import ui.UIOutput;
-import ui.Ui;
 
-public interface LightControlling {
+public interface LaneController {
     /**
      * Adds lights to controller. Checks for correct typage in subclasses.
      * @param numberLights The number of lights to be added.
@@ -16,5 +14,11 @@ public interface LightControlling {
                    LightBehaviour lightsBehaviour,
                    Location location);
 
+    /**
+     * Proceeds all traffic lights one state ahead
+     */
     void proceedOneState();
+
+
 }
+

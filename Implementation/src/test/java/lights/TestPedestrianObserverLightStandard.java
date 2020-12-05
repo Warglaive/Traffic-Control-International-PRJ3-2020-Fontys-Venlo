@@ -11,17 +11,17 @@ import ui.UIObserver;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-public class TestPedestrianLightObserverStandard {
+public class TestPedestrianObserverLightStandard {
     @Mock
     UIObserver mockedUi;
     Location mockedLocation;
 
-    PedestrianLight pedestrianLight;
+    PedestrianObserverLight pedestrianLight;
 
     @BeforeEach
     public void init() {
         MockitoAnnotations.openMocks(this);
-        this.pedestrianLight = new PedestrianLightObserverStandard(
+        this.pedestrianLight = new PedestrianObserverLightStandard(
                 mock(PedestrianLightBehaviour.class),
       //          mockedUi,
                 mockedLocation);
@@ -29,6 +29,6 @@ public class TestPedestrianLightObserverStandard {
 
     @Test
     public void testConstructorCreates() {
-        assertThat(this.pedestrianLight).isExactlyInstanceOf(PedestrianLightObserverStandard.class);
+        assertThat(this.pedestrianLight).isExactlyInstanceOf(PedestrianObserverLightStandard.class);
     }
 }

@@ -1,11 +1,11 @@
 package lightBehaviours;
 
-import lights.PedestrianLight;
+import lights.PedestrianObserverLight;
 
 public enum PedestrianLightBehaviourExtended implements PedestrianLightBehaviour {
     RED("red") {
         @Override
-        public String changeColor(PedestrianLight pedestrianLight) {
+        public String changeColor(PedestrianObserverLight pedestrianLight) {
             pedestrianLight.setChangeBehaviour(GREEN);
             return GREEN.getColor();
         }
@@ -13,7 +13,7 @@ public enum PedestrianLightBehaviourExtended implements PedestrianLightBehaviour
 
     GREEN("green") {
         @Override
-        public String changeColor(PedestrianLight pedestrianLight) {
+        public String changeColor(PedestrianObserverLight pedestrianLight) {
             pedestrianLight.setChangeBehaviour(GREENBLINKING);
             return GREENBLINKING.getColor();
         }
@@ -21,7 +21,7 @@ public enum PedestrianLightBehaviourExtended implements PedestrianLightBehaviour
 
     GREENBLINKING("greenblinking") {
         @Override
-        public String changeColor(PedestrianLight pedestrianLight) {
+        public String changeColor(PedestrianObserverLight pedestrianLight) {
             pedestrianLight.setChangeBehaviour(RED);
             return RED.getColor();
         }

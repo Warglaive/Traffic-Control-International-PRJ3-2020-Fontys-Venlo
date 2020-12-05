@@ -3,7 +3,6 @@ package lights;
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.PedestrianLightBehaviourStandard;
-import lightBehaviours.StraightTrafficLightBehaviourGermany;
 import locations.Location;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,19 +16,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-public class TestPedestrianLightObserver {
+public class TestPedestrianObserverLight {
     @Mock
     Ui mockedUi;
     Location mockedLocation;
 
-    PedestrianLightObserver pedestrianLight;
+    ObserverLight pedestrianLight;
     PedestrianLightBehaviour pedestrianLightBehaviour;
 
     @BeforeEach
     public void init() {
         MockitoAnnotations.openMocks(this);
         pedestrianLightBehaviour = PedestrianLightBehaviourStandard.RED;
-        this.pedestrianLight = mock(PedestrianLightObserver.class, Mockito.CALLS_REAL_METHODS);
+        this.pedestrianLight = mock(PedestrianObserverLight.class, Mockito.CALLS_REAL_METHODS);
     }
 
     @Test
@@ -57,7 +56,7 @@ public class TestPedestrianLightObserver {
 
     @Test
     public void changeColorChangesColor() {
-        PedestrianLight PedestrianLight = new PedestrianLightObserverStandard(pedestrianLightBehaviour, mockedLocation);
+        PedestrianObserverLight PedestrianLight = new PedestrianObserverLightStandard(pedestrianLightBehaviour, mockedLocation);
 
         PedestrianLight.changeColor();
         assertEquals(PedestrianLightBehaviourStandard.GREEN,
@@ -66,7 +65,7 @@ public class TestPedestrianLightObserver {
 
     @Test
     public void changeColorNotifiesObservers() {
-        PedestrianLight PedestrianLight = new PedestrianLightObserverStandard(pedestrianLightBehaviour, mockedLocation);
+        PedestrianObserverLight PedestrianLight = new PedestrianObserverLightStandard(pedestrianLightBehaviour, mockedLocation);
         //trafficLight.setChangeBehaviour(behaviour);
         PedestrianLight.addObserver(mockedUi);
         PedestrianLight.changeColor();
@@ -76,7 +75,7 @@ public class TestPedestrianLightObserver {
 
     @Test
     public void changeColorWithoutObserversDoesNotNotify() {
-        PedestrianLight PedestrianLight = new PedestrianLightObserverStandard(pedestrianLightBehaviour, mockedLocation);
+        PedestrianObserverLight PedestrianLight = new PedestrianObserverLightStandard(pedestrianLightBehaviour, mockedLocation);
         PedestrianLight.deleteObserver(mockedUi);
         PedestrianLight.changeColor();
         verify(mockedUi, times(0)).update(any(), any());

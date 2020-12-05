@@ -1,6 +1,6 @@
 package lightBehaviours;
 
-import lights.PedestrianLight;
+import lights.PedestrianObserverLight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -10,12 +10,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class TestPedestrianLightBehaviourExtended {
-    PedestrianLight mockedPedestrianLight;
+public class TestPedestrianObserverLightBehaviourExtended {
+    PedestrianObserverLight mockedPedestrianLight;
 
     @BeforeEach
     public void init() {
-        mockedPedestrianLight = mock(PedestrianLight.class, Mockito.CALLS_REAL_METHODS);
+        mockedPedestrianLight = mock(PedestrianObserverLight.class, Mockito.CALLS_REAL_METHODS);
     }
 
     @ParameterizedTest

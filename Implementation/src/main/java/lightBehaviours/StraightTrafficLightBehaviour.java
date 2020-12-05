@@ -1,22 +1,22 @@
 package lightBehaviours;
 
-import lights.Light;
-import lights.StraightTrafficLight;
+import lights.ObserverLight;
+import lights.StraightTrafficObserverLight;
 
 public interface StraightTrafficLightBehaviour extends LightBehaviour {
     /**
      * Ensures that light is of acceptable type for the specified behaviour
-     * @param light The light
+     * @param observerLight The light
      */
     @Override
-    default String changeColor(Light light) {
+    default String changeColor(ObserverLight observerLight) {
         try {
-            StraightTrafficLight straightTrafficLight = (StraightTrafficLight) light;
+            StraightTrafficObserverLight straightTrafficLight = (StraightTrafficObserverLight) observerLight;
             return changeColor(straightTrafficLight);
         } catch (Exception e) {
             throw new IllegalArgumentException("TrafficLightBehaviour requires a parameter of type TrafficLight");
         }
     }
 
-    String changeColor(StraightTrafficLight straightTrafficLight);
+    String changeColor(StraightTrafficObserverLight straightTrafficLight);
 }

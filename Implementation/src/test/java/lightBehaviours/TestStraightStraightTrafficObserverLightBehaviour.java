@@ -1,18 +1,18 @@
 package lightBehaviours;
 
-import lights.Light;
-import lights.StraightTrafficLight;
+import lights.ObserverLight;
+import lights.StraightTrafficObserverLight;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
 
-public class TestStraightStraightTrafficLightBehaviour {
+public class TestStraightStraightTrafficObserverLightBehaviour {
 
     @Test
     public void testChangeColorCorrectCallNoException() {
         LightBehaviour lightBehaviour = StraightTrafficLightBehaviourGermany.RED;
-        StraightTrafficLight straightTrafficLight = mock(StraightTrafficLight.class);
+        StraightTrafficObserverLight straightTrafficLight = mock(StraightTrafficObserverLight.class);
 
         Assertions.assertDoesNotThrow(() -> lightBehaviour.changeColor(straightTrafficLight));
     }
@@ -20,9 +20,9 @@ public class TestStraightStraightTrafficLightBehaviour {
     @Test
     public void testChangeColorIncorrectCallException() {
         LightBehaviour lightBehaviour = StraightTrafficLightBehaviourGermany.RED;
-        Light light = mock(Light.class);
+        ObserverLight observerLight = mock(ObserverLight.class);
 
         Assertions.assertThrows(IllegalArgumentException.class,
-                () -> lightBehaviour.changeColor(light));
+                () -> lightBehaviour.changeColor(observerLight));
     }
 }

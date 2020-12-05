@@ -1,5 +1,6 @@
 package lane;
 
+import lane.laneControllers.StraightLaneController;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
 import org.assertj.core.api.SoftAssertions;

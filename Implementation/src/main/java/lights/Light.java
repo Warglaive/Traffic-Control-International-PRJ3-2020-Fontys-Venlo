@@ -4,29 +4,13 @@ import annotations.Generated;
 import lightBehaviours.LightBehaviour;
 import locations.Location;
 
-import java.util.Observable;
+public interface Light {
+    void changeColor();
 
-public abstract class Light extends Observable {
-    private LightBehaviour changeBehaviour;
-    private Location location;
+    void setChangeBehaviour(LightBehaviour changeBehaviour);
 
-    protected Light(LightBehaviour changeBehaviour, Location location) {
-        this.changeBehaviour = changeBehaviour;
-        this.location = location;
-    }
+    LightBehaviour getChangeBehaviour();
 
-    public abstract void changeColor();
-
-    public void setChangeBehaviour(LightBehaviour changeBehaviour) {this.changeBehaviour = changeBehaviour;}
-
-    public LightBehaviour getChangeBehaviour() {
-        return changeBehaviour;
-    }
-
-    @Generated
-    public Location getLocation() {
-        return location;
-    }
-
+    Location getLocation();
 
 }

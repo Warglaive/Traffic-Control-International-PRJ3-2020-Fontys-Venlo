@@ -18,20 +18,20 @@ public class TestLights {
     UIObserver mockedUi;
     Location mockedLocation;
 
-    Light light;
+    ObserverLight observerLight;
     StraightTrafficLightBehaviour straightTrafficLightBehaviour;
     @BeforeEach
     public void init() {
         MockitoAnnotations.openMocks(this);
-        this.light = mock(Light.class, Mockito.CALLS_REAL_METHODS);
+        this.observerLight = mock(ObserverLight.class, Mockito.CALLS_REAL_METHODS);
         straightTrafficLightBehaviour = StraightTrafficLightBehaviourGermany.RED;
     }
 
     @Test
     public void setChangeBehaviour() {
         StraightTrafficLightBehaviour expected = mock(StraightTrafficLightBehaviour.class);
-        light.setChangeBehaviour(expected);
+        observerLight.setChangeBehaviour(expected);
 
-        assertEquals(expected, light.getChangeBehaviour());
+        assertEquals(expected, observerLight.getChangeBehaviour());
     }
 }

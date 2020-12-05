@@ -1,11 +1,9 @@
-package lane;
+package lane.laneControllers;
 
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
-import lights.StraightTrafficLightObserverStandard;
+import lights.StraightTrafficObserverLightStandard;
 import locations.Location;
-import ui.UIObserver;
-import ui.UIOutput;
 
 public class StraightLaneControllerStandard extends StraightLaneController{
 
@@ -47,7 +45,7 @@ public class StraightLaneControllerStandard extends StraightLaneController{
         }*/
 
         for (int i = 0; i < numberLights; i++) {
-            super.getLights().add(new StraightTrafficLightObserverStandard(straightLightsBehaviour, location));
+            super.getLights().add(new StraightTrafficObserverLightStandard(straightLightsBehaviour, location));
         }
     }
 }

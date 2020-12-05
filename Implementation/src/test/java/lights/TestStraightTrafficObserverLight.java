@@ -16,19 +16,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-public class TestStraightTrafficLightObserver {
+public class TestStraightTrafficObserverLight {
     @Mock
     Ui mockedUi;
     Location mockedLocation;
     StraightTrafficLightBehaviour straightTrafficLightBehaviour;
 
-    StraightTrafficLight straightTrafficLight;
+    StraightTrafficObserverLight straightTrafficLight;
 
     @BeforeEach
     public void init() {
         MockitoAnnotations.openMocks(this);
         straightTrafficLightBehaviour = StraightTrafficLightBehaviourGermany.RED;
-        this.straightTrafficLight = mock(StraightTrafficLightObserver.class, Mockito.CALLS_REAL_METHODS);
+        this.straightTrafficLight = mock(StraightTrafficObserverLight.class, Mockito.CALLS_REAL_METHODS);
     }
 
 
@@ -57,7 +57,7 @@ public class TestStraightTrafficLightObserver {
 
     @Test
     public void changeColorChangesColor() {
-        StraightTrafficLight straightTrafficLight = new StraightTrafficLightObserverStandard(straightTrafficLightBehaviour, mockedLocation);
+        StraightTrafficObserverLight straightTrafficLight = new StraightTrafficObserverLightStandard(straightTrafficLightBehaviour, mockedLocation);
 
         straightTrafficLight.changeColor();
         assertEquals(StraightTrafficLightBehaviourGermany.REDYELLOW,
@@ -66,7 +66,7 @@ public class TestStraightTrafficLightObserver {
 
     @Test
     public void changeColorNotifiesObservers() {
-        StraightTrafficLight straightTrafficLight = new StraightTrafficLightObserverStandard(straightTrafficLightBehaviour, mockedLocation);
+        StraightTrafficObserverLight straightTrafficLight = new StraightTrafficObserverLightStandard(straightTrafficLightBehaviour, mockedLocation);
         //trafficLight.setChangeBehaviour(behaviour);
         straightTrafficLight.addObserver(mockedUi);
         straightTrafficLight.changeColor();
@@ -76,7 +76,7 @@ public class TestStraightTrafficLightObserver {
 
     @Test
     public void changeColorWithoutObserversDoesNotNotify() {
-        StraightTrafficLight straightTrafficLight = new StraightTrafficLightObserverStandard(straightTrafficLightBehaviour, mockedLocation);
+        StraightTrafficObserverLight straightTrafficLight = new StraightTrafficObserverLightStandard(straightTrafficLightBehaviour, mockedLocation);
         straightTrafficLight.deleteObserver(mockedUi);
         straightTrafficLight.changeColor();
         verify(mockedUi, times(0)).update(any(), any());

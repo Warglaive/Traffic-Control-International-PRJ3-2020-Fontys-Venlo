@@ -1,14 +1,13 @@
-package lane;
+package lane.laneControllers;
 
+import lane.laneControllers.StraightLaneController;
+import lane.laneControllers.StraightLaneControllerStandard;
 import lightBehaviours.PedestrianLightBehaviourStandard;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
 import locations.Location;
 import org.assertj.core.api.SoftAssertions;
 import org.assertj.core.api.ThrowableAssert;
-import org.hamcrest.beans.HasPropertyWithValue;
-import org.hamcrest.core.Every;
-import org.hamcrest.core.Is;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,7 +15,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import ui.UIObserver;
-import ui.UIOutput;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;

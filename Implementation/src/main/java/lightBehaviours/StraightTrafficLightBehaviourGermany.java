@@ -1,11 +1,11 @@
 package lightBehaviours;
 
-import lights.StraightTrafficLight;
+import lights.StraightTrafficObserverLight;
 
 public enum StraightTrafficLightBehaviourGermany implements StraightTrafficLightBehaviour {
     RED("red") {
         @Override
-        public String changeColor(StraightTrafficLight straightTrafficLight) {
+        public String changeColor(StraightTrafficObserverLight straightTrafficLight) {
             straightTrafficLight.setChangeBehaviour(REDYELLOW);
             return REDYELLOW.getColor();
         }
@@ -13,7 +13,7 @@ public enum StraightTrafficLightBehaviourGermany implements StraightTrafficLight
 
     REDYELLOW("redYellow") {
         @Override
-        public String changeColor(StraightTrafficLight straightTrafficLight) {
+        public String changeColor(StraightTrafficObserverLight straightTrafficLight) {
             straightTrafficLight.setChangeBehaviour(GREEN);
             return GREEN.getColor();
         }
@@ -21,7 +21,7 @@ public enum StraightTrafficLightBehaviourGermany implements StraightTrafficLight
 
     GREEN("green") {
         @Override
-        public String changeColor(StraightTrafficLight straightTrafficLight) {
+        public String changeColor(StraightTrafficObserverLight straightTrafficLight) {
             straightTrafficLight.setChangeBehaviour(YELLOW);
             return YELLOW.getColor();
         }
@@ -29,7 +29,7 @@ public enum StraightTrafficLightBehaviourGermany implements StraightTrafficLight
 
     YELLOW("yellow") {
         @Override
-        public String changeColor(StraightTrafficLight straightTrafficLight) {
+        public String changeColor(StraightTrafficObserverLight straightTrafficLight) {
             straightTrafficLight.setChangeBehaviour(RED);
             return RED.getColor();
         }
