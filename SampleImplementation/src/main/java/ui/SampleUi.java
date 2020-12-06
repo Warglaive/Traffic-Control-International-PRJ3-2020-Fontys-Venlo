@@ -1,21 +1,23 @@
 package ui;
 
 import Exceptions.ColorNotFoundException;
+import javafx.fxml.FXML;
 import javafx.scene.shape.Circle;
+import javafx.scene.paint.Color;
+import lights.StraightTrafficObserverLight;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
-import static ui.CirclePosition.*;
-
 public class SampleUi implements Observer {
     private Circle circleTop, circleMiddle, circleBottom;
     private Country country;
 
-    public SampleUi(Circle circleTop, Circle circleMiddle, Circle circleBottom, Country country) {
+    public SampleUi(Circle circleTop, Circle circleMiddle, Circle circleBottom, Country country, StraightTrafficObserverLight businessLogicLight) {
+        businessLogicLight.addObserver(this);
+
         this.circleTop = circleTop;
         this.circleMiddle = circleMiddle;
         this.circleBottom = circleBottom;
@@ -66,14 +68,11 @@ public class SampleUi implements Observer {
     }
 
     public void setCircleTop(Map<UILightBehaviour, Color> setSpecifications) {
-
     }
 
     public void setCircleMiddle(Map<UILightBehaviour, Color> setSpecifications) {
-
     }
 
     public void setCircleBottom(Map<UILightBehaviour, Color> setSpecifications) {
-
     }
 }

@@ -4,7 +4,7 @@ package ui;
 import Exceptions.ColorNotFoundException;
 
 
-import java.awt.*;
+import javafx.scene.paint.Color;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,8 +22,12 @@ public class Mapper {
     public static Map<UILightBehaviour, Color> mapToSingleColor(String colorString) throws ColorNotFoundException {
         var singleColorList = new HashMap();
 
+        //input: "redYellow"
+
         //Splits String at uppercase letter
         var colorsSplit = colorString.split("\"(?=\\p{Upper})\"");
+
+        //output: array{"red", "yellow"};
 
         //Maps split up String to colors and behaviour.
         for(var currentColorString : colorsSplit) {
@@ -63,6 +67,7 @@ public class Mapper {
         Color currentColor;
 
         for(var uiLightBehaviour : colorMap.keySet()) {
+
             currentColor = colorMap.get(uiLightBehaviour);
             var tempMap = new HashMap();
             tempMap.put(uiLightBehaviour, currentColor);

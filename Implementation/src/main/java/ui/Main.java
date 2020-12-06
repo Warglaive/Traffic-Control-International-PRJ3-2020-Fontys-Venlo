@@ -14,6 +14,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Intersection.fxml"));
         Scene Intersections = new Scene(root);
 
+
         primaryStage.setTitle("Traffic");
         primaryStage.setScene(Intersections);
 
