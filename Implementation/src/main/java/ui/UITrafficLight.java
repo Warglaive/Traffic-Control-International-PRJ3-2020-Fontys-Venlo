@@ -46,6 +46,7 @@ public class UITrafficLight implements UILight, Observer {
         return  returnValue;
     }
 
+    /*
     @Override
     public void update(Observable o, Object arg) {
         try {
@@ -68,4 +69,6 @@ public class UITrafficLight implements UILight, Observer {
             //TODO: Proper exception handling
         }
     }
+
+    */
 }
