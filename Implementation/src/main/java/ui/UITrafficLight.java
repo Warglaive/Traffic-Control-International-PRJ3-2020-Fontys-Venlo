@@ -3,12 +3,9 @@ package ui;
 import javafx.scene.paint.Color;
 
 import java.lang.reflect.Array;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
-public class UITrafficLight implements UILight {
+public class UITrafficLight implements UILight, Observer {
 
     //contains the desired color as a value and connects it to the representation
     private HashMap<String, Color[]> state;
@@ -47,5 +44,28 @@ public class UITrafficLight implements UILight {
             }
         }
         return  returnValue;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        try {
+            Map<CirclePosition, Map<UILightBehaviour, Color>> mappedColorsWithPosition = this.mapColorsToCountry((String) arg);
+
+            for(var circlePosition : mappedColorsWithPosition.keySet()) {
+                var mappedColors = mappedColorsWithPosition.get(circlePosition);
+
+                switch(circlePosition){
+                    case TOP:
+                        this.setCircleTop(mappedColors);
+                    case MIDDLE:
+                        this.setCircleMiddle(mappedColors);
+                    case BOTTOM:
+                        this.setCircleBottom(mappedColors);
+                }
+            }
+
+        } catch (ColorNotFoundException e) {
+            //TODO: Proper exception handling
+        }
     }
 }
