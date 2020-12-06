@@ -1,7 +1,6 @@
 package ui;
 
 import Exceptions.ColorNotFoundException;
-import javafx.fxml.FXML;
 import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
 import lights.StraightTrafficObserverLight;

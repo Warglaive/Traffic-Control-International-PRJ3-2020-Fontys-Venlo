@@ -69,13 +69,16 @@ public class Mapper {
         for(var uiLightBehaviour : colorMap.keySet()) {
 
             currentColor = colorMap.get(uiLightBehaviour);
+
             var tempMap = new HashMap();
             tempMap.put(uiLightBehaviour, currentColor);
 
             if (currentColor.equals(Color.RED)) {
                 circleColorMap.put(TOP, tempMap);
+
             } else if (currentColor.equals(Color.YELLOW)) {
                 circleColorMap.put(MIDDLE, tempMap);
+
             } else {
                 circleColorMap.put(BOTTOM, tempMap);
             }
