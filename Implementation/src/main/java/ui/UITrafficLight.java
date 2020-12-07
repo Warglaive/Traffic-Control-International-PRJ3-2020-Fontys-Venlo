@@ -46,6 +46,11 @@ public class UITrafficLight implements UILight, Observer {
         return  returnValue;
     }
 
+    @Override
+    public void update(Observable o, Object arg) {
+
+    }
+
     /*
     @Override
     public void update(Observable o, Object arg) {
