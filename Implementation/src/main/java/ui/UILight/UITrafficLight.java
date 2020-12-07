@@ -1,6 +1,7 @@
 package ui.UILight;
 
 import javafx.scene.paint.Color;
+import lights.StraightTrafficObserverLight;
 
 import java.util.*;
 
@@ -9,7 +10,7 @@ This class takes the FXML Traffic Light and the traffic light from the buisness 
 Therefore this cass needs to implement the observable class.
  */
 
-public class UITrafficLight implements UILight {
+public class UITrafficLight implements UILight, Observer {
 
     //contains the desired color as a value and connects it to the representation
     private HashMap<String, Color[]> state;
@@ -24,7 +25,7 @@ public class UITrafficLight implements UILight {
     private static Color yellow = new Color(255, 255, 0, 255);
     private static Color black = new Color(0,0,0,255);
 
-    public UITrafficLight(){
+    public UITrafficLight(StraightTrafficObserverLight buisnessLight){
 
         state.put("red", redLightRepresentation);
         state.put("yellow", yellowLightRepresentation);
@@ -53,6 +54,7 @@ public class UITrafficLight implements UILight {
     @Override
     public void update(Observable o, Object arg) {
 
+        return null;
     }
 
     /*
