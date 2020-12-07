@@ -2,7 +2,13 @@ package lightBehaviours;
 
 import lights.PedestrianObserverLight;
 
+/**
+ * The enum Pedestrian light behaviour standard.
+ */
 public enum PedestrianLightBehaviourStandard implements PedestrianLightBehaviour {
+    /**
+     * The Red.
+     */
     RED("red") {
         @Override
         public LightBehaviour getNextState() {
@@ -16,6 +22,9 @@ public enum PedestrianLightBehaviourStandard implements PedestrianLightBehaviour
         }
     },
 
+    /**
+     * The Green.
+     */
     GREEN("green") {
         @Override
         public LightBehaviour getNextState() {
