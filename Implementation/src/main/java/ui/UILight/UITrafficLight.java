@@ -1,7 +1,6 @@
-package UILight;
+package ui.UILight;
 
 import javafx.scene.paint.Color;
-import UILight.*;
 
 import java.util.*;
 

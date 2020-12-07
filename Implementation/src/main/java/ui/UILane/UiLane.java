@@ -1,7 +1,7 @@
-package UILane;
+package ui.UILane;
 
-import UILight.UIPedestrianLight;
-import UILight.UITrafficLight;
+import ui.UILight.UIPedestrianLight;
+import ui.UILight.UITrafficLight;
 
 public class UiLane {
 

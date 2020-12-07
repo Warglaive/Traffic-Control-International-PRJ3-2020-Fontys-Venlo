@@ -1,4 +1,4 @@
-package UILight;
+package ui.UILight;
 
 public class UIPedestrianLight {
 }

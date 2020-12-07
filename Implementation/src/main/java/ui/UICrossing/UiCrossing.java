@@ -1,6 +1,6 @@
-package UICrossing;
+package ui.UICrossing;
 
-import UILane.UiLane;
+import ui.UILane.UiLane;
 
 import java.util.Observable;
 
