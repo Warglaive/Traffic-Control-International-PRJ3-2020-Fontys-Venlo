@@ -2,8 +2,6 @@ package crossings;
 
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
-import ui.UIObserver;
-import ui.UIOutput;
 
 public class FourWayCrossingEntranceStandard extends FourWayCrossingEntrance {
     public FourWayCrossingEntranceStandard(int numberStraightLightsLeft,
