@@ -1,8 +1,7 @@
-package ui;
+package ui.UILight;
 
 import javafx.scene.paint.Color;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 /*
@@ -49,6 +48,11 @@ public class UITrafficLight implements UILight {
             }
         }
         return  returnValue;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+
     }
 
     /*

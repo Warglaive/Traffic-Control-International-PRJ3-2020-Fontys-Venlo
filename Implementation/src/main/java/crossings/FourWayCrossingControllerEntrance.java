@@ -3,7 +3,6 @@ package crossings;
 import lane.Lane;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
-import ui.UIOutput;
 
 public abstract class FourWayCrossingControllerEntrance {
     private Lane leftLane;

@@ -2,7 +2,6 @@ package crossings;
 
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
-import ui.UIOutput;
 
 public abstract class FourWayCrossingEntrance implements FourWayCrossing {
     private FourWayCrossingControllerEntrance controller;
