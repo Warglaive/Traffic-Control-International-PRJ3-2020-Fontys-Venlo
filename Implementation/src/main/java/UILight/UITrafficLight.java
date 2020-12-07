@@ -1,8 +1,8 @@
-package ui;
+package UILight;
 
 import javafx.scene.paint.Color;
+import UILight;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class UITrafficLight implements UILight, Observer {
@@ -44,6 +44,11 @@ public class UITrafficLight implements UILight, Observer {
             }
         }
         return  returnValue;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+
     }
 
     /*

@@ -1,6 +1,7 @@
-package ui;
+package UILight;
 
 import javafx.scene.paint.Color;
+import ui.UIOutput;
 
 public interface UILight extends UIOutput {
 
