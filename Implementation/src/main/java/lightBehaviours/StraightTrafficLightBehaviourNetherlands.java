@@ -2,7 +2,13 @@ package lightBehaviours;
 
 import lights.StraightTrafficObserverLight;
 
+/**
+ * The enum Straight traffic light behaviour netherlands.
+ */
 public enum StraightTrafficLightBehaviourNetherlands implements StraightTrafficLightBehaviour {
+    /**
+     * The Red.
+     */
     RED("red") {
         @Override
         public LightBehaviour getNextState() {
@@ -16,6 +22,9 @@ public enum StraightTrafficLightBehaviourNetherlands implements StraightTrafficL
         }
     },
 
+    /**
+     * The Green.
+     */
     GREEN("green") {
         @Override
         public LightBehaviour getNextState() {
@@ -29,6 +38,9 @@ public enum StraightTrafficLightBehaviourNetherlands implements StraightTrafficL
         }
     },
 
+    /**
+     * The Yellow.
+     */
     YELLOW("yellow") {
         @Override
         public LightBehaviour getNextState() {
