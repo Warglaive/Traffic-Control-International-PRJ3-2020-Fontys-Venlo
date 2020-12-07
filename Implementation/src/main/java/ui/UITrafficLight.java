@@ -5,7 +5,12 @@ import javafx.scene.paint.Color;
 import java.lang.reflect.Array;
 import java.util.*;
 
-public class UITrafficLight implements UILight, Observer {
+/*
+This class takes the FXML Traffic Light and the traffic light from the buisness logic and connets both.
+Therefore this cass needs to implement the observable class.
+ */
+
+public class UITrafficLight implements UILight {
 
     //contains the desired color as a value and connects it to the representation
     private HashMap<String, Color[]> state;
