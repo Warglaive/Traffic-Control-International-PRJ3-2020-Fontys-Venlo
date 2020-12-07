@@ -1,4 +1,4 @@
-package ui;
+package UILane;
 
 public class UiLane {
 }
