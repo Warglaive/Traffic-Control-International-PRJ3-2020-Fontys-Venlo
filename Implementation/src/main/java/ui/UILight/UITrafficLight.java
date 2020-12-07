@@ -54,7 +54,6 @@ public class UITrafficLight implements UILight, Observer {
     @Override
     public void update(Observable o, Object arg) {
 
-        return null;
     }
 
     /*
