@@ -6,10 +6,19 @@ import locations.Location;
 
 import java.util.Observable;
 
+/**
+ * The type Observer light.
+ */
 public abstract class ObserverLight extends Observable implements Light{
     private LightBehaviour changeBehaviour;
     private Location location;
 
+    /**
+     * Instantiates a new Observer light.
+     *
+     * @param changeBehaviour the change behaviour
+     * @param location        the location
+     */
     protected ObserverLight(LightBehaviour changeBehaviour, Location location) {
         this.changeBehaviour = changeBehaviour;
         this.location = location;
