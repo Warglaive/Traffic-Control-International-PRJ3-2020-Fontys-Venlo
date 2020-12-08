@@ -1,10 +1,8 @@
 package ui.UILane;
 
 import lane.Lane;
-import lane.laneControllers.LaneController;
 import lights.Light;
-import lights.ObserverLight;
-import ui.UILight.UIPedestrianLight;
+import ui.UICrossing.UiLightType;
 import ui.UILight.UITrafficLight;
 
 import java.util.ArrayList;
@@ -12,34 +10,24 @@ import java.util.HashMap;
 import java.util.List;
 
 public class UiLane {
-/*
-    private UITrafficLight trafficLight;
-    private UIPedestrianLight pedestrianLightOne;
-    private UIPedestrianLight pedestrianLightTwo;
-
-    public UiLane(UITrafficLight tLight, UIPedestrianLight pLight){
-        this.trafficLight = tLight;
-        this.pedestrianLightOne = pLight;
-        this.pedestrianLightTwo = pLight;
-    }*/
-
     private Lane businessLogicLane;
-    private HashMap<String, List<Light>> lights;
+    private HashMap<UiLightType, List<Light>> lights;
 
     public UiLane(Lane businessLogicLane) {
         this.businessLogicLane = businessLogicLane;
-        this.lights = new HashMap<String, List<Light>>();
+        this.lights = new HashMap<UiLightType, List<Light>>();
 
         this.fetchStraightLights(businessLogicLane);
     }
 
-    private void fetchStraightLights(Lane lane) {
-        var laneController = lane.getStraightLaneController();
-
+    private void fetchStraightLights(Lane businessLogicLane) {
+        var laneController = businessLogicLane.getStraightLaneController();
         var tempList = new ArrayList();
+
         for(var businessLogicLightAsObject : laneController.getLights()) {
             try {
                 var businessLogicLight = (Light) businessLogicLightAsObject;
+                //TODO: Extendible structure / create correct traffic light
                 var uiTrafficLight = new UITrafficLight(businessLogicLight);
                 tempList.add(uiTrafficLight);
 
@@ -48,10 +36,10 @@ public class UiLane {
             }
         }
 
-        lights.put("straightLights", tempList);
+        lights.put(UiLightType.STRAIGHTLIGHTS, tempList);
     }
 
     public List<Light> getStraightLights() {
-        return lights.get("straightLights");
+        return lights.get(UiLightType.STRAIGHTLIGHTS);
     }
 }
