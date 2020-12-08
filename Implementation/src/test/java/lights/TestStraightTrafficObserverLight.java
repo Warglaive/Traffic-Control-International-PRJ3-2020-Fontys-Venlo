@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import ui.UIObserver;
 import ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,7 +19,7 @@ import static org.mockito.Mockito.*;
 
 public class TestStraightTrafficObserverLight {
     @Mock
-    Ui mockedUi;
+    UIObserver mockedUi;
     Location mockedLocation;
     StraightTrafficLightBehaviour straightTrafficLightBehaviour;
 
