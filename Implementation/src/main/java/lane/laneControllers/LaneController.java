@@ -1,7 +1,10 @@
 package lane.laneControllers;
 
 import lightBehaviours.LightBehaviour;
+import lights.Light;
 import locations.Location;
+
+import java.util.List;
 
 public interface LaneController {
     /**
@@ -15,10 +18,12 @@ public interface LaneController {
                    Location location);
 
     /**
-     * Proceeds all traffic lights one state ahead
+     * Proceeds all lights one state ahead
      */
     void proceedOneState();
 
     void cycleLights() throws InterruptedException;
+
+    List getLights();
 }
 

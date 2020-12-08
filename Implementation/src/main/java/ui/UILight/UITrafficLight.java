@@ -1,6 +1,8 @@
 package ui.UILight;
 
 import javafx.scene.paint.Color;
+import lights.Light;
+import lights.ObserverLight;
 import lights.StraightTrafficObserverLight;
 
 import java.util.*;
@@ -25,7 +27,7 @@ public class UITrafficLight implements UILight, Observer {
     private static Color yellow = new Color(255, 255, 0, 255);
     private static Color black = new Color(0,0,0,255);
 
-    public UITrafficLight(StraightTrafficObserverLight buisnessLight){
+    public UITrafficLight(Light buisnessLight){
 
         state.put("red", redLightRepresentation);
         state.put("yellow", yellowLightRepresentation);

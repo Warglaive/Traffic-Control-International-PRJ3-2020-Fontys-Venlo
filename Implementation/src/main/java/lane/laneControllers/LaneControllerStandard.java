@@ -36,6 +36,7 @@ public abstract class LaneControllerStandard implements LaneController {
                 location);
     }
 
+    @Override
     public List<ObserverLight> getLights() {
         return lights;
     }
