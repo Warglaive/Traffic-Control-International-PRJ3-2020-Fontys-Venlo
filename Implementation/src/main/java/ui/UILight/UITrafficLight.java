@@ -4,11 +4,13 @@ import javafx.scene.paint.Color;
 import lights.Light;
 import lights.ObserverLight;
 import lights.StraightTrafficObserverLight;
+import ui.UILane.UiLane;
 
 import java.util.*;
 
 /*
-This class takes the FXML Traffic Light and the traffic light from the buisness logic and connets both.
+This class takes the FXML Traffic Light and the traffic light from the buisness logic and connects both.
+the UILight connects via the lane and the BuisnessLogic Light connects via the StraightTrafficLightObserver
 Therefore this cass needs to implement the observable class.
  */
 
@@ -27,14 +29,19 @@ public class UITrafficLight implements UILight, Observer {
     private static Color yellow = new Color(255, 255, 0, 255);
     private static Color black = new Color(0,0,0,255);
 
-    public UITrafficLight(Light buisnessLight){
+    private StraightTrafficObserverLight buisnessLight;
 
+    public UITrafficLight(StraightTrafficObserverLight buisnessLight){
+
+        buisnessLight.addObserver(this);
+        this.buisnessLight = buisnessLight;
         state.put("red", redLightRepresentation);
         state.put("yellow", yellowLightRepresentation);
         state.put("green", greenLightRepresentation);
         state.put("redyellow", redyellowLightrepresentation);
     }
 
+    //Returns a color array which the GUI(Class that connects fxml to logic) class can use to display a light
     @Override
     public Color[] getColorArray(String color) {
 
@@ -53,11 +60,15 @@ public class UITrafficLight implements UILight, Observer {
         return  returnValue;
     }
 
+    //When the notifyObserver Method from the observed object gets called this class gets executet
     @Override
     public void update(Observable o, Object arg) {
 
+        //Get color from the buisnessLight
+        buisnessLight.getChangeBehaviour().getColor();
     }
 
+    //TODO Implement Country mapper
     /*
     @Override
     public void update(Observable o, Object arg) {
