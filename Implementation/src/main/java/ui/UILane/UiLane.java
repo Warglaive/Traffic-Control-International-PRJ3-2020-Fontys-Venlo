@@ -28,8 +28,8 @@ public class UiLane {
             try {
                 var businessLogicLight = (Light) businessLogicLightAsObject;
                 //TODO: Extendible structure / create correct traffic light
-                var uiTrafficLight = new UITrafficLight(businessLogicLight);
-                tempList.add(uiTrafficLight);
+               // var uiTrafficLight = new UITrafficLight(businessLogicLight);
+               // tempList.add(uiTrafficLight);
 
             } catch (ClassCastException cce) {
                 //TODO: Proper exception handling

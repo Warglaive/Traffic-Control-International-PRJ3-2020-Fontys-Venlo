@@ -15,9 +15,4 @@ public class UIFourWayCrossingEntrance extends UIFourWayCrossing {
         this.topLane = new UiLane(topLane);
         this.bottomLane = new UiLane(bottomLane);
     }
-
-
-    /*private void LeftCrossingLights() throws InterruptedException {
-        this.leftLane.cycleStraightLights();
-    }*/
 }
