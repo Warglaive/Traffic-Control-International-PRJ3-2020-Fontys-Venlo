@@ -1,10 +1,9 @@
 package ui.UICrossing;
 
 import lane.Lane;
+import ui.UILane.UiLane;
+import ui.Ui;
 
-public abstract class UIFourWayCrossing {
-    private Lane leftLane;
-    private Lane rightLane;
-    private Lane topLane;
-    private Lane bottomLane;
+public abstract class UIFourWayCrossing implements Ui {
+
 }

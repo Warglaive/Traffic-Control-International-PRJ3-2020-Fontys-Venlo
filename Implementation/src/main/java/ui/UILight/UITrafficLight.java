@@ -1,6 +1,8 @@
 package ui.UILight;
 
 import javafx.scene.paint.Color;
+import lights.Light;
+import lights.ObserverLight;
 import lights.StraightTrafficObserverLight;
 import ui.UILane.UiLane;
 

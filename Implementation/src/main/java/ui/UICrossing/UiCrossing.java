@@ -1,14 +1,7 @@
 package ui.UICrossing;
 
-import ui.UILane.UiLane;
+import ui.Ui;
 
-import java.util.Observable;
-
-public class UiCrossing implements UiCrossingInterface {
-    UiLane uiLane;
-
-    @Override
-    public void update(Observable o, Object arg) {
-
-    }
+public interface UiCrossing extends Ui {
+    //methods
 }

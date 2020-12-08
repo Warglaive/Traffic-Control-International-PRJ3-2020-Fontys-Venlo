@@ -1,18 +1,45 @@
 package ui.UILane;
 
-import ui.UILight.UIPedestrianLight;
+import lane.Lane;
+import lights.Light;
+import ui.UICrossing.UiLightType;
 import ui.UILight.UITrafficLight;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class UiLane {
+    private Lane businessLogicLane;
+    private HashMap<UiLightType, List<Light>> lights;
 
-    private UITrafficLight trafficLight;
-    private UIPedestrianLight pedestrianLightOne;
-    private UIPedestrianLight pedestrianLightTwo;
+    public UiLane(Lane businessLogicLane) {
+        this.businessLogicLane = businessLogicLane;
+        this.lights = new HashMap<UiLightType, List<Light>>();
 
-    public UiLane(UITrafficLight tLight, UIPedestrianLight pLight){
-        this.trafficLight = tLight;
-        this.pedestrianLightOne = pLight;
-        this.pedestrianLightTwo = pLight;
+        this.fetchStraightLights(businessLogicLane);
     }
 
+    private void fetchStraightLights(Lane businessLogicLane) {
+        var laneController = businessLogicLane.getStraightLaneController();
+        var tempList = new ArrayList();
+
+        for(var businessLogicLightAsObject : laneController.getLights()) {
+            try {
+                var businessLogicLight = (Light) businessLogicLightAsObject;
+                //TODO: Extendible structure / create correct traffic light
+                var uiTrafficLight = new UITrafficLight(businessLogicLight);
+                tempList.add(uiTrafficLight);
+
+            } catch (ClassCastException cce) {
+                //TODO: Proper exception handling
+            }
+        }
+
+        lights.put(UiLightType.STRAIGHTLIGHTS, tempList);
+    }
+
+    public List<Light> getStraightLights() {
+        return lights.get(UiLightType.STRAIGHTLIGHTS);
+    }
 }
