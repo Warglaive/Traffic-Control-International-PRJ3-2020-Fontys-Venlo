@@ -20,19 +20,32 @@ public class UICountryLightMapper {
     //TODO use transparent instead of black
     private static Color black = new Color(0,0,0,255);
 
-    private Map<Integer, Color[]> germanMap;
-    private Map<Integer, Color[]> dutchMap;
+    //TODO Instead of Int use String with a name as the array
+    private Map<String, Color[]> germanMap;
+    private Map<String, Color[]> dutchMap;
 
     /*
     Returns a Map with the different Color Arrays represent in Germany.
     The idea is that you can iterate through the map and retrieve a Color Array of the current state
      */
-    public Map<Integer,Color[]> germanLight(){
+    public Map<String,Color[]> germanLightMap(){
 
-        germanMap.put(1,redLightRepresentation);
-        germanMap.put(2,redyellowLightrepresentation);
-        germanMap.put(3,yellowLightRepresentation);
-        germanMap.put(4, greenLightRepresentation);
+        germanMap.put("redLightRepresentation",redLightRepresentation);
+        germanMap.put("redyellowLightrepresentation",redyellowLightrepresentation);
+        germanMap.put("yellowLightRepresentation",yellowLightRepresentation);
+        germanMap.put("greenLightRepresentation", greenLightRepresentation);
         return germanMap;
+    }
+
+    /*
+    Returns a Map with the different Color Arrays represent in the Netherlands.
+    The idea is that you can iterate through the map and retrieve a Color Array of the current state
+     */
+    public Map<String, Color[]> dutchLightMap(){
+
+        dutchMap.put("redLightRepresentation", redLightRepresentation);
+        dutchMap.put("yellowLightRepresentation", yellowLightRepresentation);
+        dutchMap.put("greenLightRepresentation", greenLightRepresentation);
+        return dutchMap;
     }
 }
