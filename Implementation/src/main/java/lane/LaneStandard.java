@@ -1,11 +1,16 @@
 package lane;
 
+import crossings.LaneControllerType;
 import crossings.LaneParameterKey;
+import crossings.LaneType;
 import lane.laneControllers.StraightLaneControllerStandard;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
 
 import java.util.HashMap;
+import java.util.Map;
+
+import static crossings.LaneControllerType.*;
 
 /**
  * The type Lane standard.
@@ -17,17 +22,17 @@ public class LaneStandard implements Lane {
      * Instantiates a new Lane standard.
      *
      */
-    public LaneStandard(HashMap<LaneParameterKey, Object> parameterList) {
+    public LaneStandard(Map<LaneControllerType, Map<LaneParameterKey, Object>> parameterList) {
 
         this.changeStraightLaneController(
-                parameterList
+                parameterList.get(STRAIGHT)
         );
     }
 
     /**
      * Change straight lane controller.
      */
-    public void changeStraightLaneController(HashMap<LaneParameterKey, Object> parameterList) {
+    public void changeStraightLaneController(Map<LaneParameterKey, Object> parameterList) {
         this.straightLaneControllerStandard = new StraightLaneControllerStandard(
                 parameterList
         );

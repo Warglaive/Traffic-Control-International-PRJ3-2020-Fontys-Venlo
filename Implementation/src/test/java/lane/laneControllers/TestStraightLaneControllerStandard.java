@@ -1,5 +1,7 @@
 package lane.laneControllers;
 
+import crossings.LaneControllerType;
+import crossings.LaneParameterKey;
 import lightBehaviours.PedestrianLightBehaviourStandard;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
@@ -12,6 +14,11 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static crossings.LaneControllerType.STRAIGHT;
+import static crossings.LaneParameterKey.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -25,17 +32,28 @@ public class TestStraightLaneControllerStandard {
     StraightLaneControllerStandard straightLaneControllerStandard;
     StraightTrafficLightBehaviour lightBehaviour;
 
+    LaneControllerStandard laneControllerStandard;
+    StraightTrafficLightBehaviour straightTrafficLightBehaviour;
+    Map<LaneControllerType, Map<LaneParameterKey, Object>> leftLaneParams;
+
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.openMocks(this);
-        lightBehaviour = StraightTrafficLightBehaviourGermany.RED;
+        //MockitoAnnotations.openMocks(this);
+        location = mock(Location.class);
+        straightTrafficLightBehaviour = StraightTrafficLightBehaviourGermany.RED;
 
-        straightLaneControllerStandard = new StraightLaneControllerStandard(
-                2,
-                lightBehaviour,
-                location,
-                25,
-                2
+        var leftLaneStraightParams = new HashMap();
+        leftLaneStraightParams.put(NUMBER_LIGHTS, 2);
+        leftLaneStraightParams.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);
+        leftLaneStraightParams.put(LOCATION, location);
+        leftLaneStraightParams.put(GO_DURATION, 25);
+        leftLaneStraightParams.put(CYCLE_TIME, 2);
+
+        leftLaneParams = new HashMap();
+        leftLaneParams.put(STRAIGHT, leftLaneStraightParams);
+
+        laneControllerStandard = new StraightLaneControllerStandard(
+                leftLaneStraightParams
         );
     }
 
@@ -47,11 +65,7 @@ public class TestStraightLaneControllerStandard {
     public void testAddLightsThrowsExceptionNumberLights(int numberLights) {
         ThrowableAssert.ThrowingCallable exceptionCode = () ->
                 straightLaneControllerStandard = new StraightLaneControllerStandard(
-                        numberLights,
-                        StraightTrafficLightBehaviourGermany.RED,
-                        location,
-                        25,
-                        2
+                        leftLaneParams.get(STRAIGHT)
                 );
         assertThatCode(exceptionCode)
                 .hasMessage("The number of lights has to be greater than 0")
@@ -62,11 +76,7 @@ public class TestStraightLaneControllerStandard {
     public void testAddLightsNoException() {
         ThrowableAssert.ThrowingCallable exceptionCode = () ->
                 straightLaneControllerStandard = new StraightLaneControllerStandard(
-                        1,
-                        StraightTrafficLightBehaviourGermany.RED,
-                        location,
-                        25,
-                        2
+                        leftLaneParams.get(STRAIGHT)
                 );
         assertThatCode(exceptionCode)
                 .doesNotThrowAnyException();

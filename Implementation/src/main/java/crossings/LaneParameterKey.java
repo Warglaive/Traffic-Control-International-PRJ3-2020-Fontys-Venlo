@@ -1,7 +1,7 @@
 package crossings;
 
 public enum LaneParameterKey {
-    NUMBER_STRAIGHT_LIGHTS,
+    NUMBER_LIGHTS,
     LIGHT_BEHAVIOUR,
     LOCATION,
     GO_DURATION,

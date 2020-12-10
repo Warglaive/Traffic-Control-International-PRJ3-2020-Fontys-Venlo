@@ -7,9 +7,10 @@ import lights.StraightTrafficObserverLightStandard;
 import locations.Location;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class StraightLaneControllerStandard extends LaneControllerStandard {
-    public StraightLaneControllerStandard(HashMap<LaneParameterKey, Object> parameterList) {
+    public StraightLaneControllerStandard(Map<LaneParameterKey, Object> parameterList) {
         super(parameterList);
     }
 

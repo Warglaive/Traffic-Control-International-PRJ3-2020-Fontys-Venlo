@@ -6,19 +6,20 @@ import locations.Location;
 import static crossings.LaneParameterKey.*;
 import static crossings.LaneType.*;
 import java.util.HashMap;
+import java.util.Map;
 
 public abstract class FourWayCrossingControllerEntrance {
     private Lane leftLane;
 
     public FourWayCrossingControllerEntrance(
-            HashMap<LaneType, HashMap<LaneParameterKey, Object>> parameterList) {
+            Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterList) {
 
         this.changeLeftLane(parameterList.get(LEFT_LANE));
 
     }
 
     public abstract void changeLeftLane(
-            HashMap<LaneParameterKey, Object> parameterList
+            Map<LaneControllerType, Map<LaneParameterKey, Object>> parameterList
     );
 
 

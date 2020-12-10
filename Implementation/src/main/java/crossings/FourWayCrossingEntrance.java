@@ -4,11 +4,12 @@ import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public abstract class FourWayCrossingEntrance extends Crossing implements FourWayCrossing {
     private FourWayCrossingControllerEntrance controller;
 
-    public FourWayCrossingEntrance(HashMap<LaneType, HashMap<LaneParameterKey, Object>> parameterList) {
+    public FourWayCrossingEntrance(Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterList) {
         this.changeController(parameterList);
     }
 

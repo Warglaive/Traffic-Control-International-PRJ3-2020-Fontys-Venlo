@@ -1,9 +1,6 @@
 package crossing;
 
-import crossings.FourWayCrossingControllerEntrance;
-import crossings.FourWayCrossingControllerEntranceStandard;
-import crossings.FourWayCrossingEntrance;
-import crossings.FourWayCrossingEntranceStandard;
+import crossings.*;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,6 +9,12 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import ui.UIObserver;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static crossings.LaneControllerType.STRAIGHT;
+import static crossings.LaneParameterKey.*;
+import static crossings.LaneType.LEFT_LANE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
@@ -27,32 +30,39 @@ public class TestFourWayCrossingEntranceStandard {
     int straightCycleTime;
     FourWayCrossingEntrance crossing;
 
+    Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterCollection;
+
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
 
         straightGoDuration = 25;
         straightCycleTime = 2;
+
+        var leftLaneStraightParams = new HashMap();
+        leftLaneStraightParams.put(NUMBER_LIGHTS, 2);
+        leftLaneStraightParams.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);
+        leftLaneStraightParams.put(LOCATION, location);
+        leftLaneStraightParams.put(GO_DURATION, straightGoDuration);
+        leftLaneStraightParams.put(CYCLE_TIME, straightCycleTime);
+
+        var leftLane = new HashMap();
+
+        leftLane.put(STRAIGHT, leftLaneStraightParams);
+        parameterCollection.put(LEFT_LANE, leftLane);
+
         crossing = new FourWayCrossingEntranceStandard(
-                2,
-                straightTrafficLightBehaviour,
-                location,
-                straightGoDuration,
-                straightCycleTime
+                parameterCollection
         );
     }
 
     @Test
     public void changeControllerCorrect() {
         FourWayCrossingControllerEntrance crossingController = new FourWayCrossingControllerEntranceStandard (
-                2,
-                straightTrafficLightBehaviour,
-                location,
-                straightGoDuration,
-                straightCycleTime
+                parameterCollection
         );
 
-        assertThat(crossing.getController()).isNotNull();
+        assertThat(crossing.getController()).isEqualTo(crossingController);
     }
 
 }
