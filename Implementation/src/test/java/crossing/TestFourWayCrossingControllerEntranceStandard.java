@@ -31,6 +31,8 @@ public class TestFourWayCrossingControllerEntranceStandard {
 
         straightGoDuration = 25;
         straightCycleTime = 2;
+
+        var 
         crossing = new FourWayCrossingControllerEntranceStandard(
                 2,
                 straightTrafficLightBehaviour,

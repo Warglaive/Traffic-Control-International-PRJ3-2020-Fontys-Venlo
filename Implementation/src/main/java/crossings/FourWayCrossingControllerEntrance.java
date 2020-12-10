@@ -3,31 +3,22 @@ package crossings;
 import lane.Lane;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
+import static crossings.LaneParameterKey.*;
+import static crossings.LaneType.*;
+import java.util.HashMap;
 
 public abstract class FourWayCrossingControllerEntrance {
     private Lane leftLane;
 
     public FourWayCrossingControllerEntrance(
-            int numberStraightLightsLeft,
-            StraightTrafficLightBehaviour straightLightBehaviour,
-            Location location,
-            int straightGoDuration,
-            int straightCycleTime) {
+            HashMap<LaneType, HashMap<LaneParameterKey, Object>> parameterList) {
 
-        this.changeLeftLane(numberStraightLightsLeft,
-                straightLightBehaviour,
-                location,
-                straightGoDuration,
-                straightCycleTime);
+        this.changeLeftLane(parameterList.get(LEFT_LANE));
 
     }
 
     public abstract void changeLeftLane(
-            int numberStraightLights,
-            StraightTrafficLightBehaviour straightLightBehaviour,
-            Location location,
-            int straightGoDuration,
-            int straightCycleTime
+            HashMap<LaneParameterKey, Object> parameterList
     );
 
 

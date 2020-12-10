@@ -3,33 +3,21 @@ package crossings;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
 
-public abstract class FourWayCrossingEntrance implements FourWayCrossing {
+import java.util.HashMap;
+
+public abstract class FourWayCrossingEntrance extends Crossing implements FourWayCrossing {
     private FourWayCrossingControllerEntrance controller;
 
-    public FourWayCrossingEntrance(int numberStraightLightsLeft,
-                                   StraightTrafficLightBehaviour straightLightBehaviour,
-                                   Location location,
-                                   int straightGoDurationLeft,
-                                   int straightCycleTimeLeft) {
-        this.changeController(
-                numberStraightLightsLeft,
-                straightLightBehaviour,
-                location,
-                straightGoDurationLeft,
-                straightCycleTimeLeft
-        );
+    public FourWayCrossingEntrance(HashMap<LaneType, HashMap<LaneParameterKey, Object>> parameterList) {
+        this.changeController(parameterList);
     }
 
-    public abstract void changeController(int numberStraightLightsLeft,
-                                          StraightTrafficLightBehaviour straightLightBehaviour,
-                                          Location location,
-                                          int straightGoDurationLeft,
-                                          int straightCycleTimeLeft);
-
+    @Override
     public FourWayCrossingControllerEntrance getController() {
         return controller;
     }
 
+    @Override
     public void setController(FourWayCrossingControllerEntrance controller) {
         this.controller = controller;
     }

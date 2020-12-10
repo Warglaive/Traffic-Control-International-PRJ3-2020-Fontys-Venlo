@@ -1,10 +1,14 @@
 package lane.laneControllers;
 
+import crossings.LaneParameterKey;
 import lightBehaviours.LightBehaviour;
 import lights.ObserverLight;
 import locations.Location;
 
+import static crossings.LaneParameterKey.*;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public abstract class LaneControllerStandard implements LaneController {
@@ -17,16 +21,17 @@ public abstract class LaneControllerStandard implements LaneController {
     private LightBehaviour goState, stopState;
 
 
-    public LaneControllerStandard(int numberLights,
-                                  LightBehaviour lightsBehaviour,
-                                  Location location,
-                                  int goDuration,
-                                  int cycleTime) {
+    public LaneControllerStandard(HashMap<LaneParameterKey, Object> parameterList) {
 
         lights = new ArrayList<ObserverLight>();
 
-        this.goDuration = goDuration;
-        this.cycleTime = cycleTime;
+        //TODO: Exception handling
+        this.goDuration = (int) parameterList.get(GO_DURATION);
+        this.cycleTime = (int) parameterList.get(CYCLE_TIME);
+
+        var numberLights = (Integer) parameterList.get(NUMBER_STRAIGHT_LIGHTS);
+        var lightsBehaviour = (LightBehaviour) parameterList.get(LIGHT_BEHAVIOUR);
+        var location = (Location) parameterList.get(LOCATION);
 
         goState = lightsBehaviour.getGoState();
         stopState = lightsBehaviour.getStopState();

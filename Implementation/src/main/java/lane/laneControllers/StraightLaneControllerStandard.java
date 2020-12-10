@@ -1,13 +1,16 @@
 package lane.laneControllers;
 
+import crossings.LaneParameterKey;
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lights.StraightTrafficObserverLightStandard;
 import locations.Location;
 
+import java.util.HashMap;
+
 public class StraightLaneControllerStandard extends LaneControllerStandard {
-    public StraightLaneControllerStandard(int numberLights, StraightTrafficLightBehaviour lightsBehaviour, Location location, int goDuration, int cycleDuration) {
-        super(numberLights, lightsBehaviour, location, goDuration, cycleDuration);
+    public StraightLaneControllerStandard(HashMap<LaneParameterKey, Object> parameterList) {
+        super(parameterList);
     }
 
     /**

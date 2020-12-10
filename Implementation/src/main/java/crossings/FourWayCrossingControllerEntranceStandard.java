@@ -5,27 +5,17 @@ import lane.LaneStandard;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
 
+import java.util.HashMap;
+
 public class FourWayCrossingControllerEntranceStandard extends FourWayCrossingControllerEntrance {
-    public FourWayCrossingControllerEntranceStandard(int numberStraightLightsLeft,
-                                                     StraightTrafficLightBehaviour straightLightBehaviour,
-                                                     Location location,
-                                                     int straightGoDurationLeft,
-                                                     int straightCycleTimeLeft) {
-        super(numberStraightLightsLeft, straightLightBehaviour, location, straightGoDurationLeft, straightCycleTimeLeft);
+    public FourWayCrossingControllerEntranceStandard(HashMap<LaneType, HashMap<LaneParameterKey, Object>> parameterList) {
+        super(parameterList);
     }
 
     @Override
-    public void changeLeftLane(int numberStraightLights,
-                               StraightTrafficLightBehaviour straightLightBehaviour,
-                               Location location,
-                               int straightGoDurationLeft,
-                               int straightCycleTimeLeft) {
+    public void changeLeftLane(HashMap<LaneParameterKey, Object> parameterList) {
         Lane newLane = new LaneStandard(
-                numberStraightLights,
-                straightLightBehaviour,
-                location,
-                straightGoDurationLeft,
-                straightCycleTimeLeft
+                parameterList
         );
 
         super.setLeftLane(newLane);
