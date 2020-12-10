@@ -1,19 +1,17 @@
 package crossings;
 
-import lightBehaviours.StraightTrafficLightBehaviour;
-import locations.Location;
-
-import java.util.HashMap;
 import java.util.Map;
 
-public abstract class Crossing {
+public interface Crossing {
 
-    public abstract void changeController(
-            Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterList
+    void changeController(
+            Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterList,
+            int secondsBetweenLaneSwitch
     );
 
-    public abstract FourWayCrossingControllerEntrance getController();
+    FourWayCrossingControllerEntrance getController();
 
-    public abstract void setController(FourWayCrossingControllerEntrance controller);
+    void setController(FourWayCrossingControllerEntrance controller);
 
+    void cycleLanes();
 }

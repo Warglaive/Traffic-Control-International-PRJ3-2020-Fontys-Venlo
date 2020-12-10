@@ -64,7 +64,7 @@ public abstract class LaneControllerStandard implements LaneController {
             } else {
                 sleeper.sleep(goDuration);
             }
-
+            System.out.println(currentState.getColor());
             proceedOneState();
 
             currentState = currentState.getNextState();
