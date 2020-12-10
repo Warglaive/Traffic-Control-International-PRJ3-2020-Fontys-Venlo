@@ -7,10 +7,8 @@ public class UICountryLightMapper {
 
     private String country;
 
-    public UICountryLightMapper(String country){
+    public UICountryLightMapper(String country) {
 
         this.country = country;
     }
-
-    public Color[]()
 }
