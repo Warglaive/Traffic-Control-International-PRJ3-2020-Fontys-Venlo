@@ -43,7 +43,10 @@ public class UITrafficLight implements UILight, Observer {
         state.put("redyellow", redyellowLightrepresentation);
     }
 
-    //Returns a color array which the GUI(Class that connects fxml to logic) class can use to display a light
+    /*
+    Returns a color array which the GUI(Class that connects fxml to logic) class can
+    use to display a light
+     */
     @Override
     public Color[] getColorArray(String color) {
 
@@ -61,6 +64,11 @@ public class UITrafficLight implements UILight, Observer {
         }
         return  returnValue;
     }
+
+    /*
+        Takes the empty country Color[] method and fills it with the colors of the current state.
+     */
+
 
     //When the notifyObserver Method from the observed object gets called this class gets executet
     @Override
