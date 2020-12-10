@@ -5,6 +5,7 @@ import javafx.scene.paint.Color;
 import lights.Light;
 import lights.ObserverLight;
 import lights.StraightTrafficObserverLight;
+import ui.Controller.TrafficLightRepresentation;
 import ui.UILane.UiLane;
 
 import java.lang.reflect.Array;
@@ -22,13 +23,15 @@ public abstract class UITrafficLight implements UILight, Observable {
     private ObserverLight buisnessLight;
     private Country country;
     private UICountryLightMapper uiCountryLightMapper;
+    private TrafficLightRepresentation trafficLightRepresentation;
 
 
-    public UITrafficLight(ObserverLight businessLight, Country country){
+    public UITrafficLight(ObserverLight businessLight, Country country, TrafficLightRepresentation trafficLightRepresentation){
 
         this.country = country;
         businessLight.addObserver((Observer) this);
         this.buisnessLight = businessLight;
+        this.trafficLightRepresentation = trafficLightRepresentation;
 
         switch(this.country){
             case Germany:
@@ -64,14 +67,10 @@ public abstract class UITrafficLight implements UILight, Observable {
         return toReturn;
     }
 
-    //Fillt die mitgegebenen Circles
-    //Kommen aus dem Constructer des GUI Controllers
-    public void applyChanges(Color[] circleData) {
-        //Irgendwas code mit countrySpecific
 
-        //Circle1.setFill(Color[0})
-        //Circle2.setFill()
-        //Circle3.setFill();
+    public void applyChanges(Color[] colors) {
+
+        trafficLightRepresentation.setCircleColor(colors);
     }
 
 
