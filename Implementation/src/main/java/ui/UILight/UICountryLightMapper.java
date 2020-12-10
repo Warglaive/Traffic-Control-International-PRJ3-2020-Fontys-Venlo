@@ -20,7 +20,6 @@ public class UICountryLightMapper {
     //TODO use transparent instead of black
     private static Color black = new Color(0,0,0,255);
 
-    //TODO Instead of Int use String with a name as the array
     private Map<String, Color[]> germanMap;
     private Map<String, Color[]> dutchMap;
 
@@ -47,5 +46,11 @@ public class UICountryLightMapper {
         dutchMap.put("yellowLightRepresentation", yellowLightRepresentation);
         dutchMap.put("greenLightRepresentation", greenLightRepresentation);
         return dutchMap;
+    }
+
+    public Color[] getAllTransparent(){
+
+        Color[] transparent = {black, black, black};
+        return  transparent;
     }
 }

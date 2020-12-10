@@ -19,13 +19,23 @@ public class UITrafficLight implements UILight, Observer {
 
     private Map<String, Color[]> countrySpecificLightRepresentationMap;
     private StraightTrafficObserverLight buisnessLight;
-    private String country;
+    private Country country;
+    private UICountryLightMapper uiCountryLightMapper;
 
-    public UITrafficLight(StraightTrafficObserverLight businessLight, String country){
+
+    public UITrafficLight(StraightTrafficObserverLight businessLight, Country country){
 
         this.country = country;
         businessLight.addObserver(this);
         this.buisnessLight = businessLight;
+
+        switch(this.country){
+            case Germany:
+                countrySpecificLightRepresentationMap = uiCountryLightMapper.germanLightMap();
+
+            case Netherlands:
+                countrySpecificLightRepresentationMap = uiCountryLightMapper.dutchLightMap();
+        }
     }
 
     /*
@@ -35,60 +45,41 @@ public class UITrafficLight implements UILight, Observer {
     @Override
     public Color[] getColorArray(String color) {
 
-        return null;
+        Color[] toReturn;
+
+        switch(color.toLowerCase()) {
+            case "red":
+                toReturn = countrySpecificLightRepresentationMap.get("redLightRepresentation");
+            case "yellow":
+                toReturn = countrySpecificLightRepresentationMap.get("yellowLightRepresentation");
+            case "green":
+                toReturn = countrySpecificLightRepresentationMap.get("greenLightRepresentation");
+            case "redyellow":
+                toReturn = countrySpecificLightRepresentationMap.get("redyellowLightrepresentation");
+            default:
+                toReturn = uiCountryLightMapper.getAllTransparent();
+        }
+
+        return toReturn;
     }
 
-    /*
-        Takes the empty country Color[] method and fills it with the colors of the current state.
-     */
+    //Fillt die mitgegebenen Circles
+    public void applyChanges(Color[] circleData) {
+        //Irgendwas code mit countrySpecific
 
+        //Circle1.setFill(Color[0})
+        //Circle2.setFill()
+        //Circle3.setFill();
+    }
 
-    //When the notifyObserver Method from the observed object gets called this class gets executet
+    //TODO in Observer Klasse packen
     @Override
     public void update(Observable o, Object arg) {
         //Here the color string comes from
             var color = (String) arg;
-            this.mapColorStringToArray(color);
-
+            Color[] circleData = this.getColorArray(color);
+            applyChanges(circleData);
 
     }
 
-    private Color[] mapColorStringToArray(String color) {
-        switch(color) {
-            case "red":
-                return null;
-            case "yellow":
-                return null;
-        }
-
-        return null;
-    }
-
-
-    //TODO Implement Country mapper
-    /*
-    @Override
-    public void update(Observable o, Object arg) {
-        try {
-            Map<CirclePosition, Map<UILightBehaviour, Color>> mappedColorsWithPosition = this.mapColorsToCountry((String) arg);
-
-            for(var circlePosition : mappedColorsWithPosition.keySet()) {
-                var mappedColors = mappedColorsWithPosition.get(circlePosition);
-
-                switch(circlePosition){
-                    case TOP:
-                        this.setCircleTop(mappedColors);
-                    case MIDDLE:
-                        this.setCircleMiddle(mappedColors);
-                    case BOTTOM:
-                        this.setCircleBottom(mappedColors);
-                }
-            }
-
-        } catch (ColorNotFoundException e) {
-            //TODO: Proper exception handling
-        }
-    }
-
-    */
 }
