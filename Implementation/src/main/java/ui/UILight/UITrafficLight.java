@@ -1,5 +1,6 @@
 package ui.UILight;
 
+import javafx.beans.Observable;
 import javafx.scene.paint.Color;
 import lights.Light;
 import lights.ObserverLight;
@@ -15,18 +16,18 @@ the UILight connects via the lane and the BuisnessLogic Light connects via the S
 Therefore this cass needs to implement the observable class.
  */
 
-public class UITrafficLight implements UILight, Observer {
+public abstract class UITrafficLight implements UILight, Observable {
 
     private Map<String, Color[]> countrySpecificLightRepresentationMap;
-    private StraightTrafficObserverLight buisnessLight;
+    private ObserverLight buisnessLight;
     private Country country;
     private UICountryLightMapper uiCountryLightMapper;
 
 
-    public UITrafficLight(StraightTrafficObserverLight businessLight, Country country){
+    public UITrafficLight(ObserverLight businessLight, Country country){
 
         this.country = country;
-        businessLight.addObserver(this);
+        businessLight.addObserver((Observer) this);
         this.buisnessLight = businessLight;
 
         switch(this.country){
@@ -64,6 +65,7 @@ public class UITrafficLight implements UILight, Observer {
     }
 
     //Fillt die mitgegebenen Circles
+    //Kommen aus dem Constructer des GUI Controllers
     public void applyChanges(Color[] circleData) {
         //Irgendwas code mit countrySpecific
 
@@ -72,14 +74,5 @@ public class UITrafficLight implements UILight, Observer {
         //Circle3.setFill();
     }
 
-    //TODO in Observer Klasse packen
-    @Override
-    public void update(Observable o, Object arg) {
-        //Here the color string comes from
-            var color = (String) arg;
-            Color[] circleData = this.getColorArray(color);
-            applyChanges(circleData);
-
-    }
 
 }
