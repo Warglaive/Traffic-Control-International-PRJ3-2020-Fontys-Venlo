@@ -2,7 +2,6 @@ package ui.UILight;
 
 import javafx.scene.paint.Color;
 import lights.ObserverLight;
-
 import java.util.Observable;
 import java.util.Observer;
 
