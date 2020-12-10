@@ -1,5 +1,7 @@
 package lane.laneControllers;
 
+import crossings.LaneControllerType;
+import crossings.LaneParameterKey;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
 import locations.Location;
@@ -9,6 +11,11 @@ import org.junit.jupiter.api.Test;
 
 import org.mockito.Mock;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static crossings.LaneControllerType.STRAIGHT;
+import static crossings.LaneParameterKey.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
@@ -18,20 +25,28 @@ public class TestLaneControllerStandard {
     Location location;
 
     LaneControllerStandard laneControllerStandard;
-    StraightTrafficLightBehaviour lightBehaviour;
+    StraightTrafficLightBehaviour straightTrafficLightBehaviour;
+    Map<LaneControllerType, Map<LaneParameterKey, Object>> leftLaneParams;
 
     @BeforeEach
     public void setUp() {
         //MockitoAnnotations.openMocks(this);
         location = mock(Location.class);
-        lightBehaviour = StraightTrafficLightBehaviourGermany.RED;
+        straightTrafficLightBehaviour = StraightTrafficLightBehaviourGermany.RED;
+        leftLaneParams = new HashMap();
+
+        var leftLaneStraightParams = new HashMap();
+        leftLaneStraightParams.put(NUMBER_LIGHTS, 2);
+        leftLaneStraightParams.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);
+        leftLaneStraightParams.put(LOCATION, location);
+        leftLaneStraightParams.put(GO_DURATION, 25);
+        leftLaneStraightParams.put(CYCLE_TIME, 2);
+
+        leftLaneParams = new HashMap();
+        leftLaneParams.put(STRAIGHT, leftLaneStraightParams);
 
         laneControllerStandard = new StraightLaneControllerStandard(
-                10,
-                lightBehaviour,
-                location,
-                25,
-                2
+                leftLaneStraightParams
         );
     }
 
@@ -53,11 +68,8 @@ public class TestLaneControllerStandard {
         Sleeper sleeper = mock(Sleeper.class);
 
         this.laneControllerStandard = new StraightLaneControllerStandard(
-                1,
-                lightBehaviour,
-                location,
-                25,
-                2
+                leftLaneParams.get(STRAIGHT)
+
         );
 
         laneControllerStandard.cycleLights(sleeper);

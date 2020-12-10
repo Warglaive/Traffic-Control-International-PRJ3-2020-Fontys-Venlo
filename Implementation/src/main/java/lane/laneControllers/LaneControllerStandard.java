@@ -10,6 +10,7 @@ import static crossings.LaneParameterKey.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public abstract class LaneControllerStandard implements LaneController {
     protected List<ObserverLight> lights;
@@ -21,7 +22,7 @@ public abstract class LaneControllerStandard implements LaneController {
     private LightBehaviour goState, stopState;
 
 
-    public LaneControllerStandard(HashMap<LaneParameterKey, Object> parameterList) {
+    public LaneControllerStandard(Map<LaneParameterKey, Object> parameterList) {
 
         lights = new ArrayList<ObserverLight>();
 
@@ -29,7 +30,7 @@ public abstract class LaneControllerStandard implements LaneController {
         this.goDuration = (int) parameterList.get(GO_DURATION);
         this.cycleTime = (int) parameterList.get(CYCLE_TIME);
 
-        var numberLights = (Integer) parameterList.get(NUMBER_STRAIGHT_LIGHTS);
+        var numberLights = (Integer) parameterList.get(NUMBER_LIGHTS);
         var lightsBehaviour = (LightBehaviour) parameterList.get(LIGHT_BEHAVIOUR);
         var location = (Location) parameterList.get(LOCATION);
 
