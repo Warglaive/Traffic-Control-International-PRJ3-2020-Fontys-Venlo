@@ -21,4 +21,31 @@ public class FourWayCrossingControllerEntranceStandard extends FourWayCrossingCo
 
         super.setLeftLane(newLane);
     }
+
+    @Override
+    public void changeRightLane(Map<LaneControllerType, Map<LaneParameterKey, Object>> parameterList) {
+        Lane newLane = new LaneStandard(
+                parameterList
+        );
+
+        super.setRightLane(newLane);
+    }
+
+    @Override
+    public void changeTopLane(Map<LaneControllerType, Map<LaneParameterKey, Object>> parameterList) {
+        Lane newLane = new LaneStandard(
+                parameterList
+        );
+
+        super.setTopLane(newLane);
+    }
+
+    @Override
+    public void changeBottomLane(Map<LaneControllerType, Map<LaneParameterKey, Object>> parameterList) {
+        Lane newLane = new LaneStandard(
+                parameterList
+        );
+
+        super.setBottomLane(newLane);
+    }
 }
