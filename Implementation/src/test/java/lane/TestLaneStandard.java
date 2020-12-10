@@ -38,6 +38,7 @@ public class TestLaneStandard {
         MockitoAnnotations.openMocks(this);
         location = mock(Location.class);
         straightTrafficLightBehaviour = StraightTrafficLightBehaviourGermany.RED;
+        leftLaneParams = new HashMap();
 
         var leftLaneStraightParams = new HashMap();
         leftLaneStraightParams.put(NUMBER_LIGHTS, 2);
