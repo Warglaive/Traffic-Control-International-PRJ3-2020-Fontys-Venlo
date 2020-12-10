@@ -101,9 +101,9 @@ public class TestFourWayCrossingEntranceStandard {
     public void constructorCreatesLanes() {
         SoftAssertions.assertSoftly(softly -> {
             assertThat(crossing.getController().getLeftLane()).isNotNull();
+            assertThat(crossing.getController().getRightLane()).isNotNull();
             assertThat(crossing.getController().getTopLane()).isNotNull();
-            assertThat(crossing.getController().getLeftLane()).isNotNull();
-            assertThat(crossing.getController().getLeftLane()).isNotNull();
+            assertThat(crossing.getController().getBottomLane()).isNotNull();
         });
     }
 
