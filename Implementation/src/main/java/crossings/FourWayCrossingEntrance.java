@@ -22,4 +22,6 @@ public abstract class FourWayCrossingEntrance extends Crossing implements FourWa
     public void setController(FourWayCrossingControllerEntrance controller) {
         this.controller = controller;
     }
+
+
 }

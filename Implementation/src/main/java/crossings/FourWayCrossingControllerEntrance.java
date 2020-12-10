@@ -8,7 +8,7 @@ import static crossings.LaneType.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class FourWayCrossingControllerEntrance {
+public abstract class FourWayCrossingControllerEntrance implements FourWayCrossingController{
     private Lane leftLane;
     private Lane rightLane;
     private Lane topLane;
@@ -21,6 +21,11 @@ public abstract class FourWayCrossingControllerEntrance {
         this.changeRightLane(parameterList.get(RIGHT_LANE));
         this.changeTopLane(parameterList.get(TOP_LANE));
         this.changeBottomLane(parameterList.get(BOTTOM_LANE));
+    }
+
+    @Override
+    public void cycleLanes() {
+
     }
 
     public abstract void changeLeftLane(
@@ -38,7 +43,6 @@ public abstract class FourWayCrossingControllerEntrance {
     public abstract void changeBottomLane(
             Map<LaneControllerType, Map<LaneParameterKey, Object>> parameterList
     );
-
 
     public void setLeftLane(Lane leftLane) {
         this.leftLane = leftLane;

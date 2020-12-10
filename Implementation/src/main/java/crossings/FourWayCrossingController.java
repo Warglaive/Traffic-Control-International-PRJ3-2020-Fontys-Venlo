@@ -1,5 +1,5 @@
 package crossings;
 
-public interface FourWayCrossingController {
+public interface FourWayCrossingController extends CrossingController {
 
 }
