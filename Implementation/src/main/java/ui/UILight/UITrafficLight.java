@@ -30,9 +30,11 @@ public class UITrafficLight implements UILight, Observer {
     private static Color black = new Color(0,0,0,255);
 
     private StraightTrafficObserverLight buisnessLight;
+    private String country;
 
-    public UITrafficLight(StraightTrafficObserverLight buisnessLight){
+    public UITrafficLight(StraightTrafficObserverLight buisnessLight, String country){
 
+        this.country = country;
         buisnessLight.addObserver(this);
         this.buisnessLight = buisnessLight;
         state.put("red", redLightRepresentation);
