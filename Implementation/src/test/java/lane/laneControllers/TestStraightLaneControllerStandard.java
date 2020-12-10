@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,10 +28,9 @@ public class TestStraightLaneControllerStandard {
     @Mock
     Location location;
 
-    StraightLaneControllerStandard straightLaneControllerStandard;
     StraightTrafficLightBehaviour lightBehaviour;
 
-    LaneControllerStandard laneControllerStandard;
+    LaneControllerStandard straightLaneControllerStandard;
     StraightTrafficLightBehaviour straightTrafficLightBehaviour;
     Map<LaneControllerType, Map<LaneParameterKey, Object>> leftLaneParams;
 
@@ -41,6 +39,7 @@ public class TestStraightLaneControllerStandard {
         //MockitoAnnotations.openMocks(this);
         location = mock(Location.class);
         straightTrafficLightBehaviour = StraightTrafficLightBehaviourGermany.RED;
+        leftLaneParams = new HashMap();
 
         var leftLaneStraightParams = new HashMap();
         leftLaneStraightParams.put(NUMBER_LIGHTS, 2);
@@ -52,7 +51,7 @@ public class TestStraightLaneControllerStandard {
         leftLaneParams = new HashMap();
         leftLaneParams.put(STRAIGHT, leftLaneStraightParams);
 
-        laneControllerStandard = new StraightLaneControllerStandard(
+        straightLaneControllerStandard = new StraightLaneControllerStandard(
                 leftLaneStraightParams
         );
     }
@@ -63,10 +62,11 @@ public class TestStraightLaneControllerStandard {
             "0"
     })
     public void testAddLightsThrowsExceptionNumberLights(int numberLights) {
+        leftLaneParams.get(STRAIGHT).replace(NUMBER_LIGHTS, numberLights);
         ThrowableAssert.ThrowingCallable exceptionCode = () ->
                 straightLaneControllerStandard = new StraightLaneControllerStandard(
-                        leftLaneParams.get(STRAIGHT)
-                );
+                leftLaneParams.get(STRAIGHT)
+                        );
         assertThatCode(exceptionCode)
                 .hasMessage("The number of lights has to be greater than 0")
                 .isExactlyInstanceOf(IllegalArgumentException.class);
@@ -87,7 +87,6 @@ public class TestStraightLaneControllerStandard {
         ThrowableAssert.ThrowingCallable exceptionCode = () -> {
             straightLaneControllerStandard.addLights(2,
                     PedestrianLightBehaviourStandard.RED,
-                    //userInterface,
                     location);
         };
 
