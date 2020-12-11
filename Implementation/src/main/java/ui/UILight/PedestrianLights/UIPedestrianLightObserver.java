@@ -21,5 +21,6 @@ public class UIPedestrianLightObserver extends UIPedestrianLight implements Obse
     }
 
     private void applyChanges(Color[] circleData) {
+        //what should this do?
     }
 }

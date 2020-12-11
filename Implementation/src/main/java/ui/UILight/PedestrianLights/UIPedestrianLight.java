@@ -59,11 +59,11 @@ public class UIPedestrianLight implements UILight, Observable {
 
     @Override
     public void addListener(InvalidationListener invalidationListener) {
-
+        //what should this do?
     }
 
     @Override
     public void removeListener(InvalidationListener invalidationListener) {
-
+        //what should this do?
     }
 }
