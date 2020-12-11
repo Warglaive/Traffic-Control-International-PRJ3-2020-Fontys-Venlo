@@ -1,15 +1,32 @@
 package ui.UILight.PedestrianLights;
 
 import javafx.scene.paint.Color;
+import lights.ObserverLight;
+import ui.UILight.Country;
 import ui.UILight.UICountryLightMapper;
 import ui.UILight.UILight;
 
 import java.util.Map;
 
-public class UIPedestrianLight implements UILight {
+public class UIPedestrianLight extends UIPedestrianLightObserver implements UILight {
 
     private Map<String, Color[]> countrySpecificLightRepresentationMap;
+    //private ObserverLight businessLight;
     private UICountryLightMapper uiCountryLightMapper;
+    private PedestrianLightRepresentation pedestrianLightRepresentation;
+
+    public UIPedestrianLight(ObserverLight businessLight, Country country, PedestrianLightRepresentation pedestrianLightRepresentation) {
+        //this.businessLight = businessLight;
+        this.pedestrianLightRepresentation = pedestrianLightRepresentation;
+        switch (country) {
+            case Germany:
+                this.countrySpecificLightRepresentationMap = this.uiCountryLightMapper.germanLightMap();
+                break;
+            case Netherlands:
+                this.countrySpecificLightRepresentationMap = this.uiCountryLightMapper.dutchLightMap();
+                break;
+        }
+    }
 
     @Override
     public Color[] getColorArray(String color) {
@@ -32,6 +49,8 @@ public class UIPedestrianLight implements UILight {
 
     @Override
     public void changeColor(String color) {
-
+        //Make an array of 3 colors
+        Color[] colors = getColorArray(color);
+        this.pedestrianLightRepresentation.setCircleColor(colors);
     }
 }

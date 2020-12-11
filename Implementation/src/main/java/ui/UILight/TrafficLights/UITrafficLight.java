@@ -72,7 +72,6 @@ public abstract class UITrafficLight implements UILight, Observable {
 
 
     public void applyChanges(Color[] colors) {
-
         trafficLightRepresentation.setCircleColor(colors);
     }
 }
