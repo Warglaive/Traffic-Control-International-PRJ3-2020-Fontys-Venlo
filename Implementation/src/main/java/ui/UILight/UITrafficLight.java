@@ -20,20 +20,20 @@ Therefore this cass needs to implement the observable class.
 public abstract class UITrafficLight implements UILight, Observable {
 
     private Map<String, Color[]> countrySpecificLightRepresentationMap;
-    private ObserverLight buisnessLight;
+    private ObserverLight businessLight;
     private Country country;
     private UICountryLightMapper uiCountryLightMapper;
     private TrafficLightRepresentation trafficLightRepresentation;
 
 
-    public UITrafficLight(ObserverLight businessLight, Country country, TrafficLightRepresentation trafficLightRepresentation){
+    public UITrafficLight(ObserverLight businessLight, Country country, TrafficLightRepresentation trafficLightRepresentation) {
 
         this.country = country;
         businessLight.addObserver((Observer) this);
-        this.buisnessLight = businessLight;
+        this.businessLight = businessLight;
         this.trafficLightRepresentation = trafficLightRepresentation;
 
-        switch(this.country){
+        switch (this.country) {
             case Germany:
                 countrySpecificLightRepresentationMap = uiCountryLightMapper.germanLightMap();
 
@@ -51,15 +51,15 @@ public abstract class UITrafficLight implements UILight, Observable {
 
         Color[] toReturn;
 
-        switch(color.toLowerCase()) {
+        switch (color.toLowerCase()) {
             case "red":
                 toReturn = countrySpecificLightRepresentationMap.get("redLightRepresentation");
             case "yellow":
                 toReturn = countrySpecificLightRepresentationMap.get("yellowLightRepresentation");
             case "green":
                 toReturn = countrySpecificLightRepresentationMap.get("greenLightRepresentation");
-            case "redyellow":
-                toReturn = countrySpecificLightRepresentationMap.get("redyellowLightrepresentation");
+            case "redYellow":
+                toReturn = countrySpecificLightRepresentationMap.get("redYellowLightRepresentation");
             default:
                 toReturn = uiCountryLightMapper.getAllTransparent();
         }
@@ -72,6 +72,4 @@ public abstract class UITrafficLight implements UILight, Observable {
 
         trafficLightRepresentation.setCircleColor(colors);
     }
-
-
 }

@@ -2,11 +2,30 @@ package ui.UILight;
 
 import javafx.scene.paint.Color;
 
+import java.util.Map;
+
 public class UIPedestrianLight implements UILight {
+
+    private Map<String, Color[]> countrySpecificLightRepresentationMap;
+    private UICountryLightMapper uiCountryLightMapper;
 
     @Override
     public Color[] getColorArray(String color) {
-        return new Color[0];
+        Color[] colorArray;
+        switch (color.toLowerCase()) {
+            case "red":
+                colorArray = this.countrySpecificLightRepresentationMap.get("redLightRepresentation");
+            case "yellow":
+                colorArray = this.countrySpecificLightRepresentationMap.get("yellowLightRepresentation");
+            case "green":
+                colorArray = this.countrySpecificLightRepresentationMap.get("greenLightRepresentation");
+            case "redYellow":
+                colorArray = this.countrySpecificLightRepresentationMap.get("redYellowLightRepresentation");
+            default:
+                colorArray = this.uiCountryLightMapper.getAllTransparent();
+        }
+
+        return colorArray;
     }
 
     @Override
