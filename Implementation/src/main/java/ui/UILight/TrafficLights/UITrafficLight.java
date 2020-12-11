@@ -1,4 +1,4 @@
-package ui.UILight;
+package ui.UILight.TrafficLights;
 
 import javafx.beans.Observable;
 import javafx.scene.paint.Color;
@@ -7,6 +7,9 @@ import lights.ObserverLight;
 import lights.StraightTrafficObserverLight;
 import ui.Controller.TrafficLightRepresentation;
 import ui.UILane.UiLane;
+import ui.UILight.Country;
+import ui.UILight.UICountryLightMapper;
+import ui.UILight.UILight;
 
 import java.lang.reflect.Array;
 import java.util.*;

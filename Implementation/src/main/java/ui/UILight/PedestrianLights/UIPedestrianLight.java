@@ -1,6 +1,8 @@
-package ui.UILight;
+package ui.UILight.PedestrianLights;
 
 import javafx.scene.paint.Color;
+import ui.UILight.UICountryLightMapper;
+import ui.UILight.UILight;
 
 import java.util.Map;
 

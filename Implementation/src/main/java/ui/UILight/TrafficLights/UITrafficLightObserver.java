@@ -1,8 +1,9 @@
-package ui.UILight;
+package ui.UILight.TrafficLights;
 
 import javafx.scene.paint.Color;
 import lights.ObserverLight;
 import ui.Controller.TrafficLightRepresentation;
+import ui.UILight.Country;
 
 import java.util.Observable;
 import java.util.Observer;
