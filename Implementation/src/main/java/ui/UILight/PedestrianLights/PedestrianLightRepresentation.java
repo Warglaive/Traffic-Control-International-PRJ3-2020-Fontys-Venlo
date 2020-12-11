@@ -3,7 +3,7 @@ package ui.UILight.PedestrianLights;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-public class PedestrianLightRepresentation {
+public class PedestrianLightRepresentation{
 
     private Circle topCircle;
     private Circle midCircle;

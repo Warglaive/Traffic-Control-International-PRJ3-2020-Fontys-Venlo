@@ -1,5 +1,7 @@
 package ui.UILight.PedestrianLights;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.scene.paint.Color;
 import lights.ObserverLight;
 import ui.UILight.Country;
@@ -8,21 +10,22 @@ import ui.UILight.UILight;
 
 import java.util.Map;
 
-public class UIPedestrianLight extends UIPedestrianLightObserver implements UILight {
+public class UIPedestrianLight implements UILight, Observable {
 
     private Map<String, Color[]> countrySpecificLightRepresentationMap;
-    //private ObserverLight businessLight;
+    private ObserverLight businessLight;
     private UICountryLightMapper uiCountryLightMapper;
-    private PedestrianLightRepresentation pedestrianLightRepresentation;
+    protected PedestrianLightRepresentation pedestrianLightRepresentation;
 
     public UIPedestrianLight(ObserverLight businessLight, Country country, PedestrianLightRepresentation pedestrianLightRepresentation) {
-        //this.businessLight = businessLight;
+        this.businessLight = businessLight;
         this.pedestrianLightRepresentation = pedestrianLightRepresentation;
         switch (country) {
             case Germany:
                 this.countrySpecificLightRepresentationMap = this.uiCountryLightMapper.germanLightMap();
                 break;
-            case Netherlands:
+            default:
+                //Default will work for the Netherlands
                 this.countrySpecificLightRepresentationMap = this.uiCountryLightMapper.dutchLightMap();
                 break;
         }
@@ -52,5 +55,15 @@ public class UIPedestrianLight extends UIPedestrianLightObserver implements UILi
         //Make an array of 3 colors
         Color[] colors = getColorArray(color);
         this.pedestrianLightRepresentation.setCircleColor(colors);
+    }
+
+    @Override
+    public void addListener(InvalidationListener invalidationListener) {
+
+    }
+
+    @Override
+    public void removeListener(InvalidationListener invalidationListener) {
+
     }
 }
