@@ -3,7 +3,6 @@ package ui.UILane;
 import lane.Lane;
 import lights.Light;
 import ui.UILight.UiLightType;
-import ui.UILight.UITrafficLight;
 
 import java.util.ArrayList;
 import java.util.HashMap;

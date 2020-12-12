@@ -1,8 +1,10 @@
 package crossing;
 
 import crossings.*;
+import lane.LaneStandard;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -14,7 +16,7 @@ import java.util.Map;
 
 import static crossings.LaneControllerType.STRAIGHT;
 import static crossings.LaneParameterKey.*;
-import static crossings.LaneType.LEFT_LANE;
+import static crossings.LaneType.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
@@ -41,27 +43,28 @@ public class TestFourWayCrossingEntranceStandard {
 
         parameterCollection = new HashMap();
 
-        var leftLaneStraightParams = new HashMap();
-        leftLaneStraightParams.put(NUMBER_LIGHTS, 2);
-        leftLaneStraightParams.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);
-        leftLaneStraightParams.put(LOCATION, location);
-        leftLaneStraightParams.put(GO_DURATION, straightGoDuration);
-        leftLaneStraightParams.put(CYCLE_TIME, straightCycleTime);
-
-        var leftLane = new HashMap();
-
-        leftLane.put(STRAIGHT, leftLaneStraightParams);
-        parameterCollection.put(LEFT_LANE, leftLane);
+        parameterCollection = TestUtils.getFourLaneParamMap(
+                straightGoDuration, straightCycleTime, straightTrafficLightBehaviour, location
+        );
 
         crossing = new FourWayCrossingEntranceStandard(
-                parameterCollection
+                parameterCollection, 2
         );
     }
 
     @Test
-    public void changeControllerCorrect() { ;
-
+    public void changeControllerCorrect() {
         assertThat(crossing.getController()).isNotNull();
+    }
+
+    @Test
+    public void constructorCreatesLanes() {
+        SoftAssertions.assertSoftly(softly -> {
+            assertThat(crossing.getController().getLeftLane()).isNotNull();
+            assertThat(crossing.getController().getRightLane()).isNotNull();
+            assertThat(crossing.getController().getTopLane()).isNotNull();
+            assertThat(crossing.getController().getBottomLane()).isNotNull();
+        });
     }
 
 }

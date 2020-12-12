@@ -11,15 +11,15 @@ import java.util.Map;
 
 
 public class FourWayCrossingEntranceStandard extends FourWayCrossingEntrance {
-    public FourWayCrossingEntranceStandard(Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterList) {
-        super(parameterList);
+    public FourWayCrossingEntranceStandard(Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterList, int secondsBetweenLaneSwitch) {
+        super(parameterList, secondsBetweenLaneSwitch);
     }
 
 
     @Override
-    public void changeController(Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterList) {
+    public void changeController(Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterList, int secondsBetweenLaneSwitch) {
         FourWayCrossingControllerEntranceStandard crossingController =
-                new FourWayCrossingControllerEntranceStandard(parameterList);
+                new FourWayCrossingControllerEntranceStandard(parameterList, secondsBetweenLaneSwitch);
 
         super.setController(crossingController);
     }

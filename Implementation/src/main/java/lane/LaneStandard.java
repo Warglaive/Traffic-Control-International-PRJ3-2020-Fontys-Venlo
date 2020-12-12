@@ -48,4 +48,12 @@ public class LaneStandard implements Lane {
     }
 
 
+    @Override
+    public void run() {
+        try {
+            this.straightLaneControllerStandard.cycleLights();
+        } catch (InterruptedException e) {
+            //TODO: Poper exception handling
+        }
+    }
 }
