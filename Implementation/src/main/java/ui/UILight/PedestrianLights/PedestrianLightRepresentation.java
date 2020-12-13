@@ -4,7 +4,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class PedestrianLightRepresentation{
-
+    //Leave only 2 circles
     private Circle topCircle;
     private Circle midCircle;
     private Circle bottomCircle;
