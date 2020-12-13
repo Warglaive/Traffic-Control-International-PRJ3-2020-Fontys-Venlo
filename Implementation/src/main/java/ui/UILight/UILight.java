@@ -7,5 +7,5 @@ public interface UILight {
     //Takes the String from the Business Logic and translates it to a lighting state.
     Color[] getColorArray(String color);
 
-    void changeColor(String color);
+    void changeColor(Color[] color);
 }
