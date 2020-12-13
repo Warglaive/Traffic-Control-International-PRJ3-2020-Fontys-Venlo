@@ -54,7 +54,7 @@ public abstract class UITrafficLight implements UILight, Observable {
 
         Color[] toReturn;
 
-        switch (color.toLowerCase()) {
+        switch (color) {
             case "red":
                 toReturn = countrySpecificLightRepresentationMap.get("redLightRepresentation");
             case "yellow":
