@@ -3,7 +3,7 @@ package ui.UICrossing;
 import lane.Lane;
 import ui.UILane.UiLane;
 
-public class UIThreeWayCrossingEntrance {
+public class UIThreeWayCrossingEntrance extends UIThreeWayCrossing{
     private UiLane leftLane;
     private UiLane rightLane;
     private UiLane bottomLane;
