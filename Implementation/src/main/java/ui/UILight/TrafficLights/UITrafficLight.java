@@ -70,8 +70,8 @@ public abstract class UITrafficLight implements UILight, Observable {
         return toReturn;
     }
 
-
-    public void applyChanges(Color[] colors) {
+    @Override
+    public void changeColor(Color[] colors) {
         trafficLightRepresentation.setColor(colors);
     }
 }
