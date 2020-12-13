@@ -2,7 +2,7 @@ package ui.UICrossing;
 
 import ui.UILane.UiLane;
 
-public class UIStraightCrossingEntrance {
+public class UIStraightCrossingEntrance extends UIStraightCrossing {
     private UiLane leftLane;
     private UiLane rightLane;
 
