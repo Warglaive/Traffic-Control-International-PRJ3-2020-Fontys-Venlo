@@ -18,6 +18,6 @@ public abstract class UITrafficLightObserver extends UITrafficLight implements O
     public void update(Observable o, Object arg) {
         var color = (String) arg;
         Color[] circleData = this.getColorArray(color);
-        applyChanges(circleData);
+        changeColor(circleData);
     }
 }

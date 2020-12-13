@@ -50,12 +50,15 @@ public class UIPedestrianLight implements UILight, Observable {
         return colorArray;
     }
 
+    /*
     @Override
     public void changeColor(String color) {
         //Make an array of 3 colors
         Color[] colors = getColorArray(color);
         this.pedestrianLightRepresentation.setCircleColor(colors);
     }
+     */
+
 
     @Override
     public void addListener(InvalidationListener invalidationListener) {
