@@ -7,14 +7,12 @@ import crossings.LaneType;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
-import static crossings.LaneControllerType.*;
-import static crossings.LaneType.*;
+import static crossings.LaneControllerType.STRAIGHT;
 import static crossings.LaneParameterKey.*;
+import static crossings.LaneType.*;
 
 public class FourWayCrossingControllerEntranceStandardFactory {
     Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterList;
