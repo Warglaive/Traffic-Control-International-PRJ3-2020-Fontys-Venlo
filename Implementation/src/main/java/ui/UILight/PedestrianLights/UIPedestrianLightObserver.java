@@ -15,8 +15,8 @@ public class UIPedestrianLightObserver extends UIPedestrianLight implements Obse
     }
 
 
-    public void update(Observable o, Object arg) {
-        var color = (String) arg;
+    public void update(Observable o, Object colorObj) {
+        var color = (String) colorObj;
         Color[] circleData = this.getColorArray(color);
         applyChanges(circleData);
     }

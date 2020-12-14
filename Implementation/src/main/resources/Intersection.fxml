@@ -330,8 +330,8 @@
       <ComboBox disable="true" layoutX="938.0" layoutY="209.0" prefHeight="28.0" prefWidth="159.0" promptText="Green Wave">
        <items>
            <FXCollections fx:factory="observableArrayList">
-               <String fx:id="reihe" fx:value="Reihenschaltung" />
-               <String fx:id="parallel" fx:value="Parallelschaltung" />
+               <String fx:id="reihe" fx:value="Vertical" />
+               <String fx:id="parallel" fx:value="Horizontal" />
            </FXCollections>
        </items>
       </ComboBox>

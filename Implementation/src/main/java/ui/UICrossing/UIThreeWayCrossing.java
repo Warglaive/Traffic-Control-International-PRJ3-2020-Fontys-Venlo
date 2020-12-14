@@ -1,4 +1,4 @@
 package ui.UICrossing;
 
-public class UIThreeWayCrossing {
+public class UIThreeWayCrossing implements UiCrossing{
 }
