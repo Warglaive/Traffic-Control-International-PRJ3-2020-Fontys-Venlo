@@ -17,8 +17,6 @@ import static crossings.LaneType.*;
 public class TestUtils {
     public static Map<LaneControllerType, Map<LaneParameterKey, Object>> getLaneParamMap(
             int goDuration, int cycleTime, LightBehaviour straightLightBehaviour, LightBehaviour pedestrianLightBehaviour, Location location) {
-
-
         var laneStraightParams = getControllerParamMap(
                 goDuration, cycleTime, straightLightBehaviour, location
         );

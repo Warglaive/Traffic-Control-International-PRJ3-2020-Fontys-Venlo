@@ -3,13 +3,15 @@ package crossings;
 import lane.Lane;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
+
 import static crossings.LaneParameterKey.*;
 import static crossings.LaneType.*;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public abstract class FourWayCrossingControllerEntrance implements FourWayCrossingController{
+public abstract class FourWayCrossingControllerEntrance implements FourWayCrossingController {
     private Lane leftLane;
     private Lane rightLane;
     private Lane topLane;
@@ -18,7 +20,6 @@ public abstract class FourWayCrossingControllerEntrance implements FourWayCrossi
 
     public FourWayCrossingControllerEntrance(
             Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterList, int secondsBetweenLaneSwitch) {
-
         this.changeLeftLane(parameterList.get(LEFT_LANE));
         this.changeRightLane(parameterList.get(RIGHT_LANE));
         this.changeTopLane(parameterList.get(TOP_LANE));
