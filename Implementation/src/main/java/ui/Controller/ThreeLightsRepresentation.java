@@ -7,12 +7,12 @@ import javafx.scene.shape.Circle;
 This class takes the three circles of a traffic lights.
 Its used to simplefi the trafficlight in the UI.
  */
-public class ThreeLightRepresentation implements LightRepresentation{
+public class ThreeLightsRepresentation implements LightRepresentation{
     private Circle topCircle;
     private Circle midCircle;
     private Circle bottomCircle;
 
-    public ThreeLightRepresentation(Circle topCircle, Circle midCircle, Circle bottomCircle) {
+    public ThreeLightsRepresentation(Circle topCircle, Circle midCircle, Circle bottomCircle) {
 
         this.topCircle = topCircle;
         this.midCircle = midCircle;

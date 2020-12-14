@@ -3,7 +3,7 @@ package ui.UILight.TrafficLights;
 import javafx.beans.Observable;
 import javafx.scene.paint.Color;
 import lights.ObserverLight;
-import ui.Controller.ThreeLightRepresentation;
+import ui.Controller.ThreeLightsRepresentation;
 import ui.UILight.Country;
 import ui.UILight.UICountryLightMapper;
 import ui.UILight.UILight;
@@ -22,15 +22,15 @@ public abstract class UITrafficLight implements UILight, Observable {
     private ObserverLight businessLight;
     private Country country;
     private UICountryLightMapper uiCountryLightMapper;
-    private ThreeLightRepresentation threeLightRepresentation;
+    private ThreeLightsRepresentation threeLightsRepresentation;
 
 
-    public UITrafficLight(ObserverLight businessLight, Country country, ThreeLightRepresentation threeLightRepresentation) {
+    public UITrafficLight(ObserverLight businessLight, Country country, ThreeLightsRepresentation threeLightsRepresentation) {
 
         this.country = country;
         businessLight.addObserver((Observer) this);
         this.businessLight = businessLight;
-        this.threeLightRepresentation = threeLightRepresentation;
+        this.threeLightsRepresentation = threeLightsRepresentation;
 
         switch (this.country) {
             case Germany:
@@ -68,6 +68,6 @@ public abstract class UITrafficLight implements UILight, Observable {
 
     @Override
     public void changeColor(Color[] colors) {
-        threeLightRepresentation.setColor(colors);
+        threeLightsRepresentation.setColor(colors);
     }
 }
