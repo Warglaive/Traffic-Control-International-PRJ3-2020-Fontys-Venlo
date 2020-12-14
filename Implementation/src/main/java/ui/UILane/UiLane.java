@@ -23,7 +23,7 @@ public class UiLane {
     private Lane businessLogicLane;
     private HashMap<UiLightType, List<Light>> lights;
 
-    public UiLane(Lane businessLogicLane, Map<LaneControllerType, Map<String, Circle>> circles) {
+    public UiLane(Lane businessLogicLane, Map<LaneControllerType, List<Map<String, Circle>>> circles) {
         this.businessLogicLane = businessLogicLane;
         this.lights = new HashMap<UiLightType, List<Light>>();
 
@@ -31,39 +31,42 @@ public class UiLane {
         this.fetchPedestrianLights(businessLogicLane, circles.get(LaneControllerType.PEDESTRIAN));
     }
 
-    private void fetchStraightLights(Lane businessLogicLane, Map<String, Circle> circles) {
+    private void fetchStraightLights(Lane businessLogicLane, List<Map<String, Circle>> circles) {
         var laneController = businessLogicLane.getStraightLaneController();
         var businessLight = (ObserverLight) laneController.getLights().get(0);
-        var lightRepresentation = new ThreeLightsRepresentation(
-                circles.get("top"),
-                circles.get("middle"),
-                circles.get("bottom")
-        );
 
-        //TODO: Actual country translation
-        new UITrafficLightObserverStandard(
-                businessLight,
-                Country.GERMANY,
-                lightRepresentation
-        );
+        for(var circleMap : circles) {
+            var lightRepresentation = new ThreeLightsRepresentation(
+                    circleMap.get("top"),
+                    circleMap.get("middle"),
+                    circleMap.get("bottom")
+            );
 
+            //TODO: Actual country translation
+            new UITrafficLightObserverStandard(
+                    businessLight,
+                    Country.GERMANY,
+                    lightRepresentation
+            );
+        }
         addLightToList(businessLight);
     }
-    private void fetchPedestrianLights(Lane businessLogicLane, Map<String, Circle> circles) {
+    private void fetchPedestrianLights(Lane businessLogicLane, List<Map<String, Circle>> circles) {
         var laneController = businessLogicLane.getPedestrianLaneController();
         var businessLight = (ObserverLight) laneController.getLights().get(0);
-        var lightRepresentation = new TwoLightsRepresentation(
-                circles.get("top"),
-                circles.get("bottom")
-        );
+        for(var circleMap : circles) {
+            var lightRepresentation = new TwoLightsRepresentation(
+                    circleMap.get("top"),
+                    circleMap.get("bottom")
+            );
 
-        //TODO: Actual country translation
-        new UIPedestrianLightObserverStandard(
-                businessLight,
-                Country.GERMANY,
-                lightRepresentation
-        );
-
+            //TODO: Actual country translation
+            new UIPedestrianLightObserverStandard(
+                    businessLight,
+                    Country.GERMANY,
+                    lightRepresentation
+            );
+        }
         addLightToList(businessLight);
     }
 

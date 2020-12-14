@@ -62,7 +62,7 @@ public class Main extends Application {
     }
 
     private FourWayCrossing getStandardBusinessCrossing() {
-        var goDuration = 10;
+        var goDuration = 5;
         var cycleTime = 2;
         var straightLightBehaviour = StraightTrafficLightBehaviourGermany.RED;
         var pedestrianLightBehaviour = PedestrianLightBehaviourStandard.RED;
