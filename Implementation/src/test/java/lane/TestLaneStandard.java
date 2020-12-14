@@ -2,9 +2,9 @@ package lane;
 
 import crossings.LaneControllerType;
 import crossings.LaneParameterKey;
+import crossings.LaneType;
 import lane.laneControllers.StraightLaneControllerStandard;
-import lightBehaviours.StraightTrafficLightBehaviour;
-import lightBehaviours.StraightTrafficLightBehaviourGermany;
+import lightBehaviours.*;
 import locations.Location;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,8 +16,10 @@ import ui.UIObserver;
 import java.util.HashMap;
 import java.util.Map;
 
+import static crossings.LaneControllerType.PEDESTRIAN;
 import static crossings.LaneControllerType.STRAIGHT;
 import static crossings.LaneParameterKey.*;
+import static crossings.LaneType.LEFT_LANE;
 import static org.mockito.Mockito.mock;
 
 public class TestLaneStandard {
@@ -25,36 +27,33 @@ public class TestLaneStandard {
     Location location;
     @Mock
     UIObserver uiObserver;
-    @Mock
+
     StraightTrafficLightBehaviour straightTrafficLightBehaviour;
+    PedestrianLightBehaviour pedestrianLightBehaviour;
 
     int straightGoDuration;
     int straightCycleTime;
     LaneStandard laneStandard;
-    Map<LaneControllerType, Map<LaneParameterKey, Object>> leftLaneParams;
+    Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> laneParams;
 
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
         location = mock(Location.class);
         straightTrafficLightBehaviour = StraightTrafficLightBehaviourGermany.RED;
-        leftLaneParams = new HashMap();
+        pedestrianLightBehaviour = PedestrianLightBehaviourStandard.RED;
+        laneParams = new HashMap();
 
-        var leftLaneStraightParams = new HashMap();
-        leftLaneStraightParams.put(NUMBER_LIGHTS, 2);
-        leftLaneStraightParams.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);
-        leftLaneStraightParams.put(LOCATION, location);
-        leftLaneStraightParams.put(GO_DURATION, 25);
-        leftLaneStraightParams.put(CYCLE_TIME, 2);
-
-        leftLaneParams = new HashMap();
-        leftLaneParams.put(STRAIGHT, leftLaneStraightParams);
+        var laneParametersSingle = new HashMap();
+        laneParametersSingle.put(STRAIGHT, parameterList(straightTrafficLightBehaviour));
+        laneParametersSingle.put(PEDESTRIAN, parameterList(pedestrianLightBehaviour));
+        laneParams.put(LEFT_LANE, laneParametersSingle);
 
         straightGoDuration = 25;
         straightCycleTime = 2;
 
         laneStandard = new LaneStandard(
-                leftLaneParams
+                laneParams.get(LEFT_LANE)
         );
     }
 
@@ -65,5 +64,16 @@ public class TestLaneStandard {
         SoftAssertions.assertSoftly(softly -> {
             softly.assertThat(straightLaneControllerStandard.getLights().size()).isEqualTo(2);
         });
+    }
+
+    private HashMap<LaneParameterKey, Object> parameterList(LightBehaviour lightBehaviour) {
+        var laneMap = new HashMap();
+        laneMap.put(NUMBER_LIGHTS, 2);
+        laneMap.put(LIGHT_BEHAVIOUR, lightBehaviour);
+        laneMap.put(LOCATION, location);
+        laneMap.put(GO_DURATION, 25);
+        laneMap.put(CYCLE_TIME, 2);
+
+        return laneMap;
     }
 }

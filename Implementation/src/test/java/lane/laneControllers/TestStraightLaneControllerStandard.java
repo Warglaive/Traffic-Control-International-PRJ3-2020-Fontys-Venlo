@@ -41,7 +41,7 @@ public class TestStraightLaneControllerStandard {
         straightTrafficLightBehaviour = StraightTrafficLightBehaviourGermany.RED;
         leftLaneParams = new HashMap();
 
-        var leftLaneStraightParams = new HashMap();
+        HashMap leftLaneStraightParams = new HashMap();
         leftLaneStraightParams.put(NUMBER_LIGHTS, 2);
         leftLaneStraightParams.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);
         leftLaneStraightParams.put(LOCATION, location);
