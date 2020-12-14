@@ -8,7 +8,7 @@ import ui.UILight.Country;
 import java.util.Observable;
 import java.util.Observer;
 
-public abstract class UITrafficLightObserver extends UITrafficLight implements Observer {
+public abstract class UITrafficLightObserver extends UITrafficLight implements Observer{
 
     public UITrafficLightObserver(ObserverLight businessLight, Country country, ThreeLightsRepresentation threeLightsRepresentation) {
         super(businessLight, country, threeLightsRepresentation);

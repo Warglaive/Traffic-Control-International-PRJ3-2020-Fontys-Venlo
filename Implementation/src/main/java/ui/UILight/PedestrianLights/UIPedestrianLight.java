@@ -20,7 +20,7 @@ public class UIPedestrianLight implements UILight  {
         this.businessLight = businessLight;
         this.pedestrianLightRepresentation = pedestrianLightRepresentation;
         switch (country) {
-            case Germany:
+            case GERMANY:
                 this.countrySpecificLightRepresentationMap = this.uiCountryLightMapper.germanLightMap();
                 break;
             default:

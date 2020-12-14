@@ -1,6 +1,5 @@
 package ui.UILight.TrafficLights;
 
-import javafx.beans.Observable;
 import javafx.scene.paint.Color;
 import lights.ObserverLight;
 import ui.Controller.ThreeLightsRepresentation;
@@ -16,7 +15,7 @@ the UILight connects via the lane and the BuisnessLogic Light connects via the S
 Therefore this cass needs to implement the observable class.
  */
 
-public abstract class UITrafficLight implements UILight, Observable {
+public abstract class UITrafficLight implements UILight {
 
     private Map<String, Color[]> countrySpecificLightRepresentationMap;
     private ObserverLight businessLight;
@@ -31,13 +30,15 @@ public abstract class UITrafficLight implements UILight, Observable {
         businessLight.addObserver((Observer) this);
         this.businessLight = businessLight;
         this.threeLightsRepresentation = threeLightsRepresentation;
+        this.uiCountryLightMapper = new UICountryLightMapper();
 
         switch (this.country) {
-            case Germany:
+            case GERMANY:
                 countrySpecificLightRepresentationMap = uiCountryLightMapper.germanLightMap();
-
-            case Netherlands:
+                break;
+            case NETHERLANDS:
                 countrySpecificLightRepresentationMap = uiCountryLightMapper.dutchLightMap();
+                break;
         }
     }
 
@@ -50,20 +51,18 @@ public abstract class UITrafficLight implements UILight, Observable {
 
         Color[] toReturn;
 
-        switch (color.toLowerCase()) {
+        switch (color) {
             case "red":
-                toReturn = countrySpecificLightRepresentationMap.get("redLightRepresentation");
+                return countrySpecificLightRepresentationMap.get("redLightRepresentation");
             case "yellow":
-                toReturn = countrySpecificLightRepresentationMap.get("yellowLightRepresentation");
+                return countrySpecificLightRepresentationMap.get("yellowLightRepresentation");
             case "green":
-                toReturn = countrySpecificLightRepresentationMap.get("greenLightRepresentation");
+                return countrySpecificLightRepresentationMap.get("greenLightRepresentation");
             case "redYellow":
-                toReturn = countrySpecificLightRepresentationMap.get("redYellowLightRepresentation");
+                return countrySpecificLightRepresentationMap.get("redYellowLightRepresentation");
             default:
-                toReturn = uiCountryLightMapper.getAllTransparent();
+                return uiCountryLightMapper.getAllTransparent();
         }
-
-        return toReturn;
     }
 
     @Override

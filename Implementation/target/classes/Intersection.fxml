@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Rectangle?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TabPane layoutX="22.0" layoutY="18.0" prefHeight="733.0" prefWidth="884.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -286,35 +280,35 @@
                               <Circle fx:id="PL2_Circle23111" fill="#1fff22" layoutX="20.0" layoutY="33.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
                            </children>
                         </Pane>
-                        <Pane fx:id="TrafficLight21" layoutX="462.0" layoutY="401.0" prefHeight="84.0" prefWidth="47.0">
+                        <Pane fx:id="TrafficLightBL" layoutX="462.0" layoutY="401.0" prefHeight="84.0" prefWidth="47.0">
                            <children>
                               <Circle fx:id="FourW_TLBL_Circle1" fill="#ff3d1f" layoutX="24.0" layoutY="14.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fx:id="FourW_TLBL_Circle2" fill="#e1ff1f" layoutX="24.0" layoutY="42.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fx:id="FourW_TLBL_Circle3" fill="#22ff1f" layoutX="24.0" layoutY="70.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="FourW_TLBL_Circle2" layoutX="24.0" layoutY="42.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="FourW_TLBL_Circle3" layoutX="24.0" layoutY="70.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
                            </children>
                         </Pane>
-                        <Pane fx:id="TrafficLight2121" layoutX="527.0" layoutY="270.0" prefHeight="84.0" prefWidth="47.0" rotate="90.0">
+                        <Pane fx:id="TrafficLightRL" layoutX="527.0" layoutY="270.0" prefHeight="84.0" prefWidth="47.0" rotate="90.0">
                            <children>
-                              <Circle fx:id="FourW_TLRL_Circle3" fill="#23ff1f" layoutX="24.0" layoutY="14.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fx:id="FourW_TLRL_Circle2" fill="#d9ff1f" layoutX="24.0" layoutY="42.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="FourW_TLRL_Circle3" layoutX="24.0" layoutY="14.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="FourW_TLRL_Circle2" layoutX="24.0" layoutY="42.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
                               <Circle fx:id="FourW_TLRL_Circle1" fill="#ff341f" layoutX="24.0" layoutY="70.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
                            </children>
                         </Pane>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="14.0" layoutX="494.0" layoutY="346.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="59.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="14.0" layoutX="322.0" layoutY="344.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="59.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="52.0" layoutX="438.0" layoutY="246.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="14.0" />
-                        <Pane fx:id="TrafficLight212" layoutX="299.0" layoutY="351.0" prefHeight="84.0" prefWidth="47.0" rotate="90.0">
+                        <Pane fx:id="TrafficLightLL" layoutX="299.0" layoutY="351.0" prefHeight="84.0" prefWidth="47.0" rotate="90.0">
                            <children>
                               <Circle fx:id="FourW_TLLL_Circle1" fill="#ff341f" layoutX="24.0" layoutY="14.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fx:id="FourW_TLLL_Circle2" fill="#e1ff1f" layoutX="24.0" layoutY="42.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fx:id="FourW_TLLL_Circle3" fill="#32ff1f" layoutX="24.0" layoutY="70.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="FourW_TLLL_Circle2" layoutX="24.0" layoutY="42.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="FourW_TLLL_Circle3" layoutX="24.0" layoutY="70.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
                            </children>
                         </Pane>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="52.0" layoutX="438.0" layoutY="409.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="14.0" />
-                        <Pane fx:id="TrafficLight211" layoutX="378.0" layoutY="208.0" prefHeight="84.0" prefWidth="47.0" style="-fx-border-radius: 10; -fx-background-radius: 10;">
+                        <Pane fx:id="TrafficLightTL" layoutX="378.0" layoutY="208.0" prefHeight="84.0" prefWidth="47.0" style="-fx-border-radius: 10; -fx-background-radius: 10;">
                            <children>
-                              <Circle fx:id="FourW_TLTL_Circle3" fill="#23ff1f" layoutX="24.0" layoutY="14.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fx:id="FourW_TLTL_Circle2" fill="#e4ff1f" layoutX="24.0" layoutY="42.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="FourW_TLTL_Circle3" layoutX="24.0" layoutY="14.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="FourW_TLTL_Circle2" layoutX="24.0" layoutY="42.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
                               <Circle fx:id="FourW_TLTL_Circle1" fill="#ff341f" layoutX="24.0" layoutY="70.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
                            </children>
                         </Pane>

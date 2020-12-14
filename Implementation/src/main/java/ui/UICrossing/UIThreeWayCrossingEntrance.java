@@ -8,9 +8,9 @@ public class UIThreeWayCrossingEntrance extends UIThreeWayCrossing{
     private UiLane rightLane;
     private UiLane bottomLane;
 
-    public UIThreeWayCrossingEntrance(Lane leftLane, Lane rightLane, Lane bottomLane) {
+   /* public UIThreeWayCrossingEntrance(Lane leftLane, Lane rightLane, Lane bottomLane) {
         this.leftLane = new UiLane(leftLane);
         this.rightLane = new UiLane(rightLane);
         this.bottomLane = new UiLane(bottomLane);
-    }
+    }*/
 }

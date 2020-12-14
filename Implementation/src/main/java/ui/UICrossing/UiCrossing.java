@@ -2,6 +2,6 @@ package ui.UICrossing;
 
 import ui.Ui;
 
-public abstract interface UiCrossing extends Ui {
+public interface UiCrossing extends Ui {
 
 }

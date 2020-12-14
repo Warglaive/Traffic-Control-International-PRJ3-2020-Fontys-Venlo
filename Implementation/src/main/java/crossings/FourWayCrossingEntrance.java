@@ -6,7 +6,7 @@ import locations.Location;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class FourWayCrossingEntrance implements FourWayCrossing {
+public abstract class FourWayCrossingEntrance implements FourWayCrossing, Runnable {
     private FourWayCrossingControllerEntrance controller;
 
     /**
@@ -16,6 +16,11 @@ public abstract class FourWayCrossingEntrance implements FourWayCrossing {
      */
     public FourWayCrossingEntrance(Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterList, int secondsBetweenLaneSwitch) {
         this.changeController(parameterList, secondsBetweenLaneSwitch);
+    }
+
+    @Override
+    public void run() {
+        cycleLanes();
     }
 
     @Override
