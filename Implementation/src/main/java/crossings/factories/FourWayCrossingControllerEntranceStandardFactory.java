@@ -51,23 +51,21 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         this.location = location;
         this.secondsBetweenLaneSwitch = secondsBetweenLaneSwitch;
         //add values to laneMaps and then add laneMaps to ParameterMap
-        var leftLaneMap = new HashMap();
-        var rightLaneMap = new HashMap();
-        var topLaneMap = new HashMap();
-        var leftStraightMap = new HashMap();
-        var bottomLaneMap = new HashMap();
+        var leftLaneMap = mapLeftStraight();
+        var rightLaneMap = mapRightStraight();
+        var topLaneMap = mapTopStraight();
+        var bottomLaneMap = mapBottomStraight();
         //Parameter Map
         var parameterMap = new HashMap();
         //Direction map (Straight)
         leftLaneMap.put(STRAIGHT, leftStraightMap);
-        //Lane map
+        //add laneMaps to ParameterMap
         parameterMap.put(LEFT_LANE, leftLaneMap);
         parameterMap.put(RIGHT_LANE, rightLaneMap);
         parameterMap.put(TOP_LANE, topLaneMap);
         parameterMap.put(BOTTOM_LANE, bottomLaneMap);
 
-        return new
-                FourWayCrossingControllerEntranceStandard(parameterList, secondsBetweenLaneSwitch);
+        return new FourWayCrossingControllerEntranceStandard(parameterList, secondsBetweenLaneSwitch);
     }
 
     public HashMap mapLeftStraight() {
