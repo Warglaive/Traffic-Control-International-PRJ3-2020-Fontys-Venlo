@@ -59,7 +59,7 @@ public class TestLaneControllerStandard {
         var lights = laneControllerStandard.getLights();
 
         SoftAssertions.assertSoftly(softly -> {
-            for(var light : lights) {
+            for (var light : lights) {
                 softly.assertThat(light.getChangeBehaviour())
                         .isEqualTo(PedestrianLightBehaviourStandard.GREEN);
             }
