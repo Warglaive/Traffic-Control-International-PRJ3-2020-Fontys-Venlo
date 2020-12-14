@@ -1,13 +1,13 @@
 package ui.UILight.TrafficLights;
 
 import lights.ObserverLight;
-import ui.Controller.TrafficLightRepresentation;
+import ui.Controller.ThreeLightsRepresentation;
 import ui.UILight.Country;
 
 public abstract class UITrafficLightStandard extends UITrafficLightObserver {
 
-    public UITrafficLightStandard(ObserverLight businessLight, Country country, TrafficLightRepresentation trafficLightRepresentation) {
+    public UITrafficLightStandard(ObserverLight businessLight, Country country, ThreeLightsRepresentation threeLightsRepresentation) {
 
-        super(businessLight, country, trafficLightRepresentation);
+        super(businessLight, country, threeLightsRepresentation);
     }
 }
