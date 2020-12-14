@@ -13,6 +13,8 @@ public interface Lane extends Runnable{
      */
     LaneController getStraightLaneController();
 
+    LaneController getPedestrianLaneController();
+
     /**
      * Cycle straight lights.
      *

@@ -3,6 +3,7 @@ package lane;
 import crossings.LaneControllerType;
 import crossings.LaneParameterKey;
 import crossings.LaneType;
+import lane.laneControllers.LaneController;
 import lane.laneControllers.PedestrianLaneControllerStandard;
 import lane.laneControllers.StraightLaneControllerStandard;
 import lightBehaviours.StraightTrafficLightBehaviour;
@@ -55,6 +56,11 @@ public class LaneStandard implements Lane {
 
     public StraightLaneControllerStandard getStraightLaneController() {
         return straightLaneControllerStandard;
+    }
+
+    @Override
+    public LaneController getPedestrianLaneController() {
+        return this.pedestrianLaneControllerStandard;
     }
 
     @Override
