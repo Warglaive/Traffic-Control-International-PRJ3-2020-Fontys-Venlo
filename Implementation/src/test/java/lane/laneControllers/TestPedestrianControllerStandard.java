@@ -2,11 +2,14 @@ package lane.laneControllers;
 
 import crossings.LaneControllerType;
 import crossings.LaneParameterKey;
+import lightBehaviours.LightBehaviour;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.PedestrianLightBehaviourStandard;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
 import locations.Location;
 import org.assertj.core.api.ThrowableAssert;
+import org.junit.Before;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -20,7 +23,8 @@ import static crossings.LaneControllerType.PEDESTRIAN;
 import static crossings.LaneControllerType.STRAIGHT;
 import static crossings.LaneParameterKey.*;
 import static crossings.LaneParameterKey.NUMBER_LIGHTS;
-import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
 public class TestPedestrianControllerStandard {
@@ -33,6 +37,7 @@ public class TestPedestrianControllerStandard {
     Map<LaneControllerType, Map<LaneParameterKey, Object>> leftLaneParams;
 
     @BeforeEach
+    @Before
     public void setUp() {
         //MockitoAnnotations.openMocks(this);
         location = mock(Location.class);
@@ -71,25 +76,38 @@ public class TestPedestrianControllerStandard {
     }
 
     @Test
-    public void testAddLightsNoException() {
-        ThrowableAssert.ThrowingCallable exceptionCode = () ->
-                pedestrianLaneControllerStandard = new PedestrianLaneControllerStandard(
-                        leftLaneParams.get(PEDESTRIAN)
-                );
-        assertThatCode(exceptionCode)
-                .doesNotThrowAnyException();
-    }
-
-    @Test
     public void testAddLightsThrowsExceptionBehaviour() {
-        ThrowableAssert.ThrowingCallable exceptionCode = () -> {
+        /*ThrowableAssert.ThrowingCallable exceptionCode = () ->
             pedestrianLaneControllerStandard.addLights(2,
                     StraightTrafficLightBehaviourGermany.RED,
                     location);
-        };
 
-        assertThatCode(exceptionCode)
-                .hasMessage("The light behaviour has to be of type PedestrianLightBehaviour")
-                .isExactlyInstanceOf(ClassCastException.class);
+        assertThatThrownBy(exceptionCode)
+                .isExactlyInstanceOf(ClassCastException.class)
+                .hasMessage("The light behaviour has to be of type PedestrianLightBehaviour");*/
+
+        assertThrows(ClassCastException.class, () ->
+                pedestrianLaneControllerStandard.addLights(2,
+                StraightTrafficLightBehaviourGermany.RED,
+                location));
     }
+
+    @Test
+    public void testAddLightsThrowsNumberException() {
+        /*ThrowableAssert.ThrowingCallable exceptionCode = () ->
+            pedestrianLaneControllerStandard.addLights(2,
+                    StraightTrafficLightBehaviourGermany.RED,
+                    location);
+
+        assertThatThrownBy(exceptionCode)
+                .isExactlyInstanceOf(ClassCastException.class)
+                .hasMessage("The light behaviour has to be of type PedestrianLightBehaviour");*/
+
+        assertThrows(IllegalArgumentException.class, () ->
+                pedestrianLaneControllerStandard.addLights(0,
+                PedestrianLightBehaviourStandard.RED,
+                location));
+    }
+
+
 }

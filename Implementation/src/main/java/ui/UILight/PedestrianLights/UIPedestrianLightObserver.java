@@ -12,16 +12,14 @@ public class UIPedestrianLightObserver extends UIPedestrianLight implements Obse
 
     public UIPedestrianLightObserver(ObserverLight businessLight, Country country, TwoLightsRepresentation pedestrianLightRepresentation) {
         super(businessLight, country, pedestrianLightRepresentation);
+        businessLight.addObserver(this);
     }
 
 
     public void update(Observable o, Object colorObj) {
         var color = (String) colorObj;
         Color[] circleData = this.getColorArray(color);
-        applyChanges(circleData);
+        changeColor(circleData);
     }
 
-    private void applyChanges(Color[] circleData) {
-        //what should this do?
-    }
 }

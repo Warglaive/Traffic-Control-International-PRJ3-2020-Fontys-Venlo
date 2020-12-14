@@ -44,9 +44,9 @@ lights\ObserverLight.class
 lights\StraightTrafficObserverLight.class
 crossings\LaneControllerType.class
 lightBehaviours\PedestrianLightBehaviourExtended$2.class
-module-info.class
 ui\UILight\TrafficLights\UITrafficLight.class
 ui\ConsoleUi.class
+ui\UILight\TrafficLights\UITrafficLightObserverStandard.class
 lightBehaviours\PedestrianLightBehaviourStandard.class
 ui\UILight\TrafficLights\UITrafficLightStandard.class
 locations\Location.class

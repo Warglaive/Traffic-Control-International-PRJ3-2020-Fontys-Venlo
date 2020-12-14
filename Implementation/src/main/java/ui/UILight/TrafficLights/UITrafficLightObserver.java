@@ -12,6 +12,7 @@ public abstract class UITrafficLightObserver extends UITrafficLight implements O
 
     public UITrafficLightObserver(ObserverLight businessLight, Country country, ThreeLightsRepresentation threeLightsRepresentation) {
         super(businessLight, country, threeLightsRepresentation);
+        businessLight.addObserver(this);
     }
 
     @Override

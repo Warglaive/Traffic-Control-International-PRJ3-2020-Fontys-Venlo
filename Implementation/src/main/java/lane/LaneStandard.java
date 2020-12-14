@@ -1,5 +1,6 @@
 package lane;
 
+import annotations.Generated;
 import crossings.LaneControllerType;
 import crossings.LaneParameterKey;
 import crossings.LaneType;
@@ -23,7 +24,6 @@ public class LaneStandard implements Lane {
 
     /**
      * Instantiates a new Lane standard.
-     *
      */
     public LaneStandard(Map<LaneControllerType, Map<LaneParameterKey, Object>> parameterList) {
 
@@ -52,12 +52,11 @@ public class LaneStandard implements Lane {
         );
     }
 
-
-
     public StraightLaneControllerStandard getStraightLaneController() {
         return straightLaneControllerStandard;
     }
 
+    @Generated
     @Override
     public LaneController getPedestrianLaneController() {
         return this.pedestrianLaneControllerStandard;
@@ -68,13 +67,4 @@ public class LaneStandard implements Lane {
         this.straightLaneControllerStandard.cycleLights();
     }
 
-
-    @Override
-    public void run() {
-        try {
-            this.straightLaneControllerStandard.cycleLights();
-        } catch (InterruptedException e) {
-            //TODO: Proper exception handling
-        }
-    }
 }

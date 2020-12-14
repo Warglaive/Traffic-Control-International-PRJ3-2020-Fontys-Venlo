@@ -19,34 +19,29 @@ public class UIPedestrianLight implements UILight  {
     public UIPedestrianLight(ObserverLight businessLight, Country country, TwoLightsRepresentation pedestrianLightRepresentation) {
         this.businessLight = businessLight;
         this.pedestrianLightRepresentation = pedestrianLightRepresentation;
+        this.uiCountryLightMapper = new UICountryLightMapper();
+        //TODO: Country makes no sense here, pedestrian lights do not relate to countries
         switch (country) {
             case GERMANY:
-                this.countrySpecificLightRepresentationMap = this.uiCountryLightMapper.germanLightMap();
+                this.countrySpecificLightRepresentationMap = this.uiCountryLightMapper.pedestrianStandardLightMap();
                 break;
             default:
                 //Default will work for the Netherlands
-                this.countrySpecificLightRepresentationMap = this.uiCountryLightMapper.dutchLightMap();
+                this.countrySpecificLightRepresentationMap = this.uiCountryLightMapper.pedestrianStandardLightMap();
                 break;
         }
     }
 
     @Override
     public Color[] getColorArray(String color) {
-        Color[] colorArray;
         switch (color.toLowerCase()) {
             case "red":
-                colorArray = this.countrySpecificLightRepresentationMap.get("redLightRepresentation");
-            case "yellow":
-                colorArray = this.countrySpecificLightRepresentationMap.get("yellowLightRepresentation");
+                return this.countrySpecificLightRepresentationMap.get("pedestrianRedLightRepresentation");
             case "green":
-                colorArray = this.countrySpecificLightRepresentationMap.get("greenLightRepresentation");
-            case "redYellow":
-                colorArray = this.countrySpecificLightRepresentationMap.get("redYellowLightRepresentation");
+                return this.countrySpecificLightRepresentationMap.get("pedestrianGreenLightRepresentation");
             default:
-                colorArray = this.uiCountryLightMapper.getAllTransparent();
+                return this.uiCountryLightMapper.getAllTransparent();
         }
-
-        return colorArray;
     }
 
     @Override

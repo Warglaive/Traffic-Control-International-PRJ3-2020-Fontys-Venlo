@@ -30,20 +30,26 @@ public abstract class FourWayCrossingControllerEntrance implements FourWayCrossi
 
     @Override
     public void cycleLanes() {
-        this.threadOperation(topLane, bottomLane);
-        this.threadOperation(rightLane, leftLane);
+        this.threadOperation(topLane, bottomLane, rightLane, leftLane);
+        this.threadOperation(rightLane, leftLane, topLane, bottomLane);
     }
 
-    private void threadOperation(Lane one, Lane two) {
-        Thread oneLaneThread = new Thread(one);
-        Thread twoLaneThread = new Thread(two);
+    private void threadOperation(Lane straightOne, Lane straightTwo, Lane pedestrianThree, Lane pedestrianFour) {
+        Thread straightOneLaneThread = new Thread((Runnable) straightOne.getStraightLaneController());
+        Thread straightTwoLaneThread = new Thread((Runnable) straightTwo.getStraightLaneController());
+        Thread pedestrianThreeLaneThread = new Thread((Runnable) pedestrianThree.getPedestrianLaneController());
+        Thread pedestrianFourLaneThread = new Thread((Runnable) pedestrianFour.getPedestrianLaneController());
 
-        oneLaneThread.start();
-        twoLaneThread.start();
+        straightOneLaneThread.start();
+        straightTwoLaneThread.start();
+        pedestrianThreeLaneThread.start();
+        pedestrianFourLaneThread.start();
 
         try {
-            oneLaneThread.join();
-            twoLaneThread.join();
+            straightOneLaneThread.join();
+            straightTwoLaneThread.join();
+            pedestrianThreeLaneThread.join();
+            pedestrianFourLaneThread.join();
 
         } catch (InterruptedException e) {
             e.printStackTrace();

@@ -6,7 +6,6 @@ C:\Users\renke\Desktop\prj305\Implementation\src\main\java\lights\StraightTraffi
 C:\Users\renke\Desktop\prj305\Implementation\src\main\java\ui\UILight\TrafficLights\UITrafficLightObserver.java
 C:\Users\renke\Desktop\prj305\Implementation\src\main\java\crossings\FourWayCrossingControllerEntrance.java
 C:\Users\renke\Desktop\prj305\Implementation\src\main\java\ui\UICrossing\UIStraightCrossing.java
-C:\Users\renke\Desktop\prj305\Implementation\src\main\java\module-info.java
 C:\Users\renke\Desktop\prj305\Implementation\src\main\java\crossings\Crossing.java
 C:\Users\renke\Desktop\prj305\Implementation\src\main\java\lightBehaviours\StraightTrafficLightBehaviourNetherlands.java
 C:\Users\renke\Desktop\prj305\Implementation\src\main\java\ui\UILight\UICountryLightMapper.java
@@ -27,6 +26,7 @@ C:\Users\renke\Desktop\prj305\Implementation\src\main\java\ui\UILight\Pedestrian
 C:\Users\renke\Desktop\prj305\Implementation\src\main\java\ui\Ui.java
 C:\Users\renke\Desktop\prj305\Implementation\src\main\java\lights\Light.java
 C:\Users\renke\Desktop\prj305\Implementation\src\main\java\ui\Controller\TwoLightsRepresentation.java
+C:\Users\renke\Desktop\prj305\Implementation\src\main\java\ui\UILight\TrafficLights\UITrafficLightObserverStandard.java
 C:\Users\renke\Desktop\prj305\Implementation\src\main\java\ui\UICrossing\UiCrossing.java
 C:\Users\renke\Desktop\prj305\Implementation\src\main\java\crossings\FourWayCrossing.java
 C:\Users\renke\Desktop\prj305\Implementation\src\main\java\lane\LaneStandard.java

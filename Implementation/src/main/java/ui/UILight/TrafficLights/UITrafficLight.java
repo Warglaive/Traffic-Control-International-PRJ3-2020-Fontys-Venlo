@@ -27,7 +27,7 @@ public abstract class UITrafficLight implements UILight {
     public UITrafficLight(ObserverLight businessLight, Country country, ThreeLightsRepresentation threeLightsRepresentation) {
 
         this.country = country;
-        businessLight.addObserver((Observer) this);
+
         this.businessLight = businessLight;
         this.threeLightsRepresentation = threeLightsRepresentation;
         this.uiCountryLightMapper = new UICountryLightMapper();

@@ -5,7 +5,7 @@ import lane.laneControllers.LaneController;
 /**
  * The interface Lane.
  */
-public interface Lane extends Runnable{
+public interface Lane {
     /**
      * Gets straight lane controller.
      *

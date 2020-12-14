@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class LaneControllerStandard implements LaneController {
+public abstract class LaneControllerStandard implements LaneController, Runnable{
     protected List<ObserverLight> lights;
     /**
      * cycleTime = the amount of time the light will need to switch between states
@@ -74,5 +74,14 @@ public abstract class LaneControllerStandard implements LaneController {
     @Override
     public void cycleLights() throws InterruptedException {
         this.cycleLights(new Sleeper());
+    }
+
+    @Override
+    public void run() {
+        try {
+            cycleLights();
+        } catch (InterruptedException e) {
+            //TODO: Proper exception handling
+        }
     }
 }

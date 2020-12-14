@@ -22,6 +22,9 @@ public class UICountryLightMapper {
     private Color[] redLightRepresentation = {red, black, black};
     private Color[] redYellowLightRepresentation = {red, yellow, black};
 
+    private Color[] pedestrianRedLightRepresentation = {red, black};
+    private Color[] pedestrianGreenLightRepresentation = {black, green};
+
     private Map<String, Color[]> germanMap;
     private Map<String, Color[]> dutchMap;
 
@@ -48,6 +51,17 @@ public class UICountryLightMapper {
         dutchMap.put("yellowLightRepresentation", yellowLightRepresentation);
         dutchMap.put("greenLightRepresentation", greenLightRepresentation);
         return dutchMap;
+    }
+
+    /*
+    Returns a Map with the different Color Arrays represent in Germany.
+    The idea is that you can iterate through the map and retrieve a Color Array of the current state
+     */
+    public Map<String, Color[]> pedestrianStandardLightMap() {
+        var pedestrianStandardmap = new HashMap();
+        pedestrianStandardmap.put("pedestrianRedLightRepresentation", pedestrianRedLightRepresentation);
+        pedestrianStandardmap.put("pedestrianGreenLightRepresentation", pedestrianGreenLightRepresentation);
+        return pedestrianStandardmap;
     }
 
     public Color[] getAllTransparent() {
