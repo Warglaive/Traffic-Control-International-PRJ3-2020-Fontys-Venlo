@@ -37,7 +37,12 @@ public class FourWayCrossingControllerEntranceStandardFactory {
 
     //Getter
     public FourWayCrossingControllerEntranceStandard getFourWayCrossingControllerEntranceStandard(int straightNumberLightsLeft, int straightNumberLightsRight, int pedestrianNumberLightsLeft, StraightTrafficLightBehaviour straightTrafficLightBehaviour, int goDuration, int cycleTime, Location location, int secondsBetweenLaneSwitch) {
-        //this.parameterList = new HashMap<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>>();
+        //Initialize StraightMap HashMaps
+        this.leftStraightMap = new HashMap();
+        this.rightStraightMap = new HashMap();
+        this.topStraightMap = new HashMap();
+        this.bottomStraightMap = new HashMap();
+        //Take values from Constructor
         this.straightNumberLightsLeft = straightNumberLightsLeft;
         this.pedestrianNumberLightsLeft = pedestrianNumberLightsLeft;
         this.straightNumberLightsRight = straightNumberLightsRight;
