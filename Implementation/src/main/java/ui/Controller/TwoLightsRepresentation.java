@@ -9,7 +9,6 @@ public class TwoLightsRepresentation implements LightRepresentation {
     private Circle bottomCircle;
 
     public TwoLightsRepresentation(Circle topCircle, Circle bottomCircle) {
-
         this.topCircle = topCircle;
         this.bottomCircle = bottomCircle;
     }
