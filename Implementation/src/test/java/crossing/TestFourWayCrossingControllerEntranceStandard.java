@@ -1,6 +1,7 @@
 package crossing;
 
 import crossings.*;
+import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
 import locations.Location;
@@ -23,6 +24,9 @@ public class TestFourWayCrossingControllerEntranceStandard {
 
     @Mock
     StraightTrafficLightBehaviour straightTrafficLightBehaviour;
+
+    @Mock
+    PedestrianLightBehaviour pedestrianLightBehaviour;
 
     int straightGoDuration;
     int straightCycleTime;
@@ -50,7 +54,7 @@ public class TestFourWayCrossingControllerEntranceStandard {
         parameterCollection.put(LEFT_LANE, leftLane);*/
 
         parameterCollection = TestUtils.getFourLaneParamMap(
-                straightGoDuration, straightCycleTime, straightTrafficLightBehaviour, location
+                straightGoDuration, straightCycleTime, straightTrafficLightBehaviour, pedestrianLightBehaviour, location
         );
 
         crossingController = new FourWayCrossingControllerEntranceStandard(

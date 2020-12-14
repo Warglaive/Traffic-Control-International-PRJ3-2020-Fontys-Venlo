@@ -2,6 +2,8 @@ package lane.laneControllers;
 
 import crossings.LaneControllerType;
 import crossings.LaneParameterKey;
+import lightBehaviours.PedestrianLightBehaviour;
+import lightBehaviours.PedestrianLightBehaviourStandard;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
 import locations.Location;
@@ -14,6 +16,7 @@ import org.mockito.Mock;
 import java.util.HashMap;
 import java.util.Map;
 
+import static crossings.LaneControllerType.PEDESTRIAN;
 import static crossings.LaneControllerType.STRAIGHT;
 import static crossings.LaneParameterKey.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -25,27 +28,27 @@ public class TestLaneControllerStandard {
     Location location;
 
     LaneControllerStandard laneControllerStandard;
-    StraightTrafficLightBehaviour straightTrafficLightBehaviour;
+    PedestrianLightBehaviour lightBehaviour;
     Map<LaneControllerType, Map<LaneParameterKey, Object>> leftLaneParams;
 
     @BeforeEach
     public void setUp() {
         //MockitoAnnotations.openMocks(this);
         location = mock(Location.class);
-        straightTrafficLightBehaviour = StraightTrafficLightBehaviourGermany.RED;
+        lightBehaviour = PedestrianLightBehaviourStandard.RED;
         leftLaneParams = new HashMap();
 
-        var leftLaneStraightParams = new HashMap();
+        HashMap leftLaneStraightParams = new HashMap();
         leftLaneStraightParams.put(NUMBER_LIGHTS, 2);
-        leftLaneStraightParams.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);
+        leftLaneStraightParams.put(LIGHT_BEHAVIOUR, lightBehaviour);
         leftLaneStraightParams.put(LOCATION, location);
         leftLaneStraightParams.put(GO_DURATION, 25);
         leftLaneStraightParams.put(CYCLE_TIME, 2);
 
         leftLaneParams = new HashMap();
-        leftLaneParams.put(STRAIGHT, leftLaneStraightParams);
+        leftLaneParams.put(PEDESTRIAN, leftLaneStraightParams);
 
-        laneControllerStandard = new StraightLaneControllerStandard(
+        laneControllerStandard = new PedestrianLaneControllerStandard(
                 leftLaneStraightParams
         );
     }
@@ -58,7 +61,7 @@ public class TestLaneControllerStandard {
         SoftAssertions.assertSoftly(softly -> {
             for(var light : lights) {
                 softly.assertThat(light.getChangeBehaviour())
-                        .isEqualTo(StraightTrafficLightBehaviourGermany.REDYELLOW);
+                        .isEqualTo(PedestrianLightBehaviourStandard.GREEN);
             }
         });
     }
@@ -67,14 +70,14 @@ public class TestLaneControllerStandard {
     public void cycleLightsCallsCorrectSleep() throws InterruptedException {
         Sleeper sleeper = mock(Sleeper.class);
 
-        this.laneControllerStandard = new StraightLaneControllerStandard(
-                leftLaneParams.get(STRAIGHT)
+        this.laneControllerStandard = new PedestrianLaneControllerStandard(
+                leftLaneParams.get(PEDESTRIAN)
 
         );
 
         laneControllerStandard.cycleLights(sleeper);
 
-        verify(sleeper, times(3)).sleep(2);
+        verify(sleeper, times(1)).sleep(2);
         verify(sleeper, times(1)).sleep(25);
     }
 
@@ -82,6 +85,6 @@ public class TestLaneControllerStandard {
     public void cycleLightsEndsRed() throws InterruptedException {
         this.laneControllerStandard.cycleLights(mock(Sleeper.class));
         assertThat(this.laneControllerStandard.lights.get(0).getChangeBehaviour())
-                .isEqualTo(StraightTrafficLightBehaviourGermany.RED);
+                .isEqualTo(PedestrianLightBehaviourStandard.RED);
     }
 }

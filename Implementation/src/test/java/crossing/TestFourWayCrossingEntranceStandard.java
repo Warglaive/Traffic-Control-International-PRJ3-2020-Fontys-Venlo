@@ -2,6 +2,7 @@ package crossing;
 
 import crossings.*;
 import lane.LaneStandard;
+import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import locations.Location;
 import org.assertj.core.api.SoftAssertions;
@@ -27,6 +28,8 @@ public class TestFourWayCrossingEntranceStandard {
     UIObserver uiObserver;
     @Mock
     StraightTrafficLightBehaviour straightTrafficLightBehaviour;
+    @Mock
+    PedestrianLightBehaviour pedestrianLightBehaviour;
 
     int straightGoDuration;
     int straightCycleTime;
@@ -44,7 +47,7 @@ public class TestFourWayCrossingEntranceStandard {
         parameterCollection = new HashMap();
 
         parameterCollection = TestUtils.getFourLaneParamMap(
-                straightGoDuration, straightCycleTime, straightTrafficLightBehaviour, location
+                straightGoDuration, straightCycleTime, straightTrafficLightBehaviour, pedestrianLightBehaviour, location
         );
 
         crossing = new FourWayCrossingEntranceStandard(

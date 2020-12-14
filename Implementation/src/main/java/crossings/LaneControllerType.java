@@ -1,5 +1,6 @@
 package crossings;
 
 public enum LaneControllerType {
-    STRAIGHT
+    STRAIGHT,
+    PEDESTRIAN
 }
