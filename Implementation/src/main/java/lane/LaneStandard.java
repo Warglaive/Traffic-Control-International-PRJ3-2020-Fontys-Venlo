@@ -68,7 +68,7 @@ public class LaneStandard implements Lane {
         try {
             this.straightLaneControllerStandard.cycleLights();
         } catch (InterruptedException e) {
-            //TODO: Poper exception handling
+            //TODO: Proper exception handling
         }
     }
 }

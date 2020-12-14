@@ -44,7 +44,7 @@ public class TestLaneStandard {
         pedestrianLightBehaviour = PedestrianLightBehaviourStandard.RED;
         laneParams = new HashMap();
 
-        var laneParametersSingle = new HashMap();
+        HashMap laneParametersSingle = new HashMap();
         laneParametersSingle.put(STRAIGHT, parameterList(straightTrafficLightBehaviour));
         laneParametersSingle.put(PEDESTRIAN, parameterList(pedestrianLightBehaviour));
         laneParams.put(LEFT_LANE, laneParametersSingle);
