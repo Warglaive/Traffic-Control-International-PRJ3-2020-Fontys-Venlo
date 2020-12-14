@@ -76,7 +76,7 @@ public class FourWayCrossingControllerEntranceStandardFactory {
     }
 
     public HashMap mapRightStraight() {
-        this.rightStraightMap.put(NUMBER_LIGHTS, this.straightNumberLightsLeft);
+        this.rightStraightMap.put(NUMBER_LIGHTS, this.straightNumberLightsRight);
         this.rightStraightMap.put(LIGHT_BEHAVIOUR, this.straightTrafficLightBehaviour);
         this.rightStraightMap.put(LOCATION, this.location);
         this.rightStraightMap.put(GO_DURATION, this.goDuration);
@@ -85,7 +85,8 @@ public class FourWayCrossingControllerEntranceStandardFactory {
     }
 
     public HashMap mapTopStraight() {
-        this.topStraightMap.put(NUMBER_LIGHTS, this.straightNumberLightsLeft);
+        //Number of lightsRight because traffic light should be on the RIGHT lane
+        this.topStraightMap.put(NUMBER_LIGHTS, this.straightNumberLightsRight);
         this.topStraightMap.put(LIGHT_BEHAVIOUR, this.straightTrafficLightBehaviour);
         this.topStraightMap.put(LOCATION, this.location);
         this.topStraightMap.put(GO_DURATION, this.goDuration);
@@ -94,6 +95,7 @@ public class FourWayCrossingControllerEntranceStandardFactory {
     }
 
     public HashMap mapBottomStraight() {
+        //Number of lightsRight because traffic light should be on the LEFT lane
         this.bottomStraightMap.put(NUMBER_LIGHTS, this.straightNumberLightsLeft);
         this.bottomStraightMap.put(LIGHT_BEHAVIOUR, this.straightTrafficLightBehaviour);
         this.bottomStraightMap.put(LOCATION, this.location);
