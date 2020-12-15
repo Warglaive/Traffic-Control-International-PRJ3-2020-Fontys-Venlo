@@ -25,7 +25,6 @@ public class FourWayCrossingControllerEntranceStandardFactory {
             int straightNumberLightsBottom, int pedestrianNumberLightsBottom,
             StraightTrafficLightBehaviour straightTrafficLightBehaviour, int goDuration, int cycleTime, Location location,
             int secondsBetweenLaneSwitch) {
-        //
         //Initialize StraightMap HashMaps
         var leftStraightMap = new HashMap();
         var rightStraightMap = new HashMap();
