@@ -9,7 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FourWayCrossingControllerEntranceStandard extends FourWayCrossingControllerEntrance {
-    public FourWayCrossingControllerEntranceStandard(Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterList, int secondsBetweenLaneSwitch) {
+    public FourWayCrossingControllerEntranceStandard(
+            Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterList, int secondsBetweenLaneSwitch) {
         super(parameterList, secondsBetweenLaneSwitch);
     }
 
