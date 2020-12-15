@@ -49,8 +49,6 @@ public abstract class UITrafficLight implements UILight {
     @Override
     public Color[] getColorArray(String color) {
 
-        Color[] toReturn;
-
         switch (color) {
             case "red":
                 return countrySpecificLightRepresentationMap.get("redLightRepresentation");
