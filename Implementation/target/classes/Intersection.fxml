@@ -241,7 +241,7 @@
                         <Pane fx:id="PedestrianLight22" layoutX="149.0" layoutY="434.0" prefHeight="46.0" prefWidth="38.0" style="-fx-background-color: grey;">
                            <children>
                               <Circle fx:id="FourW_PLLB_Circle1" fill="#ff2d1f" layoutX="20.0" layoutY="12.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fx:id="FourW_PLLB_Circle2" fill="#34ff1f" layoutX="20.0" layoutY="33.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fx:id="FourW_PLLB_Circle2" layoutX="20.0" layoutY="33.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
                            </children>
                         </Pane>
                         <Pane fx:id="PedestrianLight23" layoutX="317.0" layoutY="79.0" prefHeight="46.0" prefWidth="38.0" style="-fx-background-color: grey;">
