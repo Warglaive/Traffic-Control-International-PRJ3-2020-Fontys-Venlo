@@ -47,7 +47,7 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         topLaneMap.put(PEDESTRIAN, pedestrianNumberLightsTop);
         //Bottom lane straight direction map
         bottomLaneMap.put(STRAIGHT, bottomStraightMap);
-        topLaneMap.put(PEDESTRIAN, pedestrianNumberLightsBottom);
+        bottomLaneMap.put(PEDESTRIAN, pedestrianNumberLightsBottom);
 
         //add laneMaps to ParameterMap
         parameterMap.put(LEFT_LANE, leftLaneMap);
