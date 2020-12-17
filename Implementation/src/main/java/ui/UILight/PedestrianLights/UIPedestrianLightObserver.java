@@ -1,7 +1,7 @@
 package ui.UILight.PedestrianLights;
 
 import javafx.scene.paint.Color;
-import lights.observerLights.ObserverLight;
+import lights.observer.ObserverLight;
 import ui.Controller.TwoLightsRepresentation;
 import ui.UILight.Country;
 

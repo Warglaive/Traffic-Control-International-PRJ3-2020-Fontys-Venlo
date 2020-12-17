@@ -1,7 +1,8 @@
-package lane.laneControllers;
+package lane.laneControllers.standard;
 
 import crossings.parameterEnums.LaneControllerType;
 import crossings.parameterEnums.LaneParameterKey;
+import lane.laneControllers.Sleeper;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.PedestrianLightBehaviourStandard;
 import lights.Location;

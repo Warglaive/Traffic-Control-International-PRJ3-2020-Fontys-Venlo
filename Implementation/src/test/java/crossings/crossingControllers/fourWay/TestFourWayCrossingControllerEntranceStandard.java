@@ -1,8 +1,6 @@
-package crossings.crossingControllers;
+package crossings.crossingControllers.fourWay;
 
 import crossings.TestUtils;
-import crossings.crossingController.FourWayCrossingControllerEntrance;
-import crossings.crossingController.FourWayCrossingControllerEntranceStandard;
 import crossings.parameterEnums.LaneControllerType;
 import crossings.parameterEnums.LaneParameterKey;
 import crossings.parameterEnums.LaneType;
@@ -18,7 +16,6 @@ import org.mockito.MockitoAnnotations;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
 
 public class TestFourWayCrossingControllerEntranceStandard {
     @Mock
@@ -72,7 +69,7 @@ public class TestFourWayCrossingControllerEntranceStandard {
     @Test
     public void cycleLanesCyclesLanes() {
         var dependentCrossingController = new FourWayCrossingControllerEntranceStandard(
-                TestUtils.getFourLaneParamMap(straightGoDuration, straightCycleTime, StraightTrafficLightBehaviourGermany.RED, location),
+                crossings.TestUtils.getFourLaneParamMap(straightGoDuration, straightCycleTime, StraightTrafficLightBehaviourGermany.RED, location),
                 2);
         dependentCrossingController.cycleLanes();
     }

@@ -1,4 +1,4 @@
-package lights.observerLights;
+package lights.observer;
 
 import lightBehaviours.PedestrianLightBehaviour;
 import lights.Location;

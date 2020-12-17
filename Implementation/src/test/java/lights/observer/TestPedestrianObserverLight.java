@@ -1,12 +1,9 @@
-package lights.observerLights;
+package lights.observer;
 
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.PedestrianLightBehaviourStandard;
 import lights.Location;
-import lights.observerLights.ObserverLight;
-import lights.observerLights.PedestrianObserverLight;
-import lights.observerLights.PedestrianObserverLightStandard;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

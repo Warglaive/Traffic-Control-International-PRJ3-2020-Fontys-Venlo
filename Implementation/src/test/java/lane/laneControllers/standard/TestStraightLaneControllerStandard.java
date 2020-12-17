@@ -1,4 +1,4 @@
-package lane.laneControllers;
+package lane.laneControllers.standard;
 
 import crossings.parameterEnums.LaneControllerType;
 import crossings.parameterEnums.LaneParameterKey;

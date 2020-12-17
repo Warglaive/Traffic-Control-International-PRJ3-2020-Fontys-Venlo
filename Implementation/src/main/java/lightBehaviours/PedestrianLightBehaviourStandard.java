@@ -1,6 +1,6 @@
 package lightBehaviours;
 
-import lights.observerLights.PedestrianObserverLight;
+import lights.observer.PedestrianObserverLight;
 
 /**
  * The enum Pedestrian light behaviour standard.

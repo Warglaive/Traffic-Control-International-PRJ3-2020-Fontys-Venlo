@@ -4,8 +4,8 @@ import annotations.Generated;
 import crossings.parameterEnums.LaneControllerType;
 import crossings.parameterEnums.LaneParameterKey;
 import lane.laneControllers.LaneController;
-import lane.laneControllers.PedestrianLaneControllerStandard;
-import lane.laneControllers.StraightLaneControllerStandard;
+import lane.laneControllers.standard.PedestrianLaneControllerStandard;
+import lane.laneControllers.standard.StraightLaneControllerStandard;
 
 import java.util.Map;
 

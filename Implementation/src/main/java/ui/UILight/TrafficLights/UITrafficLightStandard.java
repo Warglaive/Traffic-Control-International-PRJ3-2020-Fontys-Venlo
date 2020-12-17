@@ -1,6 +1,6 @@
 package ui.UILight.TrafficLights;
 
-import lights.observerLights.ObserverLight;
+import lights.observer.ObserverLight;
 import ui.Controller.ThreeLightsRepresentation;
 import ui.UILight.Country;
 

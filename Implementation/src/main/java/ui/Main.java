@@ -1,7 +1,7 @@
 package ui;
 
-import crossings.FourWayCrossing;
-import crossings.FourWayCrossingEntranceStandard;
+import crossings.fourWay.FourWayCrossing;
+import crossings.fourWay.FourWayCrossingEntranceStandard;
 import crossings.parameterEnums.LaneControllerType;
 import crossings.parameterEnums.LaneParameterKey;
 import crossings.parameterEnums.LaneType;

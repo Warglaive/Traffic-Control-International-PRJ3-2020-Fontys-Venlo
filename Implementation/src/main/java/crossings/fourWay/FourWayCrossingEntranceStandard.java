@@ -1,6 +1,6 @@
-package crossings;
+package crossings.fourWay;
 
-import crossings.crossingController.FourWayCrossingControllerEntranceStandard;
+import crossings.crossingControllers.fourWay.FourWayCrossingControllerEntranceStandard;
 import crossings.parameterEnums.LaneControllerType;
 import crossings.parameterEnums.LaneParameterKey;
 import crossings.parameterEnums.LaneType;

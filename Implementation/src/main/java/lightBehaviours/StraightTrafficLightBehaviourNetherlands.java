@@ -1,6 +1,6 @@
 package lightBehaviours;
 
-import lights.observerLights.StraightTrafficObserverLight;
+import lights.observer.StraightTrafficObserverLight;
 
 /**
  * The enum Straight traffic light behaviour netherlands.

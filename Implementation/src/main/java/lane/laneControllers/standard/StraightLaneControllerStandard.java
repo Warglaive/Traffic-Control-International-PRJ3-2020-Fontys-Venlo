@@ -1,10 +1,10 @@
-package lane.laneControllers;
+package lane.laneControllers.standard;
 
 import crossings.parameterEnums.LaneParameterKey;
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lights.Location;
-import lights.observerLights.StraightTrafficObserverLightStandard;
+import lights.observer.StraightTrafficObserverLightStandard;
 
 import java.util.Map;
 

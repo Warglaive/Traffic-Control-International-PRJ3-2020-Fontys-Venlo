@@ -1,9 +1,11 @@
-package lane.laneControllers;
+package lane.laneControllers.standard;
 
 import crossings.parameterEnums.LaneParameterKey;
+import lane.laneControllers.LaneController;
+import lane.laneControllers.Sleeper;
 import lightBehaviours.LightBehaviour;
 import lights.Location;
-import lights.observerLights.ObserverLight;
+import lights.observer.ObserverLight;
 
 import java.util.ArrayList;
 import java.util.List;

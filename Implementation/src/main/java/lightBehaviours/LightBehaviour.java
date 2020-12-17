@@ -1,6 +1,6 @@
 package lightBehaviours;
 
-import lights.observerLights.ObserverLight;
+import lights.observer.ObserverLight;
 
 public interface LightBehaviour {
     String changeColor(ObserverLight observerLight);

@@ -1,7 +1,7 @@
 package lightBehaviours;
 
-import lights.observerLights.ObserverLight;
-import lights.observerLights.StraightTrafficObserverLight;
+import lights.observer.ObserverLight;
+import lights.observer.StraightTrafficObserverLight;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

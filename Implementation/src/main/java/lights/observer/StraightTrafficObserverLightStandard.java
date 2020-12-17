@@ -1,4 +1,4 @@
-package lights.observerLights;
+package lights.observer;
 
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lights.Location;

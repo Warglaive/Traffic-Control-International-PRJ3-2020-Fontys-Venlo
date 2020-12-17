@@ -3,7 +3,7 @@ package lane;
 import crossings.parameterEnums.LaneControllerType;
 import crossings.parameterEnums.LaneParameterKey;
 import crossings.parameterEnums.LaneType;
-import lane.laneControllers.StraightLaneControllerStandard;
+import lane.laneControllers.standard.StraightLaneControllerStandard;
 import lightBehaviours.*;
 import lights.Location;
 import org.assertj.core.api.SoftAssertions;

@@ -1,11 +1,9 @@
-package lights.observerLights;
+package lights.observer;
 
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
 import lights.Location;
-import lights.observerLights.StraightTrafficObserverLight;
-import lights.observerLights.StraightTrafficObserverLightStandard;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

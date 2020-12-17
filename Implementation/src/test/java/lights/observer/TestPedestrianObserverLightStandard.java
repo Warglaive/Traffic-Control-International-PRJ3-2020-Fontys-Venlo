@@ -1,9 +1,7 @@
-package lights.observerLights;
+package lights.observer;
 
 import lightBehaviours.PedestrianLightBehaviour;
 import lights.Location;
-import lights.observerLights.PedestrianObserverLight;
-import lights.observerLights.PedestrianObserverLightStandard;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

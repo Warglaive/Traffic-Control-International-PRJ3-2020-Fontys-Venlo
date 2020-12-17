@@ -1,4 +1,4 @@
-package lights.observerLights;
+package lights.observer;
 
 import annotations.Generated;
 import lightBehaviours.LightBehaviour;
