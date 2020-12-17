@@ -30,7 +30,7 @@ public class FourWayCrossingControllerEntranceStandardFactory {
             //Vehicles traffic light behaviour
             StraightTrafficLightBehaviour straightTrafficLightBehaviour,
             //Pedestrian traffic light behaviour
-            , PedestrianLightBehaviour pedestrianLightBehaviour,
+            PedestrianLightBehaviour pedestrianLightBehaviour,
             int goDuration, int cycleTime, Location location,
             int secondsBetweenLaneSwitch) {
         //VehiclesMaps
