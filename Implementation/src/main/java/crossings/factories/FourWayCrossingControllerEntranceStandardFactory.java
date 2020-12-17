@@ -31,7 +31,7 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         var topStraightPedestriansMap = new HashMap();
         var bottomStraightPedestriansMap = new HashMap();
         //
-        var leftLaneVehiclesArgumentsMap = mapLeftStraighVehiclesLane(straightNumberLightsLeft, goDuration, cycleTime, location, straightTrafficLightBehaviour);
+        var leftLaneVehiclesArgumentsMap = mapLeftStraightVehiclesLane(straightNumberLightsLeft, goDuration, cycleTime, location, straightTrafficLightBehaviour);
         var rightLaneVehiclesArgumentsMap = mapRightStraightVehiclesLane(straightNumberLightsRight, goDuration, cycleTime, location, straightTrafficLightBehaviour);
         var topLaneVehiclesArgumentsMap = mapTopStraightVehiclesLane(straightNumberLightsTop, goDuration, cycleTime, location, straightTrafficLightBehaviour);
         var bottomLaneVehiclesArgumentsMap = mapBottomStraightVehiclesLane(straightNumberLightsBottom, goDuration, cycleTime, location, straightTrafficLightBehaviour);
@@ -57,7 +57,7 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         return new FourWayCrossingControllerEntranceStandard(parameterMap, secondsBetweenLaneSwitch);
     }
 
-    public HashMap mapLeftStraighVehiclesLane(int straightNumberLightsLeft, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
+    public HashMap mapLeftStraightVehiclesLane(int straightNumberLightsLeft, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
         var leftLaneMap = new HashMap();
         leftLaneMap.put(NUMBER_LIGHTS, straightNumberLightsLeft);
         leftLaneMap.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);
