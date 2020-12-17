@@ -1,6 +1,5 @@
 package ui.UICrossing;
 
-import lane.Lane;
 import ui.UILane.UiLane;
 
 public class UIThreeWayCrossingEntrance extends UIThreeWayCrossing{

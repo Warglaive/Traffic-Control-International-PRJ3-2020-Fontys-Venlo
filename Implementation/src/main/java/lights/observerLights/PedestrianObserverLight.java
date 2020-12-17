@@ -1,8 +1,8 @@
-package lights;
+package lights.observerLights;
 
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.PedestrianLightBehaviour;
-import locations.Location;
+import lights.Location;
 
 /**
  * The type Pedestrian observer light.

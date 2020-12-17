@@ -1,6 +1,5 @@
 package crossings.factories;
 
-import javafx.scene.Scene;
 import lane.Lane;
 import ui.UICrossing.UIFourWayCrossingEntrance;
 

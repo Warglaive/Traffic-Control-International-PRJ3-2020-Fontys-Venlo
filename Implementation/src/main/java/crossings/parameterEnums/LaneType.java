@@ -1,4 +1,4 @@
-package crossings;
+package crossings.parameterEnums;
 
 public enum LaneType {
     LEFT_LANE,

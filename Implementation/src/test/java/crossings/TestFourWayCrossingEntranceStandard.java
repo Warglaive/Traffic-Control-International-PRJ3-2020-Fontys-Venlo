@@ -1,10 +1,11 @@
-package crossing;
+package crossings;
 
-import crossings.*;
-import lane.LaneStandard;
+import crossings.parameterEnums.LaneControllerType;
+import crossings.parameterEnums.LaneParameterKey;
+import crossings.parameterEnums.LaneType;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
-import locations.Location;
+import lights.Location;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,9 +16,6 @@ import ui.UIObserver;
 import java.util.HashMap;
 import java.util.Map;
 
-import static crossings.LaneControllerType.STRAIGHT;
-import static crossings.LaneParameterKey.*;
-import static crossings.LaneType.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 

@@ -1,18 +1,18 @@
-package crossing;
+package crossings;
 
-import crossings.LaneControllerType;
-import crossings.LaneParameterKey;
-import crossings.LaneType;
+import crossings.parameterEnums.LaneControllerType;
+import crossings.parameterEnums.LaneParameterKey;
+import crossings.parameterEnums.LaneType;
 import lightBehaviours.LightBehaviour;
-import locations.Location;
+import lights.Location;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static crossings.LaneControllerType.PEDESTRIAN;
-import static crossings.LaneControllerType.STRAIGHT;
-import static crossings.LaneParameterKey.*;
-import static crossings.LaneType.*;
+import static crossings.parameterEnums.LaneControllerType.PEDESTRIAN;
+import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
+import static crossings.parameterEnums.LaneParameterKey.*;
+import static crossings.parameterEnums.LaneType.*;
 
 public class TestUtils {
     public static Map<LaneControllerType, Map<LaneParameterKey, Object>> getLaneParamMap(

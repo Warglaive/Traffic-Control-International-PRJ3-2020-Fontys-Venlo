@@ -1,15 +1,16 @@
-package lights;
+package lights.observerLights;
 
 import annotations.Generated;
 import lightBehaviours.LightBehaviour;
-import locations.Location;
+import lights.Light;
+import lights.Location;
 
 import java.util.Observable;
 
 /**
  * The type Observer light.
  */
-public abstract class ObserverLight extends Observable implements Light{
+public abstract class ObserverLight extends Observable implements Light {
     private LightBehaviour changeBehaviour;
     private Location location;
 

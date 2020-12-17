@@ -1,6 +1,10 @@
 package ui;
 
-import crossings.*;
+import crossings.FourWayCrossing;
+import crossings.FourWayCrossingEntranceStandard;
+import crossings.parameterEnums.LaneControllerType;
+import crossings.parameterEnums.LaneParameterKey;
+import crossings.parameterEnums.LaneType;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,17 +13,16 @@ import javafx.stage.Stage;
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.PedestrianLightBehaviourStandard;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
-import locations.Location;
+import lights.Location;
 import ui.UICrossing.UIFourWayCrossingEntrance;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static crossings.LaneControllerType.PEDESTRIAN;
-import static crossings.LaneControllerType.STRAIGHT;
-import static crossings.LaneParameterKey.*;
-import static crossings.LaneType.*;
-import static crossings.LaneType.BOTTOM_LANE;
+import static crossings.parameterEnums.LaneControllerType.PEDESTRIAN;
+import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
+import static crossings.parameterEnums.LaneParameterKey.*;
+import static crossings.parameterEnums.LaneType.*;
 
 
 public class Main extends Application {

@@ -1,15 +1,14 @@
-package crossings;
+package crossings.crossingController;
 
+import crossings.parameterEnums.LaneControllerType;
+import crossings.parameterEnums.LaneParameterKey;
+import crossings.parameterEnums.LaneType;
 import lane.Lane;
-import lightBehaviours.StraightTrafficLightBehaviour;
-import locations.Location;
 
-import static crossings.LaneParameterKey.*;
-import static crossings.LaneType.*;
-
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import static crossings.parameterEnums.LaneType.*;
 
 public abstract class FourWayCrossingControllerEntrance implements FourWayCrossingController {
     private Lane leftLane;

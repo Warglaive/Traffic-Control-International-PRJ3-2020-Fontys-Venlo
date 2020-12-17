@@ -1,9 +1,11 @@
-package lights;
+package lights.observerLights;
 
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
-import locations.Location;
+import lights.Location;
+import lights.observerLights.StraightTrafficObserverLight;
+import lights.observerLights.StraightTrafficObserverLightStandard;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +13,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import ui.UIObserver;
-import ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;

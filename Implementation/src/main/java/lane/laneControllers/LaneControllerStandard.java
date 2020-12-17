@@ -1,16 +1,15 @@
 package lane.laneControllers;
 
-import crossings.LaneParameterKey;
+import crossings.parameterEnums.LaneParameterKey;
 import lightBehaviours.LightBehaviour;
-import lights.ObserverLight;
-import locations.Location;
-
-import static crossings.LaneParameterKey.*;
+import lights.Location;
+import lights.observerLights.ObserverLight;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static crossings.parameterEnums.LaneParameterKey.*;
 
 public abstract class LaneControllerStandard implements LaneController, Runnable{
     protected List<ObserverLight> lights;

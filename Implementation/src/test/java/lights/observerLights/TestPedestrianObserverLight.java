@@ -1,9 +1,12 @@
-package lights;
+package lights.observerLights;
 
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.PedestrianLightBehaviourStandard;
-import locations.Location;
+import lights.Location;
+import lights.observerLights.ObserverLight;
+import lights.observerLights.PedestrianObserverLight;
+import lights.observerLights.PedestrianObserverLightStandard;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +14,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import ui.UIObserver;
-import ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;

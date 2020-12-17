@@ -1,8 +1,6 @@
 package ui.UICrossing;
 
-import crossings.LaneControllerType;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import crossings.parameterEnums.LaneControllerType;
 import javafx.scene.shape.Circle;
 import lane.Lane;
 import ui.UILane.UiLane;
@@ -12,8 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static crossings.LaneControllerType.PEDESTRIAN;
-import static crossings.LaneControllerType.STRAIGHT;
+import static crossings.parameterEnums.LaneControllerType.PEDESTRIAN;
+import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
 
 public class UIFourWayCrossingEntrance extends UIFourWayCrossing {
     private UiLane leftLane;

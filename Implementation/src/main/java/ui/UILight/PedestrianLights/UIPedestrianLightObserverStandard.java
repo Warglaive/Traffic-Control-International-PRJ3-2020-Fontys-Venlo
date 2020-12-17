@@ -1,6 +1,6 @@
 package ui.UILight.PedestrianLights;
 
-import lights.ObserverLight;
+import lights.observerLights.ObserverLight;
 import ui.Controller.TwoLightsRepresentation;
 import ui.UILight.Country;
 

@@ -1,8 +1,8 @@
-package lights;
+package lights.observerLights;
 
 import lightBehaviours.LightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
-import locations.Location;
+import lights.Location;
 
 /**
  * The type Straight traffic observer light.

@@ -1,4 +1,4 @@
-package crossings;
+package crossings.parameterEnums;
 
 /**
  * Parameter types that fit lane constructor requirements

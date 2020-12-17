@@ -1,4 +1,4 @@
-package locations;
+package lights;
 
 public class Location {
 }

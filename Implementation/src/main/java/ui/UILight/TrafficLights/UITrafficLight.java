@@ -1,13 +1,13 @@
 package ui.UILight.TrafficLights;
 
 import javafx.scene.paint.Color;
-import lights.ObserverLight;
+import lights.observerLights.ObserverLight;
 import ui.Controller.ThreeLightsRepresentation;
 import ui.UILight.Country;
 import ui.UILight.UICountryLightMapper;
 import ui.UILight.UILight;
 
-import java.util.*;
+import java.util.Map;
 
 /*
 This class takes the FXML Traffic Light and the traffic light from the buisness logic and connects both.

@@ -1,10 +1,14 @@
-package crossing;
+package crossings.crossingControllers;
 
-import crossings.*;
+import crossings.TestUtils;
+import crossings.crossingController.FourWayCrossingControllerEntrance;
+import crossings.crossingController.FourWayCrossingControllerEntranceStandard;
+import crossings.parameterEnums.LaneControllerType;
+import crossings.parameterEnums.LaneParameterKey;
+import crossings.parameterEnums.LaneType;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
-import lightBehaviours.StraightTrafficLightBehaviourGermany;
-import locations.Location;
+import lights.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -14,9 +18,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.any;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class TestFourWayCrossingControllerEntranceStandard {
     @Mock

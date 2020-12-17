@@ -1,8 +1,6 @@
 package lights;
 
-import annotations.Generated;
 import lightBehaviours.LightBehaviour;
-import locations.Location;
 
 /**
  * The interface Light.
