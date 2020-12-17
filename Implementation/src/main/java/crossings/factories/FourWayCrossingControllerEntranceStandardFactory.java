@@ -38,6 +38,7 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         var parameterMap = new HashMap();
         //Left lane straight direction map
         leftLaneMap.put(STRAIGHT, leftStraightMap);
+        //put a map rather than integer
         leftLaneMap.put(PEDESTRIAN, pedestrianNumberLightsLeft);
         //Right lane straight direction map
         rightLaneMap.put(STRAIGHT, rightStraightMap);
