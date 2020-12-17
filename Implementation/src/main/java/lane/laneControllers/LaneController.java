@@ -1,8 +1,7 @@
 package lane.laneControllers;
 
 import lightBehaviours.LightBehaviour;
-import lights.Light;
-import locations.Location;
+import lights.Location;
 
 import java.util.List;
 

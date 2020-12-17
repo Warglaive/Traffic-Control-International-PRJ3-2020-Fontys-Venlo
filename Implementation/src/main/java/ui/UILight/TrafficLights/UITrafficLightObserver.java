@@ -1,7 +1,7 @@
 package ui.UILight.TrafficLights;
 
 import javafx.scene.paint.Color;
-import lights.ObserverLight;
+import lights.observer.ObserverLight;
 import ui.Controller.ThreeLightsRepresentation;
 import ui.UILight.Country;
 

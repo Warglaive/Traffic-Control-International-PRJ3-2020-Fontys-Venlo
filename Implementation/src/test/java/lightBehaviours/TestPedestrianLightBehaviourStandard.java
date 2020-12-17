@@ -1,6 +1,6 @@
 package lightBehaviours;
 
-import lights.PedestrianObserverLight;
+import lights.observer.PedestrianObserverLight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

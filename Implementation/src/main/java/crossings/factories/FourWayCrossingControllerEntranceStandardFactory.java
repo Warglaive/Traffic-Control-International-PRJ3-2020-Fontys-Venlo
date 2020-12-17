@@ -1,15 +1,15 @@
 package crossings.factories;
 
-import crossings.FourWayCrossingControllerEntranceStandard;
+import crossings.crossingControllers.fourWay.FourWayCrossingControllerEntranceStandard;
 import lightBehaviours.StraightTrafficLightBehaviour;
-import locations.Location;
+import lights.Location;
 
 import java.util.HashMap;
 
-import static crossings.LaneControllerType.PEDESTRIAN;
-import static crossings.LaneControllerType.STRAIGHT;
-import static crossings.LaneParameterKey.*;
-import static crossings.LaneType.*;
+import static crossings.parameterEnums.LaneControllerType.PEDESTRIAN;
+import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
+import static crossings.parameterEnums.LaneParameterKey.*;
+import static crossings.parameterEnums.LaneType.*;
 
 public class FourWayCrossingControllerEntranceStandardFactory {
 
@@ -31,7 +31,7 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         var topStraightPedestriansMap = new HashMap();
         var bottomStraightPedestriansMap = new HashMap();
         //
-        var leftLaneVehiclesArgumentsMap = mapLeftStraighVehiclestLane(straightNumberLightsLeft, goDuration, cycleTime, location, straightTrafficLightBehaviour);
+        var leftLaneVehiclesArgumentsMap = mapLeftStraighVehiclesLane(straightNumberLightsLeft, goDuration, cycleTime, location, straightTrafficLightBehaviour);
         var rightLaneVehiclesArgumentsMap = mapRightStraightVehiclesLane(straightNumberLightsRight, goDuration, cycleTime, location, straightTrafficLightBehaviour);
         var topLaneVehiclesArgumentsMap = mapTopStraightVehiclesLane(straightNumberLightsTop, goDuration, cycleTime, location, straightTrafficLightBehaviour);
         var bottomLaneVehiclesArgumentsMap = mapBottomStraightVehiclesLane(straightNumberLightsBottom, goDuration, cycleTime, location, straightTrafficLightBehaviour);
@@ -57,7 +57,7 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         return new FourWayCrossingControllerEntranceStandard(parameterMap, secondsBetweenLaneSwitch);
     }
 
-    public HashMap mapLeftStraighVehiclestLane(int straightNumberLightsLeft, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
+    public HashMap mapLeftStraighVehiclesLane(int straightNumberLightsLeft, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
         var leftLaneMap = new HashMap();
         leftLaneMap.put(NUMBER_LIGHTS, straightNumberLightsLeft);
         leftLaneMap.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);

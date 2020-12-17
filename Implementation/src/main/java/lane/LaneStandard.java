@@ -1,19 +1,16 @@
 package lane;
 
 import annotations.Generated;
-import crossings.LaneControllerType;
-import crossings.LaneParameterKey;
-import crossings.LaneType;
+import crossings.parameterEnums.LaneControllerType;
+import crossings.parameterEnums.LaneParameterKey;
 import lane.laneControllers.LaneController;
-import lane.laneControllers.PedestrianLaneControllerStandard;
-import lane.laneControllers.StraightLaneControllerStandard;
-import lightBehaviours.StraightTrafficLightBehaviour;
-import locations.Location;
+import lane.laneControllers.standard.PedestrianLaneControllerStandard;
+import lane.laneControllers.standard.StraightLaneControllerStandard;
 
-import java.util.HashMap;
 import java.util.Map;
 
-import static crossings.LaneControllerType.*;
+import static crossings.parameterEnums.LaneControllerType.PEDESTRIAN;
+import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
 
 /**
  * The type Lane standard.

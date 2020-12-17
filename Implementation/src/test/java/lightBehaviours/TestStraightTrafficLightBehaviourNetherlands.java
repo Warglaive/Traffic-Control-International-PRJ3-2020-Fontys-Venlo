@@ -1,6 +1,6 @@
 package lightBehaviours;
 
-import lights.StraightTrafficObserverLight;
+import lights.observer.StraightTrafficObserverLight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

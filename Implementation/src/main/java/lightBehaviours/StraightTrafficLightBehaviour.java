@@ -1,7 +1,7 @@
 package lightBehaviours;
 
-import lights.ObserverLight;
-import lights.StraightTrafficObserverLight;
+import lights.observer.ObserverLight;
+import lights.observer.StraightTrafficObserverLight;
 
 /**
  * The interface Straight traffic light behaviour.

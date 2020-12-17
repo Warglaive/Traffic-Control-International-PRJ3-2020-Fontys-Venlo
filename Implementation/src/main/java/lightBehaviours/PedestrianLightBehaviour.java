@@ -1,7 +1,7 @@
 package lightBehaviours;
 
-import lights.ObserverLight;
-import lights.PedestrianObserverLight;
+import lights.observer.ObserverLight;
+import lights.observer.PedestrianObserverLight;
 
 public interface PedestrianLightBehaviour extends LightBehaviour{
     /**

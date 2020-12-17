@@ -1,12 +1,10 @@
 package ui.UILane;
 
-import crossings.LaneControllerType;
+import crossings.parameterEnums.LaneControllerType;
 import javafx.scene.shape.Circle;
 import lane.Lane;
-import lane.laneControllers.LaneController;
 import lights.Light;
-import lights.ObserverLight;
-import ui.Controller.LightRepresentation;
+import lights.observer.ObserverLight;
 import ui.Controller.ThreeLightsRepresentation;
 import ui.Controller.TwoLightsRepresentation;
 import ui.UILight.Country;
