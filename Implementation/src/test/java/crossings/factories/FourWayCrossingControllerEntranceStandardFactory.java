@@ -3,13 +3,9 @@ package crossings.factories;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lights.Location;
-import org.junit.Before;
 import org.junit.Test;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mock;
-
-import static org.junit.Assert.assertThat;
 
 public class FourWayCrossingControllerEntranceStandardFactory {
     //hardcoded values
