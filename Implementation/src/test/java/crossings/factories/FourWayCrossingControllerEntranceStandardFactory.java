@@ -4,8 +4,12 @@ import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lights.Location;
 import org.junit.Before;
+import org.junit.Test;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mock;
+
+import static org.junit.Assert.assertThat;
 
 public class FourWayCrossingControllerEntranceStandardFactory {
     //hardcoded values
@@ -51,5 +55,28 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         this.straightNumberLightsRightPedestrians = this.numberOfLightsForPedestrians;
         this.straightNumberLightsTopPedestrians = this.numberOfLightsForPedestrians;
         this.straightNumberLightsBottomPedestrians = this.numberOfLightsForPedestrians;
+    }
+
+    @Test
+    void getterTest() {
+        FourWayCrossingControllerEntranceStandardFactory factory = new FourWayCrossingControllerEntranceStandardFactory();
+
+        var actualResult = factory.getFourWayCrossingControllerEntranceStandard(straightNumberLightsLeftVehicles,
+                straightNumberLightsRightVehicles,
+                straightNumberLightsTopVehicles,
+                straightNumberLightsBottomVehicles,
+                straightNumberLightsLeftPedestrians,
+                straightNumberLightsRightPedestrians,
+                straightNumberLightsTopPedestrians,
+                straightNumberLightsBottomPedestrians,
+                straightTrafficLightBehaviour,
+                pedestrianLightBehaviour,
+                goDurationVehiclesLight,
+                goDurationPedestriansLight,
+                cycleTimeVehiclesLight,
+                cycleTimePedestrianLight,
+                location,
+                secondsBetweenLaneSwitch
+        );
     }
 }

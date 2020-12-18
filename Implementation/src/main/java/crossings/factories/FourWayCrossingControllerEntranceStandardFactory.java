@@ -14,6 +14,7 @@ import static crossings.parameterEnums.LaneType.*;
 
 public class FourWayCrossingControllerEntranceStandardFactory {
 
+
     //Getter
     public FourWayCrossingControllerEntranceStandard getFourWayCrossingControllerEntranceStandard(
             //all number of lights is for straight crossings
