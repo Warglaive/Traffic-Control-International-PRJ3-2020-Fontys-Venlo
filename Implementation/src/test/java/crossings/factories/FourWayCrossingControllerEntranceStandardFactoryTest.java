@@ -1,3 +1,4 @@
+
 package crossings.factories;
 
 import crossings.crossingControllers.fourWay.FourWayCrossingControllerEntranceStandard;
@@ -18,7 +19,7 @@ import static crossings.parameterEnums.LaneType.*;
 import static crossings.parameterEnums.LaneType.BOTTOM_LANE;
 import static org.junit.Assert.assertThat;
 
-public class FourWayCrossingControllerEntranceStandardFactory {
+public class FourWayCrossingControllerEntranceStandardFactoryTest {
     //hardcoded values
     final int numberOfLightsForVehicles = 3;
     final int numberOfLightsForPedestrians = 2;
@@ -164,30 +165,36 @@ public class FourWayCrossingControllerEntranceStandardFactory {
     }
 
     @Test
-    void getFourWayCrossingControllerEntranceStandard() {
-        FourWayCrossingControllerEntranceStandardFactory factory = new crossings.factories.FourWayCrossingControllerEntranceStandardFactory();
+    public void getFourWayCrossingControllerEntranceStandard() {
+        FourWayCrossingControllerEntranceStandardFactory factory = new FourWayCrossingControllerEntranceStandardFactory();
 
-
-        var factoryObject = factory.getFourWayCrossingControllerEntranceStandard(
-                this.straightNumberLightsLeftVehicles,
-                this.straightNumberLightsRightVehicles,
-                this.straightNumberLightsTopVehicles,
-                this.straightNumberLightsBottomVehicles,
-                this.straightNumberLightsLeftPedestrians,
-                this.straightNumberLightsRightPedestrians,
-                this.straightNumberLightsTopPedestrians,
-                this.straightNumberLightsBottomPedestrians,
-                this.straightTrafficLightBehaviour,
-                this.pedestrianLightBehaviour,
-                this.goDurationVehiclesLight,
-                this.goDurationPedestriansLight,
-                this.cycleTimeVehiclesLight,
-                this.cycleTimePedestrianLight,
-                this.location,
-                this.secondsBetweenLaneSwitch
+        FourWayCrossingControllerEntranceStandard factoryObject = factory.getFourWayCrossingControllerEntranceStandard(
+                //Vehicles number of lights per lane
+                straightNumberLightsLeftVehicles,
+                straightNumberLightsRightVehicles,
+                straightNumberLightsTopVehicles,
+                straightNumberLightsBottomVehicles,
+                //Pedestrians number of lights per lane
+                straightNumberLightsLeftPedestrians,
+                straightNumberLightsRightPedestrians,
+                straightNumberLightsTopPedestrians,
+                straightNumberLightsBottomPedestrians,
+                //Vehicles traffic light behaviour
+                straightTrafficLightBehaviour,
+                //Pedestrian traffic light behaviour
+                pedestrianLightBehaviour,
+                //GoDuration Vehicles
+                goDurationVehiclesLight,
+                goDurationPedestriansLight,
+                //CycleTimeVehicles
+                cycleTimeVehiclesLight,
+                cycleTimePedestrianLight,
+                //Location
+                location,
+                secondsBetweenLaneSwitch
         );
-        //expected result = create object with 'new'.
 
+        //expected result = create object with 'new'.
         FourWayCrossingControllerEntranceStandard expectedResult = new FourWayCrossingControllerEntranceStandard(this.parameterMap, this.secondsBetweenLaneSwitch);
 
 
