@@ -1,11 +1,18 @@
 package crossings.factories;
 
+import crossings.crossingControllers.fourWay.FourWayCrossingControllerEntranceStandard;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lights.Location;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mock;
+
+import java.util.HashMap;
+
+import static crossings.parameterEnums.LaneControllerType.PEDESTRIAN;
+import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
+import static crossings.parameterEnums.LaneParameterKey.*;
 
 public class FourWayCrossingControllerEntranceStandardFactory {
     //hardcoded values
@@ -38,6 +45,16 @@ public class FourWayCrossingControllerEntranceStandardFactory {
     @Mock
     Location location;
     int secondsBetweenLaneSwitch;
+    //VehiclesMaps
+    HashMap leftStraightVehiclesMap = new HashMap();
+    HashMap rightStraightVehiclesMap = new HashMap();
+    HashMap topStraightVehiclesMap = new HashMap();
+    HashMap bottomStraightVehiclesMap = new HashMap();
+    //PedestrianMaps
+    HashMap leftStraightPedestriansMap = new HashMap();
+    HashMap rightStraightPedestriansMap = new HashMap();
+    HashMap topStraightPedestriansMap = new HashMap();
+    HashMap bottomStraightPedestriansMap = new HashMap();
 
     @BeforeEach
     void setUp() {
@@ -51,12 +68,90 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         this.straightNumberLightsRightPedestrians = this.numberOfLightsForPedestrians;
         this.straightNumberLightsTopPedestrians = this.numberOfLightsForPedestrians;
         this.straightNumberLightsBottomPedestrians = this.numberOfLightsForPedestrians;
+        //left LaneArgumentsMap
+        var leftLaneVehiclesArgumentsMap = new HashMap();
+        leftLaneVehiclesArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsLeftVehicles);
+        leftLaneVehiclesArgumentsMap.put(LIGHT_BEHAVIOUR, this.straightTrafficLightBehaviour);
+        leftLaneVehiclesArgumentsMap.put(LOCATION, this.location);
+        leftLaneVehiclesArgumentsMap.put(GO_DURATION, this.goDurationVehiclesLight);
+        leftLaneVehiclesArgumentsMap.put(CYCLE_TIME, this.cycleTimeVehiclesLight);
+        //leftLaneArgumentsMap added to leftStraightVehiclesMap
+        this.leftStraightVehiclesMap.put(STRAIGHT, leftLaneVehiclesArgumentsMap);
+        //Right LaneArgumentsMAp
+        var rightLaneVehiclesArgumentsMap = new HashMap();
+        rightLaneVehiclesArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsRightVehicles);
+        rightLaneVehiclesArgumentsMap.put(LIGHT_BEHAVIOUR, this.straightTrafficLightBehaviour);
+        rightLaneVehiclesArgumentsMap.put(LOCATION, this.location);
+        rightLaneVehiclesArgumentsMap.put(GO_DURATION, this.goDurationVehiclesLight);
+        rightLaneVehiclesArgumentsMap.put(CYCLE_TIME, this.cycleTimeVehiclesLight);
+        //RightLaneArgumentsMap added to rightStraightVehiclesMap
+        this.rightStraightVehiclesMap.put(STRAIGHT, rightLaneVehiclesArgumentsMap);
+        //TopLaneArgumentsMap
+        var topLaneVehiclesArgumentsMap = new HashMap();
+        topLaneVehiclesArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsTopVehicles);
+        topLaneVehiclesArgumentsMap.put(LIGHT_BEHAVIOUR, this.straightTrafficLightBehaviour);
+        topLaneVehiclesArgumentsMap.put(LOCATION, this.location);
+        topLaneVehiclesArgumentsMap.put(GO_DURATION, this.goDurationVehiclesLight);
+        topLaneVehiclesArgumentsMap.put(CYCLE_TIME, this.cycleTimeVehiclesLight);
+        //TopLaneArgumentsMap added to topStraightVehiclesMap
+        this.topStraightVehiclesMap.put(STRAIGHT, topLaneVehiclesArgumentsMap);
+        //BottomLaneArgumentsMap
+        var bottomLaneVehiclesArgumentsMap = new HashMap();
+        bottomLaneVehiclesArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsTopVehicles);
+        bottomLaneVehiclesArgumentsMap.put(LIGHT_BEHAVIOUR, this.straightTrafficLightBehaviour);
+        bottomLaneVehiclesArgumentsMap.put(LOCATION, this.location);
+        bottomLaneVehiclesArgumentsMap.put(GO_DURATION, this.goDurationVehiclesLight);
+        bottomLaneVehiclesArgumentsMap.put(CYCLE_TIME, this.cycleTimeVehiclesLight);
+        //BottomLaneArgumentsMap added to bottomStraightVehiclesMap
+        this.bottomStraightVehiclesMap.put(STRAIGHT, bottomLaneVehiclesArgumentsMap);
+        //leftStraightPedestriansArgumentsMap
+        var leftStraightPedestriansArgumentsMap = new HashMap();
+        leftStraightPedestriansArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsLeftPedestrians);
+        leftStraightPedestriansArgumentsMap.put(LIGHT_BEHAVIOUR, this.pedestrianLightBehaviour);
+        leftStraightPedestriansArgumentsMap.put(LOCATION, this.location);
+        leftStraightPedestriansArgumentsMap.put(GO_DURATION, this.goDurationPedestriansLight);
+        leftStraightPedestriansArgumentsMap.put(CYCLE_TIME, this.cycleTimePedestrianLight);
+        //leftStraightPedestriansArgumentsMap added to leftStraightPedestrianMap
+        this.leftStraightPedestriansMap.put(PEDESTRIAN, leftLaneVehiclesArgumentsMap);
+        //RightStraightPedestriansArgumentsMap
+        var rightStraightPedestriansArgumentsMap = new HashMap();
+        rightStraightPedestriansArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsRightPedestrians);
+        rightStraightPedestriansArgumentsMap.put(LIGHT_BEHAVIOUR, this.pedestrianLightBehaviour);
+        rightStraightPedestriansArgumentsMap.put(LOCATION, this.location);
+        rightStraightPedestriansArgumentsMap.put(GO_DURATION, this.goDurationPedestriansLight);
+        rightStraightPedestriansArgumentsMap.put(CYCLE_TIME, this.cycleTimePedestrianLight);
+        //RightStraightPedestriansArgumentsMap added to rightStraightPedestriansMap
+        this.rightStraightPedestriansMap.put(PEDESTRIAN, rightStraightPedestriansArgumentsMap);
+        //TopStraightPedestriansArgumentMap
+        var topStraightPedestriansArgumentsMap = new HashMap();
+        topStraightPedestriansArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsTopPedestrians);
+        topStraightPedestriansArgumentsMap.put(LIGHT_BEHAVIOUR, this.pedestrianLightBehaviour);
+        topStraightPedestriansArgumentsMap.put(LOCATION, this.location);
+        topStraightPedestriansArgumentsMap.put(GO_DURATION, this.goDurationPedestriansLight);
+        topStraightPedestriansArgumentsMap.put(CYCLE_TIME, this.cycleTimePedestrianLight);
+        //TopStraightPedestriansArgumentsMap added to topStraightPedestriansMap
+        this.topStraightPedestriansMap.put(PEDESTRIAN, topStraightPedestriansArgumentsMap);
+
+        //BottomStraightPedestriansArgumentMap
+        var bottomStraightPedestriansArgumentsMap = new HashMap();
+        bottomStraightPedestriansArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsBottomPedestrians);
+        bottomStraightPedestriansArgumentsMap.put(LIGHT_BEHAVIOUR, this.pedestrianLightBehaviour);
+        bottomStraightPedestriansArgumentsMap.put(LOCATION, this.location);
+        bottomStraightPedestriansArgumentsMap.put(GO_DURATION, this.goDurationPedestriansLight);
+        bottomStraightPedestriansArgumentsMap.put(CYCLE_TIME, this.cycleTimePedestrianLight);
+        //BottomStraightPedestriansArgumentsMap added to bottomStraightPedestriansMap
+        this.bottomStraightPedestriansMap.put(PEDESTRIAN, bottomStraightPedestriansArgumentsMap);
     }
 
     @Test
-    void getterTest() {
+    void getFourWayCrossingControllerEntranceStandard() {
         FourWayCrossingControllerEntranceStandardFactory factory = new FourWayCrossingControllerEntranceStandardFactory();
+        //Put parameters to corresponding HashMaps
 
+        var expectedResult = new FourWayCrossingControllerEntranceStandard();
+
+
+        //Actual result
         var actualResult = factory.getFourWayCrossingControllerEntranceStandard(straightNumberLightsLeftVehicles,
                 straightNumberLightsRightVehicles,
                 straightNumberLightsTopVehicles,
@@ -74,5 +169,6 @@ public class FourWayCrossingControllerEntranceStandardFactory {
                 location,
                 secondsBetweenLaneSwitch
         );
+
     }
 }
