@@ -10,8 +10,8 @@ import ui.UILight.UILight;
 import java.util.Map;
 
 /*
-This class takes the FXML Traffic Light and the traffic light from the buisness logic and connects both.
-the UILight connects via the lane and the BuisnessLogic Light connects via the StraightTrafficLightObserver
+This class takes the FXML Traffic Light and the traffic light from the business logic and connects both.
+the UILight connects via the lane and the BusinessLogic Light connects via the StraightTrafficLightObserver
 Therefore this cass needs to implement the observable class.
  */
 
