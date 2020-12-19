@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /*
-The purpose of this class is to take a country string and return a definiton for the traffic light
+The purpose of this class is to take a country string and return a definition for the traffic light
  */
 public class UICountryLightMapper {
 
