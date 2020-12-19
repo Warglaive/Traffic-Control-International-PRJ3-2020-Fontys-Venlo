@@ -37,16 +37,16 @@ public class FourWayCrossingControllerEntranceStandardFactory {
     //Pedestrian traffic light behaviour
     @Mock
     PedestrianLightBehaviour pedestrianLightBehaviour;
-    //GoDuration Vehicles
-    int goDurationVehiclesLight;
-    int goDurationPedestriansLight;
-    //CycleTimeVehicles
-    int cycleTimeVehiclesLight;
-    int cycleTimePedestrianLight;
+    //GoDuration Vehicles HARDCODED VALUES
+    private final int goDurationVehiclesLight = 5;
+    private final int goDurationPedestriansLight = 5;
+    //CycleTimeVehicles HARDCODED VALUES
+    private final int cycleTimeVehiclesLight = 2;
+    private final int cycleTimePedestrianLight = 2;
     //Location
     @Mock
     Location location;
-    int secondsBetweenLaneSwitch;
+    private final int secondsBetweenLaneSwitch = 2;
     //VehiclesMaps
     HashMap leftStraightVehiclesMap = new HashMap();
     HashMap rightStraightVehiclesMap = new HashMap();
