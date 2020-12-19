@@ -39,7 +39,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
     StraightTrafficLightBehaviour straightTrafficLightBehaviour;
     //Pedestrian traffic light behaviour
     @Mock
-    PedestrianLightBehaviour pedestrianLightBehaviour;
+    PedestrianLightBehaviour pedestrianLightBehaviour ;
     //GoDuration Vehicles HARDCODED VALUES
     final int goDurationVehiclesLight = 5;
     final int goDurationPedestriansLight = 5;
@@ -61,7 +61,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
     HashMap topStraightPedestriansMap = new HashMap();
     HashMap bottomStraightPedestriansMap = new HashMap();
     //Parameter Map
-    HashMap parameterMap;
+    HashMap parameterMap = new HashMap();
 
     @BeforeEach
     void setUp() {
@@ -150,7 +150,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
         this.bottomStraightPedestriansMap.put(PEDESTRIAN, bottomStraightPedestriansArgumentsMap);
 
         //Parameter Map Initialize
-        this.parameterMap = new HashMap();
+       // this.parameterMap = new HashMap();
         //add laneVehiclesMaps to ParameterMap
         this.parameterMap.put(LEFT_LANE, this.leftStraightVehiclesMap);
         this.parameterMap.put(RIGHT_LANE, this.rightStraightVehiclesMap);
