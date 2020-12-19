@@ -58,10 +58,10 @@ public class UICountryLightMapper {
     The idea is that you can iterate through the map and retrieve a Color Array of the current state
      */
     public Map<String, Color[]> pedestrianStandardLightMap() {
-        var pedestrianStandardmap = new HashMap();
-        pedestrianStandardmap.put("pedestrianRedLightRepresentation", pedestrianRedLightRepresentation);
-        pedestrianStandardmap.put("pedestrianGreenLightRepresentation", pedestrianGreenLightRepresentation);
-        return pedestrianStandardmap;
+        var pedestrianStandardMap = new HashMap();
+        pedestrianStandardMap.put("pedestrianRedLightRepresentation", pedestrianRedLightRepresentation);
+        pedestrianStandardMap.put("pedestrianGreenLightRepresentation", pedestrianGreenLightRepresentation);
+        return pedestrianStandardMap;
     }
 
     public Color[] getAllTransparent() {
