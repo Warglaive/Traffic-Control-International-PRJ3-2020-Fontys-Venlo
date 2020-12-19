@@ -13,6 +13,8 @@ import java.util.HashMap;
 import static crossings.parameterEnums.LaneControllerType.PEDESTRIAN;
 import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
 import static crossings.parameterEnums.LaneParameterKey.*;
+import static crossings.parameterEnums.LaneType.*;
+import static crossings.parameterEnums.LaneType.BOTTOM_LANE;
 
 public class FourWayCrossingControllerEntranceStandardFactory {
     //hardcoded values
@@ -55,6 +57,8 @@ public class FourWayCrossingControllerEntranceStandardFactory {
     HashMap rightStraightPedestriansMap = new HashMap();
     HashMap topStraightPedestriansMap = new HashMap();
     HashMap bottomStraightPedestriansMap = new HashMap();
+    //Parameter Map
+    HashMap parameterMap;
 
     @BeforeEach
     void setUp() {
@@ -141,6 +145,20 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         bottomStraightPedestriansArgumentsMap.put(CYCLE_TIME, this.cycleTimePedestrianLight);
         //BottomStraightPedestriansArgumentsMap added to bottomStraightPedestriansMap
         this.bottomStraightPedestriansMap.put(PEDESTRIAN, bottomStraightPedestriansArgumentsMap);
+
+        //Parameter Map Initialize
+        this.parameterMap = new HashMap();
+        //add laneVehiclesMaps to ParameterMap
+        this.parameterMap.put(LEFT_LANE, this.leftStraightVehiclesMap);
+        this.parameterMap.put(RIGHT_LANE, this.rightStraightVehiclesMap);
+        this.parameterMap.put(TOP_LANE, this.topStraightVehiclesMap);
+        this.parameterMap.put(BOTTOM_LANE, this.bottomStraightVehiclesMap);
+        //add laneVehiclesMaps to ParameterMap
+        this.parameterMap.put(LEFT_LANE, this.leftStraightPedestriansMap);
+        this.parameterMap.put(RIGHT_LANE, this.rightStraightPedestriansMap);
+        this.parameterMap.put(TOP_LANE, this.topStraightPedestriansMap);
+        this.parameterMap.put(BOTTOM_LANE, this.bottomStraightPedestriansMap);
+
     }
 
     @Test
@@ -148,7 +166,7 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         FourWayCrossingControllerEntranceStandardFactory factory = new FourWayCrossingControllerEntranceStandardFactory();
         //Put parameters to corresponding HashMaps
 
-        var expectedResult = new FourWayCrossingControllerEntranceStandard();
+        var expectedResult = new FourWayCrossingControllerEntranceStandard(this.parameterMap, this.secondsBetweenLaneSwitch);
 
 
         //Actual result
