@@ -4,6 +4,7 @@ import crossings.crossingControllers.fourWay.FourWayCrossingControllerEntranceSt
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lights.Location;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mock;
@@ -15,11 +16,12 @@ import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
 import static crossings.parameterEnums.LaneParameterKey.*;
 import static crossings.parameterEnums.LaneType.*;
 import static crossings.parameterEnums.LaneType.BOTTOM_LANE;
+import static org.junit.Assert.assertThat;
 
 public class FourWayCrossingControllerEntranceStandardFactory {
     //hardcoded values
-    private final int numberOfLightsForVehicles = 3;
-    private final int numberOfLightsForPedestrians = 2;
+    final int numberOfLightsForVehicles = 3;
+    final int numberOfLightsForPedestrians = 2;
     //all number of lights is for straight crossings
     //Vehicles number of lights per lane
     int straightNumberLightsLeftVehicles;
@@ -38,15 +40,15 @@ public class FourWayCrossingControllerEntranceStandardFactory {
     @Mock
     PedestrianLightBehaviour pedestrianLightBehaviour;
     //GoDuration Vehicles HARDCODED VALUES
-    private final int goDurationVehiclesLight = 5;
-    private final int goDurationPedestriansLight = 5;
+    final int goDurationVehiclesLight = 5;
+    final int goDurationPedestriansLight = 5;
     //CycleTimeVehicles HARDCODED VALUES
-    private final int cycleTimeVehiclesLight = 2;
-    private final int cycleTimePedestrianLight = 2;
+    final int cycleTimeVehiclesLight = 2;
+    final int cycleTimePedestrianLight = 2;
     //Location
     @Mock
     Location location;
-    private final int secondsBetweenLaneSwitch = 2;
+    final int secondsBetweenLaneSwitch = 2;
     //VehiclesMaps
     HashMap leftStraightVehiclesMap = new HashMap();
     HashMap rightStraightVehiclesMap = new HashMap();
@@ -163,30 +165,34 @@ public class FourWayCrossingControllerEntranceStandardFactory {
 
     @Test
     void getFourWayCrossingControllerEntranceStandard() {
-        FourWayCrossingControllerEntranceStandardFactory factory = new FourWayCrossingControllerEntranceStandardFactory();
-        //Put parameters to corresponding HashMaps
-
-        var expectedResult = new FourWayCrossingControllerEntranceStandard(this.parameterMap, this.secondsBetweenLaneSwitch);
+        FourWayCrossingControllerEntranceStandardFactory factory = new crossings.factories.FourWayCrossingControllerEntranceStandardFactory();
 
 
-        //Actual result
-        var actualResult = factory.getFourWayCrossingControllerEntranceStandard(straightNumberLightsLeftVehicles,
-                straightNumberLightsRightVehicles,
-                straightNumberLightsTopVehicles,
-                straightNumberLightsBottomVehicles,
-                straightNumberLightsLeftPedestrians,
-                straightNumberLightsRightPedestrians,
-                straightNumberLightsTopPedestrians,
-                straightNumberLightsBottomPedestrians,
-                straightTrafficLightBehaviour,
-                pedestrianLightBehaviour,
-                goDurationVehiclesLight,
-                goDurationPedestriansLight,
-                cycleTimeVehiclesLight,
-                cycleTimePedestrianLight,
-                location,
-                secondsBetweenLaneSwitch
+        var factoryObject = factory.getFourWayCrossingControllerEntranceStandard(
+                this.straightNumberLightsLeftVehicles,
+                this.straightNumberLightsRightVehicles,
+                this.straightNumberLightsTopVehicles,
+                this.straightNumberLightsBottomVehicles,
+                this.straightNumberLightsLeftPedestrians,
+                this.straightNumberLightsRightPedestrians,
+                this.straightNumberLightsTopPedestrians,
+                this.straightNumberLightsBottomPedestrians,
+                this.straightTrafficLightBehaviour,
+                this.pedestrianLightBehaviour,
+                this.goDurationVehiclesLight,
+                this.goDurationPedestriansLight,
+                this.cycleTimeVehiclesLight,
+                this.cycleTimePedestrianLight,
+                this.location,
+                this.secondsBetweenLaneSwitch
         );
+        //expected result = create object with 'new'.
 
+        FourWayCrossingControllerEntranceStandard expectedResult = new FourWayCrossingControllerEntranceStandard(this.parameterMap, this.secondsBetweenLaneSwitch);
+
+
+        //Actual result = create object from factoryObject.
+        FourWayCrossingControllerEntranceStandard actualResult = factoryObject;
+        Assertions.assertThat(actualResult).isEqualTo(expectedResult);
     }
 }

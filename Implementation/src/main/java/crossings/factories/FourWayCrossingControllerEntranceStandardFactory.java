@@ -13,8 +13,6 @@ import static crossings.parameterEnums.LaneParameterKey.*;
 import static crossings.parameterEnums.LaneType.*;
 
 public class FourWayCrossingControllerEntranceStandardFactory {
-
-
     //Getter
     public FourWayCrossingControllerEntranceStandard getFourWayCrossingControllerEntranceStandard(
             //all number of lights is for straight crossings
@@ -39,7 +37,6 @@ public class FourWayCrossingControllerEntranceStandardFactory {
             int cycleTimeVehiclesLight,
             int cycleTimePedestrianLight,
             //Location
-
             Location location,
             int secondsBetweenLaneSwitch) {
         //VehiclesMaps
@@ -170,4 +167,6 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         bottomLaneArgumentsMap.put(CYCLE_TIME, cycleTime);
         return bottomLaneArgumentsMap;
     }
+
+
 }
