@@ -55,6 +55,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
     Location location;
     final int secondsBetweenLaneSwitch = 2;
     //VehiclesMaps
+    //TODO: Add KEy and Value declaration to HashMaps
     HashMap leftStraightVehiclesMap = new HashMap();
     HashMap rightStraightVehiclesMap = new HashMap();
     HashMap topStraightVehiclesMap = new HashMap();
@@ -67,13 +68,15 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
     //Parameter Map
     HashMap parameterMap = new HashMap();
 
+
     @BeforeEach
-    void setUp() {
+    @Test
+    public void setUp() {
         //Initialize Behaviour and location
         //TODO: Create mock object for interface behaviours
-        MockitoAnnotations.openMocks(this.straightTrafficLightBehaviour);
-        MockitoAnnotations.openMocks(this.pedestrianLightBehaviour);
-        this.location = mock(Location.class);
+        this.straightTrafficLightBehaviour = Mockito.mock(StraightTrafficLightBehaviour.class);
+        this.pedestrianLightBehaviour = Mockito.mock(PedestrianLightBehaviour.class);
+        this.location = Mockito.mock(Location.class);
 
 
         //Initialize number of lights for Vehicles
