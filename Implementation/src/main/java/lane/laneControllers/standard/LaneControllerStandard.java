@@ -23,11 +23,14 @@ public abstract class LaneControllerStandard implements LaneController, Runnable
     private LightBehaviour goState, stopState;
 
 
+    /**
+     * Creates an Instance and Components of LaneControllerStandard.
+     * @param parameterList The parameters required to create LaneControllerStandard.
+     */
     public LaneControllerStandard(Map<LaneParameterKey, Object> parameterList) {
-
+        //Create fields and assign values
         lights = new ArrayList<ObserverLight>();
 
-        //TODO: Exception handling
         this.goDuration = (int) parameterList.get(GO_DURATION);
         this.cycleTime = (int) parameterList.get(CYCLE_TIME);
 
@@ -35,19 +38,28 @@ public abstract class LaneControllerStandard implements LaneController, Runnable
         var lightsBehaviour = (LightBehaviour) parameterList.get(LIGHT_BEHAVIOUR);
         var location = (Location) parameterList.get(LOCATION);
 
+        //Get go and stop state out of light behaviour
         goState = lightsBehaviour.getGoState();
         stopState = lightsBehaviour.getStopState();
 
+        //Create and add lights
         addLights(numberLights,
                 lightsBehaviour,
                 location);
     }
 
+    /**
+     * Return List with lights
+     * @return List with ObserverLights
+     */
     @Override
     public List<ObserverLight> getLights() {
         return lights;
     }
 
+    /**
+     * Proceed all saved lights by one state.
+     */
     @Override
     public void proceedOneState() {
         for (var currentLight : lights) {
@@ -55,6 +67,11 @@ public abstract class LaneControllerStandard implements LaneController, Runnable
         }
     }
 
+    /**
+     * Cycle all saved lights.
+     * @param sleeper A class used to sleep a Thread.
+     * @throws InterruptedException If the thread gets interrupted.
+     */
     void cycleLights(Sleeper sleeper) throws InterruptedException {
         var leadingLight = lights.get(0);
         var currentState = leadingLight.getChangeBehaviour();
@@ -72,11 +89,18 @@ public abstract class LaneControllerStandard implements LaneController, Runnable
         } while (currentState != stopState);
     }
 
+    /**
+     * Call cycle lights and give standard Sleeper.
+     * @throws InterruptedException If the thread gets interrupted.
+     */
     @Override
     public void cycleLights() throws InterruptedException {
         this.cycleLights(new Sleeper());
     }
 
+    /**
+     * Call cycleLights method.
+     */
     @Override
     public void run() {
         try {

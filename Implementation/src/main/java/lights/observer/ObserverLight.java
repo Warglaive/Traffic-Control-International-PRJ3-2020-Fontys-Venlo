@@ -10,7 +10,7 @@ import java.util.Observable;
 /**
  * The type Observer light.
  */
-public abstract class ObserverLight extends Observable implements Light {
+public abstract class ObserverLight extends Observable implements lights.Light {
     private LightBehaviour changeBehaviour;
     private Location location;
 
@@ -38,12 +38,24 @@ public abstract class ObserverLight extends Observable implements Light {
         }
     }
 
+    /**
+     * Set a given change behaviour.
+     * @param changeBehaviour the change behaviour.
+     */
     public void setChangeBehaviour(LightBehaviour changeBehaviour) {this.changeBehaviour = changeBehaviour;}
 
+    /**
+     * Get saved change behaviour.
+     * @return A LightBehaviour.
+     */
     public LightBehaviour getChangeBehaviour() {
         return changeBehaviour;
     }
 
+    /**
+     * Get saved location.
+     * @return Location.
+     */
     @Generated
     public Location getLocation() {
         return location;

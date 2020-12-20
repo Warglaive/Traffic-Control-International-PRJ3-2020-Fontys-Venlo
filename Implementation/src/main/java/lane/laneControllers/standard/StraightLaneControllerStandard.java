@@ -9,6 +9,10 @@ import lights.observer.StraightTrafficObserverLightStandard;
 import java.util.Map;
 
 public class StraightLaneControllerStandard extends LaneControllerStandard {
+    /**
+     * Creates an Instance and Components of StraightLaneControllerStandard.
+     * @param parameterList The parameters required to create LaneControllerStandard.
+     */
     public StraightLaneControllerStandard(Map<LaneParameterKey, Object> parameterList) {
         super(parameterList);
     }

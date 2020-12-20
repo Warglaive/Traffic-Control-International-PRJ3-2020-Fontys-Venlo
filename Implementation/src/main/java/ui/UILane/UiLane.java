@@ -3,7 +3,6 @@ package ui.UILane;
 import crossings.parameterEnums.LaneControllerType;
 import javafx.scene.shape.Circle;
 import lane.Lane;
-import lights.Light;
 import lights.observer.ObserverLight;
 import ui.Controller.ThreeLightsRepresentation;
 import ui.Controller.TwoLightsRepresentation;
@@ -19,11 +18,11 @@ import java.util.Map;
 
 public class UiLane {
     private Lane businessLogicLane;
-    private HashMap<UiLightType, List<Light>> lights;
+    private HashMap<UiLightType, List<lights.Light>> lights;
 
     public UiLane(Lane businessLogicLane, Map<LaneControllerType, List<Map<String, Circle>>> circles) {
         this.businessLogicLane = businessLogicLane;
-        this.lights = new HashMap<UiLightType, List<Light>>();
+        this.lights = new HashMap<UiLightType, List<lights.Light>>();
 
         this.fetchStraightLights(businessLogicLane, circles.get(LaneControllerType.STRAIGHT));
         this.fetchPedestrianLights(businessLogicLane, circles.get(LaneControllerType.PEDESTRIAN));
@@ -75,7 +74,7 @@ public class UiLane {
         lights.put(UiLightType.STRAIGHTLIGHTS, tempList);
     }
 
-    public List<Light> getStraightLights() {
+    public List<lights.Light> getStraightLights() {
         return lights.get(UiLightType.STRAIGHTLIGHTS);
     }
 }

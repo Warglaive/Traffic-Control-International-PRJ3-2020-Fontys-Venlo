@@ -49,16 +49,28 @@ public class LaneStandard implements Lane {
         );
     }
 
+    /**
+     * Get straightLaneControllerStandard.
+     * @return The saved straightLaneControllerStandard.
+     */
     public StraightLaneControllerStandard getStraightLaneController() {
         return straightLaneControllerStandard;
     }
 
+    /**
+     * Get pedestrianLaneControllerStandard.
+     * @return The saved pedestrianLaneControllerStandard.
+     */
     @Generated
     @Override
     public LaneController getPedestrianLaneController() {
         return this.pedestrianLaneControllerStandard;
     }
 
+    /**
+     * Cycle saved straight lights.
+     * @throws InterruptedException If the thread gets interrupted.
+     */
     @Override
     public void cycleStraightLights() throws InterruptedException {
         this.straightLaneControllerStandard.cycleLights();

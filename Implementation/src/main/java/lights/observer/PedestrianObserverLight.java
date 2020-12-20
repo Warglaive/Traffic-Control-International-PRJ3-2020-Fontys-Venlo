@@ -19,6 +19,10 @@ public abstract class PedestrianObserverLight extends ObserverLight {
 
     }
 
+    /**
+     * Set a given change behaviour.
+     * @param changeBehaviour the change behaviour.
+     */
     @Override
     public void setChangeBehaviour(LightBehaviour changeBehaviour) {
         try {

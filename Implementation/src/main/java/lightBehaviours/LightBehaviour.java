@@ -3,7 +3,12 @@ package lightBehaviours;
 import lights.observer.ObserverLight;
 
 public interface LightBehaviour {
-    String changeColor(ObserverLight observerLight);
+    /**
+     * Advance one state.
+     * @param light The light the LightBehaviour has to be changed on.
+     * @return A String representation of the light.
+     */
+    String changeColor(ObserverLight light);
     String getColor();
 
     /**

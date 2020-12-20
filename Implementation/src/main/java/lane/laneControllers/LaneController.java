@@ -21,8 +21,16 @@ public interface LaneController {
      */
     void proceedOneState();
 
+    /**
+     * Cycle all saved lights.
+     * @throws InterruptedException If Thread gets interrupted.
+     */
     void cycleLights() throws InterruptedException;
 
+    /**
+     * Get list of saved lights.
+     * @return List of lights.
+     */
     List getLights();
 }
 

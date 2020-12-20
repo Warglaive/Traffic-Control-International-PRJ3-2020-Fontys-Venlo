@@ -18,6 +18,10 @@ public abstract class StraightTrafficObserverLight extends ObserverLight {
         super(changeBehaviour, location);
     }
 
+    /**
+     * Set a given change behaviour.
+     * @param changeBehaviour the change behaviour.
+     */
     @Override
     public void setChangeBehaviour(LightBehaviour changeBehaviour) {
         try {
