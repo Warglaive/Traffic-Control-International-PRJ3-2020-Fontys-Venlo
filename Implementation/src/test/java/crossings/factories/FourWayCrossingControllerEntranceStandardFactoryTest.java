@@ -1,6 +1,7 @@
 
 package crossings.factories;
 
+import crossings.TestUtils;
 import crossings.crossingControllers.fourWay.FourWayCrossingControllerEntranceStandard;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
@@ -9,6 +10,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import java.util.HashMap;
 
@@ -18,6 +21,7 @@ import static crossings.parameterEnums.LaneParameterKey.*;
 import static crossings.parameterEnums.LaneType.*;
 import static crossings.parameterEnums.LaneType.BOTTOM_LANE;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
 
 public class FourWayCrossingControllerEntranceStandardFactoryTest {
     //hardcoded values
@@ -39,7 +43,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
     StraightTrafficLightBehaviour straightTrafficLightBehaviour;
     //Pedestrian traffic light behaviour
     @Mock
-    PedestrianLightBehaviour pedestrianLightBehaviour ;
+    PedestrianLightBehaviour pedestrianLightBehaviour;
     //GoDuration Vehicles HARDCODED VALUES
     final int goDurationVehiclesLight = 5;
     final int goDurationPedestriansLight = 5;
@@ -65,6 +69,13 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
 
     @BeforeEach
     void setUp() {
+        //Initialize Behaviour and location
+        //TODO: Create mock object for interface behaviours
+        MockitoAnnotations.openMocks(this.straightTrafficLightBehaviour);
+        MockitoAnnotations.openMocks(this.pedestrianLightBehaviour);
+        this.location = mock(Location.class);
+
+
         //Initialize number of lights for Vehicles
         this.straightNumberLightsLeftVehicles = this.numberOfLightsForVehicles;
         this.straightNumberLightsRightVehicles = this.numberOfLightsForVehicles;
@@ -150,7 +161,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
         this.bottomStraightPedestriansMap.put(PEDESTRIAN, bottomStraightPedestriansArgumentsMap);
 
         //Parameter Map Initialize
-       // this.parameterMap = new HashMap();
+        // this.parameterMap = new HashMap();
         //add laneVehiclesMaps to ParameterMap
         this.parameterMap.put(LEFT_LANE, this.leftStraightVehiclesMap);
         this.parameterMap.put(RIGHT_LANE, this.rightStraightVehiclesMap);
