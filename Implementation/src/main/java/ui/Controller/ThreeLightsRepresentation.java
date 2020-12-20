@@ -26,4 +26,15 @@ public class ThreeLightsRepresentation implements LightRepresentation{
         midCircle.setFill(colorArray[1]);
         bottomCircle.setFill(colorArray[2]);
     }
+
+    @Override
+    public Color[] getColor() {
+
+        Color topCircleFill = (Color) topCircle.getFill();
+        Color midCircleFill = (Color) midCircle.getFill();
+        Color bottomCircleFill = (Color) bottomCircle.getFill();
+        Color[] colorArray = {topCircleFill, midCircleFill, bottomCircleFill };
+
+        return colorArray;
+    }
 }

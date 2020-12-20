@@ -4,10 +4,15 @@ import lights.observer.ObserverLight;
 import ui.Controller.ThreeLightsRepresentation;
 import ui.UILight.Country;
 
-public abstract class UITrafficLightStandard extends UITrafficLightObserver {
+public class UITrafficLightStandard extends UITrafficLightObserver {
 
     public UITrafficLightStandard(ObserverLight businessLight, Country country, ThreeLightsRepresentation threeLightsRepresentation) {
 
         super(businessLight, country, threeLightsRepresentation);
+    }
+
+    public UITrafficLightStandard(){
+        super();
+
     }
 }

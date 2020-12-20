@@ -27,7 +27,6 @@ public abstract class UITrafficLight implements UILight {
     public UITrafficLight(ObserverLight businessLight, Country country, ThreeLightsRepresentation threeLightsRepresentation) {
 
         this.country = country;
-
         this.businessLight = businessLight;
         this.threeLightsRepresentation = threeLightsRepresentation;
         this.uiCountryLightMapper = new UICountryLightMapper();
@@ -40,6 +39,11 @@ public abstract class UITrafficLight implements UILight {
                 countrySpecificLightRepresentationMap = uiCountryLightMapper.dutchLightMap();
                 break;
         }
+    }
+
+    public UITrafficLight(){
+
+        this.uiCountryLightMapper = new UICountryLightMapper();
     }
 
     /*
@@ -66,5 +70,23 @@ public abstract class UITrafficLight implements UILight {
     @Override
     public void changeColor(Color[] colors) {
         threeLightsRepresentation.setColor(colors);
+    }
+
+    public void setCountry(Country country) {
+
+        this.country = country;
+
+        switch (this.country) {
+            case GERMANY:
+                countrySpecificLightRepresentationMap = uiCountryLightMapper.germanLightMap();
+                break;
+            case NETHERLANDS:
+                countrySpecificLightRepresentationMap = uiCountryLightMapper.dutchLightMap();
+                break;
+        }
+    }
+
+    public void setThreeLightsRepresentation(ThreeLightsRepresentation representation){
+        this.threeLightsRepresentation = representation;
     }
 }

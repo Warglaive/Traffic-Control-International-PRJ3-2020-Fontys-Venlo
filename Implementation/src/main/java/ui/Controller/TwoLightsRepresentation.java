@@ -17,4 +17,15 @@ public class TwoLightsRepresentation implements LightRepresentation {
         topCircle.setFill(colorArray[0]);
         bottomCircle.setFill(colorArray[1]);
     }
+
+    @Override
+    public Color[] getColor() {
+
+        Color topCircleFill = (Color) topCircle.getFill();
+
+        Color bottomCircleFill = (Color) bottomCircle.getFill();
+        Color[] colorArray = {topCircleFill, bottomCircleFill };
+
+        return colorArray;
+    }
 }
