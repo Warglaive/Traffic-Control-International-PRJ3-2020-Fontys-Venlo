@@ -15,6 +15,11 @@ public abstract class UITrafficLightObserver extends UITrafficLight implements O
         businessLight.addObserver(this);
     }
 
+    public UITrafficLightObserver(){
+        super();
+
+    }
+
     @Override
     public void update(Observable o, Object arg) {
         var color = (String) arg;
