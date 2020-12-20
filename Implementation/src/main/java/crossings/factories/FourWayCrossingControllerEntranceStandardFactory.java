@@ -168,6 +168,11 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         bottomLaneArgumentsMap.put(CYCLE_TIME, cycleTime);
         return bottomLaneArgumentsMap;
     }
-
-
+    /*
+    String[] bla = String{"bottom","top"};
+    for(int i = 0; i<bla.length();i++))
+    {
+        bla[i]+laneArgumentsMap.
+    }
+    */
 }
