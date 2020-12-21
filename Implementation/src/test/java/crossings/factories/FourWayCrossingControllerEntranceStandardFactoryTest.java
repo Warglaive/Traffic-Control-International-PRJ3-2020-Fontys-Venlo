@@ -59,7 +59,6 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
     Location location;
     final int secondsBetweenLaneSwitch = 2;
     //VehiclesMaps
-    //TODO: Add KEy and Value declaration to HashMaps
     Map<LaneControllerType, Map<LaneParameterKey, Object>> leftStraightVehiclesMap = new HashMap<>();
     Map<LaneControllerType, Map<LaneParameterKey, Object>> rightStraightVehiclesMap = new HashMap<>();
     Map<LaneControllerType, Map<LaneParameterKey, Object>> topStraightVehiclesMap = new HashMap<>();
