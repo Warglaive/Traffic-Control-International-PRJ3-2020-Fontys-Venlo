@@ -3,6 +3,9 @@ package crossings.factories;
 
 import crossings.TestUtils;
 import crossings.crossingControllers.fourWay.FourWayCrossingControllerEntranceStandard;
+import crossings.parameterEnums.LaneControllerType;
+import crossings.parameterEnums.LaneParameterKey;
+import crossings.parameterEnums.LaneType;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lights.Location;
@@ -14,6 +17,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static crossings.parameterEnums.LaneControllerType.PEDESTRIAN;
 import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
@@ -66,14 +70,13 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
     HashMap topStraightPedestriansMap = new HashMap();
     HashMap bottomStraightPedestriansMap = new HashMap();
     //Parameter Map
-    HashMap parameterMap = new HashMap();
+    Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>>  parameterMap = new HashMap<>();
 
 
     @BeforeEach
     @Test
     public void setUp() {
         //Initialize Behaviour and location
-        //TODO: Create mock object for interface behaviours
         this.straightTrafficLightBehaviour = Mockito.mock(StraightTrafficLightBehaviour.class);
         this.pedestrianLightBehaviour = Mockito.mock(PedestrianLightBehaviour.class);
         this.location = Mockito.mock(Location.class);

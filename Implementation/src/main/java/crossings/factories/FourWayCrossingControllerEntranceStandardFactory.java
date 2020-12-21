@@ -1,11 +1,15 @@
 package crossings.factories;
 
 import crossings.crossingControllers.fourWay.FourWayCrossingControllerEntranceStandard;
+import crossings.parameterEnums.LaneControllerType;
+import crossings.parameterEnums.LaneParameterKey;
+import crossings.parameterEnums.LaneType;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lights.Location;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static crossings.parameterEnums.LaneControllerType.PEDESTRIAN;
 import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
@@ -40,50 +44,50 @@ public class FourWayCrossingControllerEntranceStandardFactory {
             //Location
             Location location,
             int secondsBetweenLaneSwitch) {
-            //VehiclesMaps
-            HashMap leftStraightVehiclesMap = new HashMap();
-            HashMap rightStraightVehiclesMap = new HashMap();
-            HashMap topStraightVehiclesMap = new HashMap();
-            HashMap bottomStraightVehiclesMap = new HashMap();
-            //PedestrianMaps
-            HashMap leftStraightPedestriansMap = new HashMap();
-            HashMap rightStraightPedestriansMap = new HashMap();
-            HashMap topStraightPedestriansMap = new HashMap();
-            HashMap bottomStraightPedestriansMap = new HashMap();
-            //Vehicles take Arguments from Methods
-            HashMap leftLaneVehiclesArgumentsMap = mapLeftStraightVehiclesArgumentsLane(straightNumberLightsLeftVehicles, goDurationVehiclesLight, cycleTimeVehiclesLight, location, straightTrafficLightBehaviour);
-            HashMap rightLaneVehiclesArgumentsMap = mapRightStraightVehiclesArgumentsLane(straightNumberLightsRightVehicles, goDurationVehiclesLight, cycleTimeVehiclesLight, location, straightTrafficLightBehaviour);
-            HashMap topLaneVehiclesArgumentsMap = mapTopStraightVehiclesArgumentsLane(straightNumberLightsTopVehicles, goDurationVehiclesLight, cycleTimeVehiclesLight, location, straightTrafficLightBehaviour);
-            HashMap bottomLaneVehiclesArgumentsMap = mapBottomStraightVehiclesArgumentsLane(straightNumberLightsBottomVehicles, goDurationVehiclesLight, cycleTimeVehiclesLight, location, straightTrafficLightBehaviour);
-            //Pedestrians take Arguments from Methods
-            HashMap leftLanePedestriansArgumentsMap = mapLeftStraightPedestrianArgumentsLane(straightNumberLightsLeftPedestrians, goDurationPedestriansLight, cycleTimePedestrianLight, location, pedestrianLightBehaviour);
-            HashMap rightLanePedestrianArgumentsMap = mapRightStraightPedestrianArgumentsLane(straightNumberLightsRightPedestrians, goDurationPedestriansLight, cycleTimePedestrianLight, location, pedestrianLightBehaviour);
-            HashMap topLanePedestrianArgumentsMap = mapTopStraightPedestrianArgumentsLane(straightNumberLightsTopPedestrians, goDurationPedestriansLight, cycleTimePedestrianLight, location, pedestrianLightBehaviour);
-            HashMap bottomLanePedestrianArgumentsMap = mapBottomStraightPedestrianArgumentsLane(straightNumberLightsBottomPedestrians, goDurationPedestriansLight, cycleTimePedestrianLight, location, pedestrianLightBehaviour);
-            //Parameter Map
-            HashMap parameterMap = new HashMap();
-            //Vehicles
-            leftStraightVehiclesMap.put(STRAIGHT, leftLaneVehiclesArgumentsMap);
-            rightStraightVehiclesMap.put(STRAIGHT, rightLaneVehiclesArgumentsMap);
-            topStraightVehiclesMap.put(STRAIGHT, topLaneVehiclesArgumentsMap);
-            bottomStraightVehiclesMap.put(STRAIGHT, bottomLaneVehiclesArgumentsMap);
-            //Pedestrian
-            leftStraightPedestriansMap.put(PEDESTRIAN, leftLanePedestriansArgumentsMap);
-            rightStraightPedestriansMap.put(PEDESTRIAN, rightLanePedestrianArgumentsMap);
-            topStraightPedestriansMap.put(PEDESTRIAN, topLanePedestrianArgumentsMap);
-            bottomStraightPedestriansMap.put(PEDESTRIAN, bottomLanePedestrianArgumentsMap);
+        //VehiclesMaps
+        Map<LaneControllerType, Map<LaneParameterKey, Object>> leftStraightVehiclesMap = new HashMap();
+        Map<LaneControllerType, Map<LaneParameterKey, Object>> rightStraightVehiclesMap = new HashMap();
+        Map<LaneControllerType, Map<LaneParameterKey, Object>> topStraightVehiclesMap = new HashMap();
+        Map<LaneControllerType, Map<LaneParameterKey, Object>> bottomStraightVehiclesMap = new HashMap();
+        //PedestrianMaps
+        Map<LaneControllerType, Map<LaneParameterKey, Object>> leftStraightPedestriansMap = new HashMap();
+        Map<LaneControllerType, Map<LaneParameterKey, Object>> rightStraightPedestriansMap = new HashMap();
+        Map<LaneControllerType, Map<LaneParameterKey, Object>> topStraightPedestriansMap = new HashMap();
+        Map<LaneControllerType, Map<LaneParameterKey, Object>> bottomStraightPedestriansMap = new HashMap();
+        //Vehicles take Arguments from Methods
+        Map<LaneParameterKey, Object> leftLaneVehiclesArgumentsMap = mapLeftStraightVehiclesArgumentsLane(straightNumberLightsLeftVehicles, goDurationVehiclesLight, cycleTimeVehiclesLight, location, straightTrafficLightBehaviour);
+        Map<LaneParameterKey, Object> rightLaneVehiclesArgumentsMap = mapRightStraightVehiclesArgumentsLane(straightNumberLightsRightVehicles, goDurationVehiclesLight, cycleTimeVehiclesLight, location, straightTrafficLightBehaviour);
+        Map<LaneParameterKey, Object> topLaneVehiclesArgumentsMap = mapTopStraightVehiclesArgumentsLane(straightNumberLightsTopVehicles, goDurationVehiclesLight, cycleTimeVehiclesLight, location, straightTrafficLightBehaviour);
+        Map<LaneParameterKey, Object> bottomLaneVehiclesArgumentsMap = mapBottomStraightVehiclesArgumentsLane(straightNumberLightsBottomVehicles, goDurationVehiclesLight, cycleTimeVehiclesLight, location, straightTrafficLightBehaviour);
+        //Pedestrians take Arguments from Methods
+        Map<LaneParameterKey, Object> leftLanePedestriansArgumentsMap = mapLeftStraightPedestrianArgumentsLane(straightNumberLightsLeftPedestrians, goDurationPedestriansLight, cycleTimePedestrianLight, location, pedestrianLightBehaviour);
+        Map<LaneParameterKey, Object> rightLanePedestrianArgumentsMap = mapRightStraightPedestrianArgumentsLane(straightNumberLightsRightPedestrians, goDurationPedestriansLight, cycleTimePedestrianLight, location, pedestrianLightBehaviour);
+        Map<LaneParameterKey, Object> topLanePedestrianArgumentsMap = mapTopStraightPedestrianArgumentsLane(straightNumberLightsTopPedestrians, goDurationPedestriansLight, cycleTimePedestrianLight, location, pedestrianLightBehaviour);
+        Map<LaneParameterKey, Object> bottomLanePedestrianArgumentsMap = mapBottomStraightPedestrianArgumentsLane(straightNumberLightsBottomPedestrians, goDurationPedestriansLight, cycleTimePedestrianLight, location, pedestrianLightBehaviour);
+        //Parameter Map
+        Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterMap = new HashMap();
+        //Vehicles
+        leftStraightVehiclesMap.put(STRAIGHT, leftLaneVehiclesArgumentsMap);
+        rightStraightVehiclesMap.put(STRAIGHT, rightLaneVehiclesArgumentsMap);
+        topStraightVehiclesMap.put(STRAIGHT, topLaneVehiclesArgumentsMap);
+        bottomStraightVehiclesMap.put(STRAIGHT, bottomLaneVehiclesArgumentsMap);
+        //Pedestrian
+        leftStraightPedestriansMap.put(PEDESTRIAN, leftLanePedestriansArgumentsMap);
+        rightStraightPedestriansMap.put(PEDESTRIAN, rightLanePedestrianArgumentsMap);
+        topStraightPedestriansMap.put(PEDESTRIAN, topLanePedestrianArgumentsMap);
+        bottomStraightPedestriansMap.put(PEDESTRIAN, bottomLanePedestrianArgumentsMap);
 
-            //add laneVehiclesMaps to ParameterMap
-            parameterMap.put(LEFT_LANE, leftStraightVehiclesMap);
-            parameterMap.put(RIGHT_LANE, rightStraightVehiclesMap);
-            parameterMap.put(TOP_LANE, topStraightVehiclesMap);
-            parameterMap.put(BOTTOM_LANE, bottomStraightVehiclesMap);
-            //add laneVehiclesMaps to ParameterMap
-            parameterMap.put(LEFT_LANE, leftStraightPedestriansMap);
-            parameterMap.put(RIGHT_LANE, rightStraightPedestriansMap);
-            parameterMap.put(TOP_LANE, topStraightPedestriansMap);
-            parameterMap.put(BOTTOM_LANE, bottomStraightPedestriansMap);
-            return new FourWayCrossingControllerEntranceStandard(parameterMap, secondsBetweenLaneSwitch);
+        //add laneVehiclesMaps to ParameterMap
+        parameterMap.put(LEFT_LANE, leftStraightVehiclesMap);
+        parameterMap.put(RIGHT_LANE, rightStraightVehiclesMap);
+        parameterMap.put(TOP_LANE, topStraightVehiclesMap);
+        parameterMap.put(BOTTOM_LANE, bottomStraightVehiclesMap);
+        //add laneVehiclesMaps to ParameterMap
+        parameterMap.put(LEFT_LANE, leftStraightPedestriansMap);
+        parameterMap.put(RIGHT_LANE, rightStraightPedestriansMap);
+        parameterMap.put(TOP_LANE, topStraightPedestriansMap);
+        parameterMap.put(BOTTOM_LANE, bottomStraightPedestriansMap);
+        return new FourWayCrossingControllerEntranceStandard(parameterMap, secondsBetweenLaneSwitch);
     }
 
     //Pedestrians Argument map methods
@@ -129,8 +133,8 @@ public class FourWayCrossingControllerEntranceStandardFactory {
     }
 
     //Vehicles Argument map methods
-    private HashMap mapLeftStraightVehiclesArgumentsLane(int straightNumberLightsLeft, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
-        var leftLaneArgumentsMap = new HashMap();
+    private Map<LaneParameterKey, Object> mapLeftStraightVehiclesArgumentsLane(int straightNumberLightsLeft, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
+        Map<LaneParameterKey, Object> leftLaneArgumentsMap = new HashMap();
         leftLaneArgumentsMap.put(NUMBER_LIGHTS, straightNumberLightsLeft);
         leftLaneArgumentsMap.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);
         leftLaneArgumentsMap.put(LOCATION, location);
@@ -139,8 +143,8 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         return leftLaneArgumentsMap;
     }
 
-    private HashMap mapRightStraightVehiclesArgumentsLane(int straightNumberLightsRight, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
-        var rightLaneArgumentsMap = new HashMap();
+    private Map<LaneParameterKey, Object> mapRightStraightVehiclesArgumentsLane(int straightNumberLightsRight, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
+        Map<LaneParameterKey, Object> rightLaneArgumentsMap = new HashMap();
         rightLaneArgumentsMap.put(NUMBER_LIGHTS, straightNumberLightsRight);
         rightLaneArgumentsMap.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);
         rightLaneArgumentsMap.put(LOCATION, location);
@@ -149,8 +153,8 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         return rightLaneArgumentsMap;
     }
 
-    private HashMap mapTopStraightVehiclesArgumentsLane(int straightNumberLightsTop, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
-        var topLaneArgumentsMap = new HashMap();
+    private Map<LaneParameterKey, Object> mapTopStraightVehiclesArgumentsLane(int straightNumberLightsTop, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
+        Map<LaneParameterKey, Object> topLaneArgumentsMap = new HashMap();
         topLaneArgumentsMap.put(NUMBER_LIGHTS, straightNumberLightsTop);
         topLaneArgumentsMap.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);
         topLaneArgumentsMap.put(LOCATION, location);
@@ -159,8 +163,8 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         return topLaneArgumentsMap;
     }
 
-    private HashMap mapBottomStraightVehiclesArgumentsLane(int straightNumberLightsBottom, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
-        var bottomLaneArgumentsMap = new HashMap();
+    private Map<LaneParameterKey, Object> mapBottomStraightVehiclesArgumentsLane(int straightNumberLightsBottom, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
+        Map<LaneParameterKey, Object> bottomLaneArgumentsMap = new HashMap();
         bottomLaneArgumentsMap.put(NUMBER_LIGHTS, straightNumberLightsBottom);
         bottomLaneArgumentsMap.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);
         bottomLaneArgumentsMap.put(LOCATION, location);
