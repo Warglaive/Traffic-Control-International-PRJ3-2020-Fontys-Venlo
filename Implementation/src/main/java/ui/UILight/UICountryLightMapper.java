@@ -69,4 +69,5 @@ public class UICountryLightMapper {
         Color[] transparent = {black, black, black};
         return transparent;
     }
+
 }
