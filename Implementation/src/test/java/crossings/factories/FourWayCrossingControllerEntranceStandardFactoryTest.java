@@ -60,17 +60,17 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
     final int secondsBetweenLaneSwitch = 2;
     //VehiclesMaps
     //TODO: Add KEy and Value declaration to HashMaps
-    HashMap leftStraightVehiclesMap = new HashMap();
-    HashMap rightStraightVehiclesMap = new HashMap();
-    HashMap topStraightVehiclesMap = new HashMap();
-    HashMap bottomStraightVehiclesMap = new HashMap();
+    Map<LaneControllerType, Map<LaneParameterKey, Object>> leftStraightVehiclesMap = new HashMap<>();
+    Map<LaneControllerType, Map<LaneParameterKey, Object>> rightStraightVehiclesMap = new HashMap<>();
+    Map<LaneControllerType, Map<LaneParameterKey, Object>> topStraightVehiclesMap = new HashMap<>();
+    Map<LaneControllerType, Map<LaneParameterKey, Object>> bottomStraightVehiclesMap = new HashMap<>();
     //PedestrianMaps
-    HashMap leftStraightPedestriansMap = new HashMap();
-    HashMap rightStraightPedestriansMap = new HashMap();
-    HashMap topStraightPedestriansMap = new HashMap();
-    HashMap bottomStraightPedestriansMap = new HashMap();
+    Map<LaneControllerType, Map<LaneParameterKey, Object>> leftStraightPedestriansMap = new HashMap<>();
+    Map<LaneControllerType, Map<LaneParameterKey, Object>> rightStraightPedestriansMap = new HashMap<>();
+    Map<LaneControllerType, Map<LaneParameterKey, Object>> topStraightPedestriansMap = new HashMap<>();
+    Map<LaneControllerType, Map<LaneParameterKey, Object>> bottomStraightPedestriansMap = new HashMap<>();
     //Parameter Map
-    Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>>  parameterMap = new HashMap<>();
+    Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterMap = new HashMap<>();
 
 
     @BeforeEach
@@ -93,7 +93,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
         this.straightNumberLightsTopPedestrians = this.numberOfLightsForPedestrians;
         this.straightNumberLightsBottomPedestrians = this.numberOfLightsForPedestrians;
         //left LaneArgumentsMap
-        var leftLaneVehiclesArgumentsMap = new HashMap();
+        Map<LaneParameterKey, Object> leftLaneVehiclesArgumentsMap = new HashMap<>();
         leftLaneVehiclesArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsLeftVehicles);
         leftLaneVehiclesArgumentsMap.put(LIGHT_BEHAVIOUR, this.straightTrafficLightBehaviour);
         leftLaneVehiclesArgumentsMap.put(LOCATION, this.location);
@@ -102,7 +102,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
         //leftLaneArgumentsMap added to leftStraightVehiclesMap
         this.leftStraightVehiclesMap.put(STRAIGHT, leftLaneVehiclesArgumentsMap);
         //Right LaneArgumentsMAp
-        var rightLaneVehiclesArgumentsMap = new HashMap();
+        Map<LaneParameterKey, Object> rightLaneVehiclesArgumentsMap = new HashMap<>();
         rightLaneVehiclesArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsRightVehicles);
         rightLaneVehiclesArgumentsMap.put(LIGHT_BEHAVIOUR, this.straightTrafficLightBehaviour);
         rightLaneVehiclesArgumentsMap.put(LOCATION, this.location);
@@ -111,7 +111,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
         //RightLaneArgumentsMap added to rightStraightVehiclesMap
         this.rightStraightVehiclesMap.put(STRAIGHT, rightLaneVehiclesArgumentsMap);
         //TopLaneArgumentsMap
-        var topLaneVehiclesArgumentsMap = new HashMap();
+        Map<LaneParameterKey, Object> topLaneVehiclesArgumentsMap = new HashMap<>();
         topLaneVehiclesArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsTopVehicles);
         topLaneVehiclesArgumentsMap.put(LIGHT_BEHAVIOUR, this.straightTrafficLightBehaviour);
         topLaneVehiclesArgumentsMap.put(LOCATION, this.location);
@@ -120,7 +120,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
         //TopLaneArgumentsMap added to topStraightVehiclesMap
         this.topStraightVehiclesMap.put(STRAIGHT, topLaneVehiclesArgumentsMap);
         //BottomLaneArgumentsMap
-        var bottomLaneVehiclesArgumentsMap = new HashMap();
+        Map<LaneParameterKey, Object> bottomLaneVehiclesArgumentsMap = new HashMap<>();
         bottomLaneVehiclesArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsTopVehicles);
         bottomLaneVehiclesArgumentsMap.put(LIGHT_BEHAVIOUR, this.straightTrafficLightBehaviour);
         bottomLaneVehiclesArgumentsMap.put(LOCATION, this.location);
@@ -129,7 +129,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
         //BottomLaneArgumentsMap added to bottomStraightVehiclesMap
         this.bottomStraightVehiclesMap.put(STRAIGHT, bottomLaneVehiclesArgumentsMap);
         //leftStraightPedestriansArgumentsMap
-        var leftStraightPedestriansArgumentsMap = new HashMap();
+        Map<LaneParameterKey, Object> leftStraightPedestriansArgumentsMap = new HashMap<>();
         leftStraightPedestriansArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsLeftPedestrians);
         leftStraightPedestriansArgumentsMap.put(LIGHT_BEHAVIOUR, this.pedestrianLightBehaviour);
         leftStraightPedestriansArgumentsMap.put(LOCATION, this.location);
@@ -138,7 +138,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
         //leftStraightPedestriansArgumentsMap added to leftStraightPedestrianMap
         this.leftStraightPedestriansMap.put(PEDESTRIAN, leftLaneVehiclesArgumentsMap);
         //RightStraightPedestriansArgumentsMap
-        var rightStraightPedestriansArgumentsMap = new HashMap();
+        Map<LaneParameterKey, Object> rightStraightPedestriansArgumentsMap = new HashMap<>();
         rightStraightPedestriansArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsRightPedestrians);
         rightStraightPedestriansArgumentsMap.put(LIGHT_BEHAVIOUR, this.pedestrianLightBehaviour);
         rightStraightPedestriansArgumentsMap.put(LOCATION, this.location);
@@ -147,7 +147,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
         //RightStraightPedestriansArgumentsMap added to rightStraightPedestriansMap
         this.rightStraightPedestriansMap.put(PEDESTRIAN, rightStraightPedestriansArgumentsMap);
         //TopStraightPedestriansArgumentMap
-        var topStraightPedestriansArgumentsMap = new HashMap();
+        Map<LaneParameterKey, Object> topStraightPedestriansArgumentsMap = new HashMap<>();
         topStraightPedestriansArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsTopPedestrians);
         topStraightPedestriansArgumentsMap.put(LIGHT_BEHAVIOUR, this.pedestrianLightBehaviour);
         topStraightPedestriansArgumentsMap.put(LOCATION, this.location);
@@ -157,7 +157,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
         this.topStraightPedestriansMap.put(PEDESTRIAN, topStraightPedestriansArgumentsMap);
 
         //BottomStraightPedestriansArgumentMap
-        var bottomStraightPedestriansArgumentsMap = new HashMap();
+        Map<LaneParameterKey, Object> bottomStraightPedestriansArgumentsMap = new HashMap<>();
         bottomStraightPedestriansArgumentsMap.put(NUMBER_LIGHTS, this.straightNumberLightsBottomPedestrians);
         bottomStraightPedestriansArgumentsMap.put(LIGHT_BEHAVIOUR, this.pedestrianLightBehaviour);
         bottomStraightPedestriansArgumentsMap.put(LOCATION, this.location);
@@ -167,7 +167,6 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
         this.bottomStraightPedestriansMap.put(PEDESTRIAN, bottomStraightPedestriansArgumentsMap);
 
         //Parameter Map Initialize
-        // this.parameterMap = new HashMap();
         //add laneVehiclesMaps to ParameterMap
         this.parameterMap.put(LEFT_LANE, this.leftStraightVehiclesMap);
         this.parameterMap.put(RIGHT_LANE, this.rightStraightVehiclesMap);
