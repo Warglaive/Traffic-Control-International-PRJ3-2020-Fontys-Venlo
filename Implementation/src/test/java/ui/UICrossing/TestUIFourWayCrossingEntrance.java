@@ -19,16 +19,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static crossings.parameterEnums.LaneControllerType.PEDESTRIAN;
 import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
 import static org.mockito.Mockito.mock;
 import static crossings.parameterEnums.LaneType.*;
-import static org.mockito.Mockito.when;
 
 public class TestUIFourWayCrossingEntrance {
     private Map<String, Object> namespace;
@@ -40,17 +37,6 @@ public class TestUIFourWayCrossingEntrance {
     Lane leftLane, rightLane, topLane, bottomLane;
     @Mock
     Circle mockedCircle;
-    @Mock
-    StraightLaneControllerStandard straightLaneController;
-    @Mock
-    PedestrianLaneControllerStandard pedestrianLaneController;
-    @Mock
-    StraightTrafficObserverLightStandard straightLight;
-    @Mock
-    PedestrianObserverLightStandard pedestrianLight;
-
-    private List<ObserverLight> straightLightList;
-    private List<ObserverLight> pedestrianLightList;
 
 
     @BeforeEach
@@ -59,18 +45,9 @@ public class TestUIFourWayCrossingEntrance {
         MockitoAnnotations.openMocks(this);
         namespace = new HashMap();
 
-        this.straightLightList = new ArrayList<>();
-        straightLightList.add(straightLight);
-
-        this.pedestrianLightList = new ArrayList<>();
-        pedestrianLightList.add(pedestrianLight);
-
         this.setIdentifiers();
         this.createCircles();
-        //this.setControllerBehaviour();
         this.createLanes();
-
-
     }
 
     private void createLanes() {
@@ -82,28 +59,7 @@ public class TestUIFourWayCrossingEntrance {
         rightLane = laneMap.get(RIGHT_LANE);
         topLane = laneMap.get(TOP_LANE);
         bottomLane = laneMap.get(BOTTOM_LANE);
-/*
-        leftLane = mock(LaneStandard.class);
-        rightLane = mock(LaneStandard.class);
-        topLane = mock(LaneStandard.class);
-        bottomLane = mock(LaneStandard.class);
-*/
-        /*
-        this.setLaneBehaviour(leftLane);
-        this.setLaneBehaviour(rightLane);
-        this.setLaneBehaviour(topLane);
-        this.setLaneBehaviour(bottomLane);*/
     }
-/*
-    private void setLaneBehaviour(Lane lane) {
-        when(lane.getStraightLaneController()).thenReturn(straightLaneController);
-        when(lane.getPedestrianLaneController()).thenReturn(pedestrianLaneController);
-    }
-
-    private void setControllerBehaviour() {
-        when(straightLaneController.getLights()).thenReturn(straightLightList);
-        when(pedestrianLaneController.getLights()).thenReturn(pedestrianLightList);
-    }*/
 
     private void setIdentifiers() {
         leftStraightIdentifier = "LL";
