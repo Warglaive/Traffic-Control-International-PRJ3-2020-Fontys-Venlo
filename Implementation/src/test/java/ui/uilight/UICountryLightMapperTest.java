@@ -1,4 +1,4 @@
-package uilight;
+package ui.uilight;
 
 import javafx.scene.paint.Color;
 

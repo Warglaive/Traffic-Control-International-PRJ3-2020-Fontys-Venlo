@@ -1,10 +1,9 @@
-package uilight;
+package ui.uilight;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import ui.Controller.ThreeLightsRepresentation;
 import ui.UILight.Country;
 import ui.UILight.TrafficLights.UITrafficLightStandard;

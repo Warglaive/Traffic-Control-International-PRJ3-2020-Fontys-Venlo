@@ -31,7 +31,7 @@ public class UIFourWayCrossingEntrance extends UIFourWayCrossing {
      * @param pedestrianLightIdentifier The unique identifying String parts in the circles ID for pedestrian lights. (Circles represent light bulbs).
      * @return A Map with Circles mapped to corresponding lightType.
      */
-    protected Map<LaneControllerType, List<Map<String, Circle>>> mapTrafficCircles(String trafficLightIdentifier, String pedestrianLightIdentifier) {
+    Map<LaneControllerType, List<Map<String, Circle>>> mapTrafficCircles(String trafficLightIdentifier, String pedestrianLightIdentifier) {
         var laneMap = new HashMap();
         laneMap.put(STRAIGHT, mapStraightCircles(trafficLightIdentifier));
         laneMap.put(PEDESTRIAN, mapPedestrianCircles(pedestrianLightIdentifier));
