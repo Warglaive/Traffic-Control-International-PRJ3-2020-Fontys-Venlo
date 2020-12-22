@@ -14,7 +14,6 @@ public class UICountryLightMapper {
     private static Color green = Color.GREEN;
     private static Color red = Color.RED;
     private static Color yellow = Color.YELLOW;
-    //TODO use transparent instead of black
     private static Color black = Color.BLACK;
 
     private Color[] greenLightRepresentation = {black, black, green};
