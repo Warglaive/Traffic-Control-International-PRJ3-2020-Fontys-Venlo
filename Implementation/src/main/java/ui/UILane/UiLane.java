@@ -16,10 +16,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UiLane {
+public abstract class UiLane {
     private Lane businessLogicLane;
-    private HashMap<UiLightType, List<lights.Light>> lights;
+    protected Map<UiLightType, List<lights.Light>> lights;
 
+    /**
+     * Create UILane instance.
+     * @param businessLogicLane A lane that is used to fetch business logic lights.
+     * @param circles The circles the UILights need.
+     */
     public UiLane(Lane businessLogicLane, Map<LaneControllerType, List<Map<String, Circle>>> circles) {
         this.businessLogicLane = businessLogicLane;
         this.lights = new HashMap<UiLightType, List<lights.Light>>();
@@ -28,51 +33,25 @@ public class UiLane {
         this.fetchPedestrianLights(businessLogicLane, circles.get(LaneControllerType.PEDESTRIAN));
     }
 
-    private void fetchStraightLights(Lane businessLogicLane, List<Map<String, Circle>> circles) {
-        var laneController = businessLogicLane.getStraightLaneController();
-        var businessLight = (ObserverLight) laneController.getLights().get(0);
+    /**
+     * Create UITrafficLights refering to businessLights.
+     * @param businessLogicLane Lane that contains businessLights.
+     * @param circles The circles the UILight requires.
+     */
+    abstract void fetchStraightLights(Lane businessLogicLane, List<Map<String, Circle>> circles);
 
-        for(var circleMap : circles) {
-            var lightRepresentation = new ThreeLightsRepresentation(
-                    circleMap.get("top"),
-                    circleMap.get("middle"),
-                    circleMap.get("bottom")
-            );
+    /**
+     * Create UIPedestrianLights refering to businessLights.
+     * @param businessLogicLane Lane that contains businessLights.
+     * @param circles The circles the UILight requires.
+     */
+    abstract void fetchPedestrianLights(Lane businessLogicLane, List<Map<String, Circle>> circles);
 
-            //TODO: Actual country translation
-            new UITrafficLightObserverStandard(
-                    businessLight,
-                    Country.GERMANY,
-                    lightRepresentation
-            );
-        }
-        addLightToList(businessLight);
-    }
-    private void fetchPedestrianLights(Lane businessLogicLane, List<Map<String, Circle>> circles) {
-        var laneController = businessLogicLane.getPedestrianLaneController();
-        var businessLight = (ObserverLight) laneController.getLights().get(0);
-        for(var circleMap : circles) {
-            var lightRepresentation = new TwoLightsRepresentation(
-                    circleMap.get("top"),
-                    circleMap.get("bottom")
-            );
-
-            //TODO: Actual country translation
-            new UIPedestrianLightObserverStandard(
-                    businessLight,
-                    Country.GERMANY,
-                    lightRepresentation
-            );
-        }
-        addLightToList(businessLight);
-    }
-
-    private void addLightToList(ObserverLight businessLight) {
-        var tempList = new ArrayList();
-        tempList.add(businessLight);
-
-        lights.put(UiLightType.STRAIGHTLIGHTS, tempList);
-    }
+    /**
+     * Add given Lights to the lights list
+     * @param businessLight A singular business light that is to be mapped to a UILight
+     */
+    abstract void addLightToList(ObserverLight businessLight, UiLightType lightType);
 
     public List<lights.Light> getStraightLights() {
         return lights.get(UiLightType.STRAIGHTLIGHTS);

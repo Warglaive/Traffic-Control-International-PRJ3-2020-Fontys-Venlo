@@ -15,6 +15,7 @@ import lightBehaviours.PedestrianLightBehaviourStandard;
 import lightBehaviours.StraightTrafficLightBehaviourGermany;
 import lights.Location;
 import ui.UICrossing.UIFourWayCrossingEntrance;
+import ui.UICrossing.UIFourWayCrossingEntranceObserver;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +46,7 @@ public class Main extends Application {
         var fourWayCrossing = this.getStandardBusinessCrossing();
         var fourWayCrossingController = fourWayCrossing.getController();
 
-        var ui = new UIFourWayCrossingEntrance(
+        var ui = new UIFourWayCrossingEntranceObserver(
                 fourWayCrossingController.getLeftLane(),
                 fourWayCrossingController.getRightLane(),
                 fourWayCrossingController.getTopLane(),
