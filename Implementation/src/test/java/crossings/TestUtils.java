@@ -3,16 +3,30 @@ package crossings;
 import crossings.parameterEnums.LaneControllerType;
 import crossings.parameterEnums.LaneParameterKey;
 import crossings.parameterEnums.LaneType;
+import lane.Lane;
+import lane.LaneStandard;
+import lane.laneControllers.LaneController;
+import lane.laneControllers.standard.PedestrianLaneControllerStandard;
+import lane.laneControllers.standard.StraightLaneControllerStandard;
 import lightBehaviours.LightBehaviour;
 import lights.Location;
+import lights.observer.ObserverLight;
+import lights.observer.PedestrianObserverLightStandard;
+import lights.observer.StraightTrafficObserverLight;
+import lights.observer.StraightTrafficObserverLightStandard;
+import ui.UILight.PedestrianLights.UIPedestrianLightObserverStandard;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static crossings.parameterEnums.LaneControllerType.PEDESTRIAN;
 import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
 import static crossings.parameterEnums.LaneParameterKey.*;
 import static crossings.parameterEnums.LaneType.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class TestUtils {
     public static Map<LaneControllerType, Map<LaneParameterKey, Object>> getLaneParamMap(
@@ -64,4 +78,54 @@ public class TestUtils {
 
         return fourLanes;
     }
+
+    public static Map<LaneType, Lane> getFullyMockedLanes(
+            int goDuration, int cycleTime, LightBehaviour straightLightBehaviour, LightBehaviour pedestrianLightBehaviour, Location location
+    ) {
+            var leftLane = mock(LaneStandard.class);
+            var rightLane = mock(LaneStandard.class);
+            var topLane = mock(LaneStandard.class);
+            var bottomLane = mock(LaneStandard.class);
+
+            var straightLaneController = mock(StraightLaneControllerStandard.class);
+            var pedestrianLaneController = mock(PedestrianLaneControllerStandard.class);
+
+            var straightLightList = new ArrayList();
+            var pedestrianLightList = new ArrayList();
+
+            straightLightList.add(mock(StraightTrafficObserverLightStandard.class));
+            pedestrianLightList.add(mock(PedestrianObserverLightStandard.class));
+
+            TestUtils.setControllerBehaviour(
+                    straightLaneController, pedestrianLaneController,
+                    straightLightList, pedestrianLightList
+            );
+
+            setLaneBehaviour(leftLane, straightLaneController, pedestrianLaneController);
+            setLaneBehaviour(rightLane,straightLaneController, pedestrianLaneController);
+            setLaneBehaviour(topLane, straightLaneController, pedestrianLaneController);
+            setLaneBehaviour(bottomLane, straightLaneController, pedestrianLaneController);
+
+            var returnMap = new HashMap();
+            returnMap.put(LEFT_LANE, leftLane);
+            returnMap.put(RIGHT_LANE, rightLane);
+            returnMap.put(TOP_LANE, topLane);
+            returnMap.put(BOTTOM_LANE, bottomLane);
+
+            return returnMap;
+        }
+
+    private static void setLaneBehaviour(Lane lane, LaneController straightLaneController, LaneController pedestrianLaneController) {
+        when(lane.getStraightLaneController()).thenReturn(straightLaneController);
+        when(lane.getPedestrianLaneController()).thenReturn(pedestrianLaneController);
+    }
+
+     private static void setControllerBehaviour(
+            LaneController straightLaneController, LaneController pedestrianLaneController,
+            List<ObserverLight> straightLightList, List<ObserverLight> pedestrianLightList) {
+
+        when(straightLaneController.getLights()).thenReturn(straightLightList);
+        when(pedestrianLaneController.getLights()).thenReturn(pedestrianLightList);
+    }
+
 }

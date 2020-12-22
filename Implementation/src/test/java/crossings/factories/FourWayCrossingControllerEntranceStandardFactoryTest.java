@@ -10,6 +10,7 @@ import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lights.Location;
 import org.assertj.core.api.Assertions;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mock;
@@ -73,7 +74,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
 
 
     @BeforeEach
-    @Test
+    @Before
     public void setUp() {
         //Initialize Behaviour and location
         this.straightTrafficLightBehaviour = Mockito.mock(StraightTrafficLightBehaviour.class);
