@@ -3,6 +3,7 @@ package ui.UILane;
 import crossings.parameterEnums.LaneControllerType;
 import javafx.scene.shape.Circle;
 import lane.Lane;
+import lights.Light;
 import lights.observer.ObserverLight;
 import ui.Controller.ThreeLightsRepresentation;
 import ui.Controller.TwoLightsRepresentation;
@@ -53,7 +54,17 @@ public abstract class UiLane {
      */
     abstract void addLightToList(ObserverLight businessLight, UiLightType lightType);
 
+    /**
+     * Return saved straight business lights
+     * @return A List of business lights
+     */
     public List<lights.Light> getStraightLights() {
         return lights.get(UiLightType.STRAIGHTLIGHTS);
     }
+
+    /**
+     * Return saved pedestrian business lights
+     * @return A List of business lights
+     */
+    public List<Light> getPedestrianLights() { return lights.get(UiLightType.PEDESTRIANLIGHTS); }
 }

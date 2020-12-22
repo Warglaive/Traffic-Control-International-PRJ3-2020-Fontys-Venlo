@@ -55,10 +55,10 @@ public class TestUIFourWayCrossingEntrance {
                 2, 5, mock(StraightTrafficLightBehaviour.class), mock(PedestrianLightBehaviour.class), mock(Location.class)
         );
 
-        leftLane = laneMap.get(LEFT_LANE);
-        rightLane = laneMap.get(RIGHT_LANE);
-        topLane = laneMap.get(TOP_LANE);
-        bottomLane = laneMap.get(BOTTOM_LANE);
+        leftLane = (Lane) laneMap.get(LEFT_LANE).get("Lane");
+        rightLane = (Lane) laneMap.get(RIGHT_LANE).get("Lane");
+        topLane = (Lane) laneMap.get(TOP_LANE).get("Lane");
+        bottomLane = (Lane) laneMap.get(BOTTOM_LANE).get("Lane");
     }
 
     private void setIdentifiers() {

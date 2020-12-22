@@ -79,7 +79,7 @@ public class TestUtils {
         return fourLanes;
     }
 
-    public static Map<LaneType, Lane> getFullyMockedLanes(
+    public static Map<LaneType, Map<String, Object>> getFullyMockedLanes(
             int goDuration, int cycleTime, LightBehaviour straightLightBehaviour, LightBehaviour pedestrianLightBehaviour, Location location
     ) {
             var leftLane = mock(LaneStandard.class);
@@ -106,13 +106,28 @@ public class TestUtils {
             setLaneBehaviour(topLane, straightLaneController, pedestrianLaneController);
             setLaneBehaviour(bottomLane, straightLaneController, pedestrianLaneController);
 
+
             var returnMap = new HashMap();
-            returnMap.put(LEFT_LANE, leftLane);
-            returnMap.put(RIGHT_LANE, rightLane);
-            returnMap.put(TOP_LANE, topLane);
-            returnMap.put(BOTTOM_LANE, bottomLane);
+
+            addToMap(returnMap, leftLane, "Lane", LEFT_LANE);
+            addToMap(returnMap, rightLane, "Lane", RIGHT_LANE);
+            addToMap(returnMap, topLane, "Lane", TOP_LANE);
+            addToMap(returnMap, bottomLane, "Lane", BOTTOM_LANE);
 
             return returnMap;
+        }
+
+        private static void addToMap(Map<LaneType, Map<String, Object>> map, Object item, String key, LaneType laneType) {
+            if (map.containsKey(laneType)) {
+                var innerMap = map.get(laneType);
+                if (innerMap.containsKey(key)) {
+                    innerMap.replace(key, item);
+                }
+            } else {
+                var newInnerMap = new HashMap();
+                newInnerMap.put(key, item);
+                map.put(laneType, newInnerMap);
+            }
         }
 
     private static void setLaneBehaviour(Lane lane, LaneController straightLaneController, LaneController pedestrianLaneController) {
