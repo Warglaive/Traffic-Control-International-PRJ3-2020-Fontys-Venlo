@@ -18,7 +18,6 @@ import static crossings.parameterEnums.LaneType.*;
 
 public class FourWayCrossingControllerEntranceStandardFactory {
     //Getter
-
     public FourWayCrossingControllerEntranceStandard getFourWayCrossingControllerEntranceStandard(
             //all number of lights is for straight crossings
             //Vehicles number of lights per lane
@@ -95,7 +94,7 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         return new FourWayCrossingControllerEntranceStandard(parameterMap, secondsBetweenLaneSwitch);
     }
 
-
+    //Pedestrian Argument map methods
     private Map<LaneParameterKey, Object> mapStraightLanePedestrianArguments(int straightNumberLightsLeftPedestrians, int goDuration, int cycleTime, Location location, PedestrianLightBehaviour straightTrafficLightBehaviour) {
         Map<LaneParameterKey, Object> leftLaneArgumentsMap = new HashMap<>();
         leftLaneArgumentsMap.put(NUMBER_LIGHTS, straightNumberLightsLeftPedestrians);
@@ -107,9 +106,9 @@ public class FourWayCrossingControllerEntranceStandardFactory {
     }
 
     //Vehicles Argument map methods
-    private Map<LaneParameterKey, Object> mapStraightLaneVehiclesArguments(int straightNumberLightsLeft, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
+    private Map<LaneParameterKey, Object> mapStraightLaneVehiclesArguments(int straightNumberLightsLeftVehicles, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
         Map<LaneParameterKey, Object> leftLaneArgumentsMap = new HashMap<>();
-        leftLaneArgumentsMap.put(NUMBER_LIGHTS, straightNumberLightsLeft);
+        leftLaneArgumentsMap.put(NUMBER_LIGHTS, straightNumberLightsLeftVehicles);
         leftLaneArgumentsMap.put(LIGHT_BEHAVIOUR, straightTrafficLightBehaviour);
         leftLaneArgumentsMap.put(LOCATION, location);
         leftLaneArgumentsMap.put(GO_DURATION, goDuration);
