@@ -17,6 +17,26 @@ import static crossings.parameterEnums.LaneParameterKey.*;
 import static crossings.parameterEnums.LaneType.*;
 
 public class FourWayCrossingControllerEntranceStandardFactory {
+    /**
+     * takes all arguments needed for the creation of FourWayCrossingControllerEntranceStandard object
+     * @param straightNumberLightsLeftVehicles
+     * @param straightNumberLightsRightVehicles
+     * @param straightNumberLightsTopVehicles
+     * @param straightNumberLightsBottomVehicles
+     * @param straightNumberLightsLeftPedestrians
+     * @param straightNumberLightsRightPedestrians
+     * @param straightNumberLightsTopPedestrians
+     * @param straightNumberLightsBottomPedestrians
+     * @param straightTrafficLightBehaviour
+     * @param pedestrianLightBehaviour
+     * @param goDurationVehiclesLight
+     * @param goDurationPedestriansLight
+     * @param cycleTimeVehiclesLight
+     * @param cycleTimePedestrianLight
+     * @param location
+     * @param secondsBetweenLaneSwitch
+     * @return new FourWayCrossingControllerEntranceStandard object
+     */
     //Getter
     public FourWayCrossingControllerEntranceStandard getFourWayCrossingControllerEntranceStandard(
             //all number of lights is for straight crossings
@@ -101,7 +121,7 @@ public class FourWayCrossingControllerEntranceStandardFactory {
      * @param cycleTime
      * @param location
      * @param straightTrafficLightBehaviour
-     * @return
+     * @return straight pedestrian traffic lane arguments
      */
     private Map<LaneParameterKey, Object> mapStraightLanePedestrianArguments(int straightNumberLightsLeftPedestrians, int goDuration, int cycleTime, Location location, PedestrianLightBehaviour straightTrafficLightBehaviour) {
         Map<LaneParameterKey, Object> StraightLanePedestrianArgumentsMap = new HashMap<>();
@@ -113,6 +133,15 @@ public class FourWayCrossingControllerEntranceStandardFactory {
         return StraightLanePedestrianArgumentsMap;
     }
 
+    /**
+     *
+     * @param straightNumberLightsLeftVehicles
+     * @param goDuration
+     * @param cycleTime
+     * @param location
+     * @param straightTrafficLightBehaviour
+     * @return straight vehicle traffic lane arguments
+     */
     //Vehicles Argument map methods
     private Map<LaneParameterKey, Object> mapStraightLaneVehiclesArguments(int straightNumberLightsLeftVehicles, int goDuration, int cycleTime, Location location, StraightTrafficLightBehaviour straightTrafficLightBehaviour) {
         Map<LaneParameterKey, Object> StraightLaneVehiclesArgumentsMap = new HashMap<>();
