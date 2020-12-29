@@ -95,8 +95,14 @@ public class FourWayCrossingControllerEntranceStandardFactory {
     }
 
     /**
-     * Pedestrian Argument map methods
-     *  */
+     *
+     * @param straightNumberLightsLeftPedestrians
+     * @param goDuration
+     * @param cycleTime
+     * @param location
+     * @param straightTrafficLightBehaviour
+     * @return
+     */
     private Map<LaneParameterKey, Object> mapStraightLanePedestrianArguments(int straightNumberLightsLeftPedestrians, int goDuration, int cycleTime, Location location, PedestrianLightBehaviour straightTrafficLightBehaviour) {
         Map<LaneParameterKey, Object> StraightLanePedestrianArgumentsMap = new HashMap<>();
         StraightLanePedestrianArgumentsMap.put(NUMBER_LIGHTS, straightNumberLightsLeftPedestrians);
