@@ -85,7 +85,6 @@ public class UIStraightCrossingEntranceTest {
 
     @Test
     public void testMapCirclesToStringX() {
-        //Straight here
         UIStraightCrossingEntrance crossing = new UIStraightCrossingEntranceObserver(
                 leftLane,
                 rightLane,

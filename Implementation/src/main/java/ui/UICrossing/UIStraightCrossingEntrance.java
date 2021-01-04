@@ -4,8 +4,13 @@ import crossings.parameterEnums.LaneControllerType;
 import javafx.scene.shape.Circle;
 import ui.UILane.UiLane;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static crossings.parameterEnums.LaneControllerType.PEDESTRIAN;
+import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
 
 public class UIStraightCrossingEntrance extends UIStraightCrossing {
     protected UiLane leftLane, rightLane;
@@ -26,7 +31,11 @@ public class UIStraightCrossingEntrance extends UIStraightCrossing {
      * @return A Map with Circles mapped to corresponding lightType.
      */
     Map<LaneControllerType, List<Map<String, Circle>>> mapTrafficCircles(String trafficLightIdentifier, String pedestrianLightIdentifier) {
-        return null;
+        var laneMap = new HashMap();
+        laneMap.put(STRAIGHT, mapStraightCircles(trafficLightIdentifier));
+        laneMap.put(PEDESTRIAN, mapPedestrianCircles(pedestrianLightIdentifier));
+
+        return laneMap;
     }
 
     /**
@@ -35,7 +44,18 @@ public class UIStraightCrossingEntrance extends UIStraightCrossing {
      * @return A map with circles representing pedestrian lights.
      */
     private List<Map<String, Circle>> mapPedestrianCircles(String pedestrianLightIdentifier) {
-        return null;
+
+        var separatedIdentifier = pedestrianLightIdentifier.split(",");
+        String[] position = {"top", "bottom"};
+        int[] identifierForCircles = {1, 2};
+        var baseIdentifier = "FourW_PL" + separatedIdentifier[0] + "_Circle";
+
+        var pedestrianCircleList = new ArrayList();
+        pedestrianCircleList.add(mapCirclesStringX(baseIdentifier, position, identifierForCircles));
+
+        baseIdentifier = "FourW_PL" + separatedIdentifier[1] + "_Circle";
+        pedestrianCircleList.add(mapCirclesStringX(baseIdentifier, position, identifierForCircles));
+        return pedestrianCircleList;
     }
 
     /**
@@ -44,7 +64,13 @@ public class UIStraightCrossingEntrance extends UIStraightCrossing {
      * @return A map with circles representing straight lights.
      */
     private List<Map<String, Circle>> mapStraightCircles(String straightLightIdentifier) {
-        return null;
+        String[] position = {"top", "middle", "bottom"};
+        int[] identifierForCircle = {1, 2, 3};
+        String baseIdentifier = "FourW_TL" + straightLightIdentifier + "_Circle";
+        var returnList = new ArrayList();
+
+        returnList.add(mapCirclesStringX(baseIdentifier, position, identifierForCircle));
+        return returnList;
     }
 
     /**
@@ -56,6 +82,12 @@ public class UIStraightCrossingEntrance extends UIStraightCrossing {
      */
     private Map<String, Circle> mapCirclesStringX(
             String baseIdentifier, String[] position, int[] identifierForCircle) {
-        return null;
+        var circleMap = new HashMap();
+
+        for(int i = 0; i < position.length; i++) {
+            circleMap.put(position[i], namespace.get(baseIdentifier + identifierForCircle[i]));
+        }
+
+        return circleMap;
     }
 }
