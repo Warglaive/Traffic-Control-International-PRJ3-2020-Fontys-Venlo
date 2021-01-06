@@ -55,10 +55,10 @@ public abstract class FourWayCrossingControllerEntrance implements FourWayCrossi
 
     /**
      * Takes care of executing the lane cycles.
-     * @param straightOne One straight lane that has to be cycled.
-     * @param straightTwo One straight lane that has to be cycled.
-     * @param pedestrianThree One pedestrian lane that has to be cycled.
-     * @param pedestrianFour One pedestrian lane that has to be cycled.
+     * @param straightOne One straight controller that has to be cycled.
+     * @param straightTwo One straight controller that has to be cycled.
+     * @param pedestrianThree One pedestrian controller that has to be cycled.
+     * @param pedestrianFour One pedestrian controller that has to be cycled.
      */
     private void threadOperation(Lane straightOne, Lane straightTwo, Lane pedestrianThree, Lane pedestrianFour) {
         //Create threads out of given lanes

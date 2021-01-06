@@ -59,6 +59,7 @@ public class SampleUi implements Observer {
         switch(country) {
             case GERMANY:
                 returnMap = Mapper.mapToGermanTrafficBehaviour(colorString);
+                break;
             default:
                 returnMap = new HashMap();
         }

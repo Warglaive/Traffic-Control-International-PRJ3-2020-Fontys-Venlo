@@ -35,7 +35,6 @@ public class Main extends Application {
         Parent root = loader.load();
         Scene intersections = new Scene(root);
 
-
         primaryStage.setTitle("Traffic");
         primaryStage.setScene(intersections);
 
@@ -54,10 +53,31 @@ public class Main extends Application {
                 namespace
         );
 
-        var executionThread = new Thread((Runnable) fourWayCrossing);
-        executionThread.start();
 
-    }
+        var thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(true) {
+                  var executionThread = new Thread((Runnable) fourWayCrossing);
+                    executionThread.start();
+                    try {
+                        executionThread.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        thread.start();
+//        executionThread.start();
+//        while (true) {
+//            if (!executionThread.isAlive()) {
+//                executionThread.start();
+
+            }
+
+
 
 
     public static void main(String[] args) {
@@ -99,10 +119,10 @@ public class Main extends Application {
                 goDuration, cycleTime, straightLightBehaviour, pedestrianLightBehaviour, location
         ));
         fourLanes.put(TOP_LANE, getLaneParamMap(
-                goDuration, cycleTime, straightLightBehaviour, pedestrianLightBehaviour, location
+                goDuration+2, cycleTime, straightLightBehaviour, pedestrianLightBehaviour, location
         ));
         fourLanes.put(BOTTOM_LANE, getLaneParamMap(
-                goDuration, cycleTime, straightLightBehaviour, pedestrianLightBehaviour, location
+                goDuration+2, cycleTime, straightLightBehaviour, pedestrianLightBehaviour, location
         ));
 
         return fourLanes;
@@ -112,7 +132,7 @@ public class Main extends Application {
             int goDuration, int cycleTime, LightBehaviour straightLightBehaviour, LightBehaviour pedestrianLightBehaviour, Location location) {
         var laneMap = new HashMap();
         putLaneParamMap(laneMap, goDuration, cycleTime, straightLightBehaviour, location, STRAIGHT);
-        putLaneParamMap(laneMap, goDuration, cycleTime, pedestrianLightBehaviour, location, PEDESTRIAN);
+        putLaneParamMap(laneMap, goDuration+1, cycleTime, pedestrianLightBehaviour, location, PEDESTRIAN);
 
         return laneMap;
     }
