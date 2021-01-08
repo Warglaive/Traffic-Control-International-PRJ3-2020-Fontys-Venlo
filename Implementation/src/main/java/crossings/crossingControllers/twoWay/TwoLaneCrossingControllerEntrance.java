@@ -30,12 +30,71 @@ public abstract class TwoLaneCrossingControllerEntrance implements TwoWayCrossin
 
     }
 
-    public abstract void changeLeftLane(Map<LaneControllerType, Map<LaneParameterKey, Object>> parameterList);
+    private void threadOperation(Lane straightLeftLane, Lane straightRightLane, Lane pedestrian) {
+        //Create threads out of given lanes
+        Thread straightLeftLaneThread = new Thread((Runnable) straightLeftLane.getStraightLaneController());
+        Thread straightRightLaneThread = new Thread((Runnable) straightRightLane.getStraightLaneController());
+        Thread pedestrianLaneThread = new Thread((Runnable) pedestrian.getPedestrianLaneController());
 
-    public abstract void changeRightLane(Map<LaneControllerType, Map<LaneParameterKey, Object>> laneControllerTypeMapMap);
+        //Start the created threads
+        straightLeftLaneThread.start();
+        straightRightLaneThread.start();
+        pedestrianLaneThread.start();
+        //TODO:
+    }
 
     @Override
     public void cycleLanes() {
 
+    }
+
+    /**
+     * Creates a new left lane and sets it with the given parameters.
+     *
+     * @param parameterList Required parameters for constructing a lane
+     */
+    public abstract void changeLeftLane(Map<LaneControllerType, Map<LaneParameterKey, Object>> parameterList);
+
+    /**
+     * Creates a new right lane and sets it with the given parameters.
+     *
+     * @param parameterList Required parameters for constructing a lane
+     */
+    public abstract void changeRightLane(Map<LaneControllerType, Map<LaneParameterKey, Object>> parameterList);
+
+    /**
+     * Gets left lane.
+     *
+     * @return the left lane
+     */
+    public Lane getLeftLane() {
+        return leftLane;
+    }
+
+    /**
+     * Sets left lane.
+     *
+     * @param leftLane the left lane
+     */
+    public void setLeftLane(Lane leftLane) {
+        this.leftLane = leftLane;
+    }
+
+    /**
+     * Gets right lane.
+     *
+     * @return the right lane
+     */
+    public Lane getRightLane() {
+        return rightLane;
+    }
+
+    /**
+     * Sets right lane.
+     *
+     * @param rightLane the right lane
+     */
+    public void setRightLane(Lane rightLane) {
+        this.rightLane = rightLane;
     }
 }
