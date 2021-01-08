@@ -10,7 +10,7 @@ import java.util.Map;
 import static crossings.parameterEnums.LaneType.LEFT_LANE;
 import static crossings.parameterEnums.LaneType.RIGHT_LANE;
 
-public class TwoLaneCrossingControllerEntrance implements TwoWayCrossingController {
+public abstract class TwoLaneCrossingControllerEntrance implements TwoWayCrossingController {
     /**
      * The lanes belonging to a crossing
      */
@@ -30,12 +30,9 @@ public class TwoLaneCrossingControllerEntrance implements TwoWayCrossingControll
 
     }
 
-    private void changeRightLane(Map<LaneControllerType, Map<LaneParameterKey, Object>> laneControllerTypeMapMap) {
+    public abstract void changeLeftLane(Map<LaneControllerType, Map<LaneParameterKey, Object>> parameterList);
 
-    }
-
-    private void changeLeftLane(Map<LaneControllerType, Map<LaneParameterKey, Object>> laneControllerTypeMapMap) {
-    }
+    public abstract void changeRightLane(Map<LaneControllerType, Map<LaneParameterKey, Object>> laneControllerTypeMapMap);
 
     @Override
     public void cycleLanes() {
