@@ -4,6 +4,7 @@ import crossings.parameterEnums.LaneControllerType;
 import crossings.parameterEnums.LaneParameterKey;
 import crossings.parameterEnums.LaneType;
 import lane.Lane;
+import lane.LaneStandard;
 
 import java.util.Map;
 
@@ -16,7 +17,6 @@ public abstract class TwoLaneCrossingControllerEntrance implements TwoWayCrossin
      */
     private Lane leftLane;
     private Lane rightLane;
-
     /**
      * The time before the next lane start its cycle
      */
@@ -30,22 +30,27 @@ public abstract class TwoLaneCrossingControllerEntrance implements TwoWayCrossin
 
     }
 
-    private void threadOperation(Lane straightLeftLane, Lane straightRightLane, Lane pedestrian) {
+    private void threadOperation(Lane straightLeftLane, Lane straightRightLane) throws InterruptedException {
         //Create threads out of given lanes
         Thread straightLeftLaneThread = new Thread((Runnable) straightLeftLane.getStraightLaneController());
         Thread straightRightLaneThread = new Thread((Runnable) straightRightLane.getStraightLaneController());
-        Thread pedestrianLaneThread = new Thread((Runnable) pedestrian.getPedestrianLaneController());
-
+        straightRightLane.getPedestrianLaneController().cycleLights();
         //Start the created threads
-        straightLeftLaneThread.start();
         straightRightLaneThread.start();
-        pedestrianLaneThread.start();
-        //TODO:
+        //start cycle lights vehicles
+        straightLeftLane.cycleStraightLights();
+        straightRightLane.cycleStraightLights();
+        //TODO: Cycle the straight lights of the right and left lane. Once that is done, cycle the pedestrian lights
     }
 
-    @Override
-    public void cycleLanes() {
+    /**
+     * Before threadOperation specified cycle, this method decides in what order are lights being switched ON and OFF
+     */
 
+    @Override
+    public void cycleLanes() throws InterruptedException {
+        this.threadOperation(this.rightLane, this.leftLane);
+        this.threadOperation(this.rightLane, this.rightLane);
     }
 
     /**
