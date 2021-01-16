@@ -34,10 +34,14 @@ public abstract class TwoLaneCrossingControllerEntrance implements TwoWayCrossin
         //Create threads out of given lanes
         Thread straightLeftLaneThread = new Thread((Runnable) straightLeftLane.getStraightLaneController());
         Thread straightRightLaneThread = new Thread((Runnable) straightRightLane.getStraightLaneController());
-        straightRightLane.getPedestrianLaneController().cycleLights();
-        //Start the created threads
+
+        //cycleLights
+        straightLeftLaneThread.start();
         straightRightLaneThread.start();
-        //start cycle lights vehicles
+
+        straightRightLane.getPedestrianLaneController().cycleLights();
+        
+        //Start the created threads
         straightLeftLane.cycleStraightLights();
         straightRightLane.cycleStraightLights();
         //TODO: Cycle the straight lights of the right and left lane. Once that is done, cycle the pedestrian lights
