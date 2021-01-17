@@ -57,8 +57,8 @@ public class Main extends Application {
         var thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                while(true) {
-                  var executionThread = new Thread((Runnable) fourWayCrossing);
+                while (true) {
+                    var executionThread = new Thread((Runnable) fourWayCrossing);
                     executionThread.start();
                     try {
                         executionThread.join();
@@ -75,9 +75,7 @@ public class Main extends Application {
 //            if (!executionThread.isAlive()) {
 //                executionThread.start();
 
-            }
-
-
+    }
 
 
     public static void main(String[] args) {
@@ -119,10 +117,10 @@ public class Main extends Application {
                 goDuration, cycleTime, straightLightBehaviour, pedestrianLightBehaviour, location
         ));
         fourLanes.put(TOP_LANE, getLaneParamMap(
-                goDuration+2, cycleTime, straightLightBehaviour, pedestrianLightBehaviour, location
+                goDuration + 2, cycleTime, straightLightBehaviour, pedestrianLightBehaviour, location
         ));
         fourLanes.put(BOTTOM_LANE, getLaneParamMap(
-                goDuration+2, cycleTime, straightLightBehaviour, pedestrianLightBehaviour, location
+                goDuration + 2, cycleTime, straightLightBehaviour, pedestrianLightBehaviour, location
         ));
 
         return fourLanes;
@@ -132,7 +130,7 @@ public class Main extends Application {
             int goDuration, int cycleTime, LightBehaviour straightLightBehaviour, LightBehaviour pedestrianLightBehaviour, Location location) {
         var laneMap = new HashMap();
         putLaneParamMap(laneMap, goDuration, cycleTime, straightLightBehaviour, location, STRAIGHT);
-        putLaneParamMap(laneMap, goDuration+1, cycleTime, pedestrianLightBehaviour, location, PEDESTRIAN);
+        putLaneParamMap(laneMap, goDuration + 1, cycleTime, pedestrianLightBehaviour, location, PEDESTRIAN);
 
         return laneMap;
     }
