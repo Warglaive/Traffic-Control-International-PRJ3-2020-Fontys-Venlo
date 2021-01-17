@@ -4,9 +4,9 @@ import crossings.parameterEnums.LaneControllerType;
 import crossings.parameterEnums.LaneParameterKey;
 import crossings.parameterEnums.LaneType;
 import lane.Lane;
-import lane.LaneStandard;
 
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import static crossings.parameterEnums.LaneType.LEFT_LANE;
 import static crossings.parameterEnums.LaneType.RIGHT_LANE;
@@ -27,24 +27,49 @@ public abstract class TwoLaneCrossingControllerEntrance implements TwoWayCrossin
         this.changeLeftLane(parameterList.get(LEFT_LANE));
         this.changeRightLane(parameterList.get(RIGHT_LANE));
         this.secondsBetweenLaneSwitch = secondsBetweenLaneSwitch;
-
     }
+
+    /**
+     * @param straightLeftLane left straight controller that has to be cycled.
+     * @param straightRightLane right straight controller that has to be cycled
+     * @throws InterruptedException
+     */
 
     private void threadOperation(Lane straightLeftLane, Lane straightRightLane) throws InterruptedException {
         //Create threads out of given lanes
         Thread straightLeftLaneThread = new Thread((Runnable) straightLeftLane.getStraightLaneController());
         Thread straightRightLaneThread = new Thread((Runnable) straightRightLane.getStraightLaneController());
 
+        Thread pedestrianLeft = new Thread((Runnable) straightLeftLane.getPedestrianLaneController());
+        Thread pedestrianRight = new Thread((Runnable) straightRightLane.getPedestrianLaneController());
+        //Pedestrian Lanes
+
         //cycleLights
         straightLeftLaneThread.start();
         straightRightLaneThread.start();
 
-        straightRightLane.getPedestrianLaneController().cycleLights();
-        
-        //Start the created threads
-        straightLeftLane.cycleStraightLights();
-        straightRightLane.cycleStraightLights();
-        //TODO: Cycle the straight lights of the right and left lane. Once that is done, cycle the pedestrian lights
+        try {
+            straightLeftLaneThread.join();
+            straightRightLaneThread.join();
+        } catch (InterruptedException e) {
+            throw new InterruptedException("Threads failed to join at: TwoLaneCrossingControllerEntrance.java lane 46");
+        }
+
+        pedestrianLeft.start();
+        pedestrianRight.start();
+
+        try {
+            pedestrianLeft.join();
+            pedestrianRight.join();
+        } catch (InterruptedException e) {
+            throw new InterruptedException("Threads failed to join at: TwoLaneCrossingControllerEntrance.java lane 61");
+        }
+
+        try {
+            TimeUnit.SECONDS.sleep(secondsBetweenLaneSwitch);
+        } catch (InterruptedException e) {
+            throw new InterruptedException("Threads failed to join at: TwoLaneCrossingControllerEntrance.java lane 65");
+        }
     }
 
     /**
