@@ -1,7 +1,6 @@
 
 package crossings.factories;
 
-import crossings.TestUtils;
 import crossings.crossingControllers.fourWay.FourWayCrossingControllerEntranceStandard;
 import crossings.parameterEnums.LaneControllerType;
 import crossings.parameterEnums.LaneParameterKey;
@@ -13,9 +12,11 @@ import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,10 +25,8 @@ import static crossings.parameterEnums.LaneControllerType.PEDESTRIAN;
 import static crossings.parameterEnums.LaneControllerType.STRAIGHT;
 import static crossings.parameterEnums.LaneParameterKey.*;
 import static crossings.parameterEnums.LaneType.*;
-import static crossings.parameterEnums.LaneType.BOTTOM_LANE;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.mock;
 
+@RunWith(MockitoJUnitRunner.class)
 public class FourWayCrossingControllerEntranceStandardFactoryTest {
     //hardcoded values
     final int numberOfLightsForVehicles = 3;
@@ -56,7 +55,7 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
     final int cycleTimeVehiclesLight = 2;
     final int cycleTimePedestrianLight = 2;
     //Location
-    @Mock
+    //@Mock
     Location location;
     final int secondsBetweenLaneSwitch = 2;
     //VehiclesMaps
@@ -72,15 +71,22 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
     //Parameter Map
     Map<LaneType, Map<LaneControllerType, Map<LaneParameterKey, Object>>> parameterMap = new HashMap<>();
 
-
+    /**
+     * Set up Mock objects
+     * Initialize all the parameters needed by the parameterMap
+     * Add both to the parameterMap
+     */
     @BeforeEach
     @Before
     public void setUp() {
+        MockitoAnnotations.initMocks(this);
         //Initialize Behaviour and location
         this.straightTrafficLightBehaviour = Mockito.mock(StraightTrafficLightBehaviour.class);
         this.pedestrianLightBehaviour = Mockito.mock(PedestrianLightBehaviour.class);
-        this.location = Mockito.mock(Location.class);
+        //MockitoAnnotations.openMocks(StraightTrafficLightBehaviour.class);
+        //MockitoAnnotations.openMocks(PedestrianLightBehaviour.class);
 
+        this.location = new Location();
 
         //Initialize number of lights for Vehicles
         this.straightNumberLightsLeftVehicles = this.numberOfLightsForVehicles;
@@ -180,6 +186,11 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
 
     }
 
+    /**
+     * This method creates manually a getFourWayCrossingControllerEntranceStandard object
+     * and then uses the factory class to create another object of the same type.
+     * Finally both objects are compared and an equality is expected
+     */
     @Test
     public void getFourWayCrossingControllerEntranceStandard() {
         FourWayCrossingControllerEntranceStandardFactory factory = new FourWayCrossingControllerEntranceStandardFactory();
@@ -212,8 +223,6 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
 
         //expected result = create object with 'new'.
         FourWayCrossingControllerEntranceStandard expectedResult = new FourWayCrossingControllerEntranceStandard(this.parameterMap, this.secondsBetweenLaneSwitch);
-
-
         //Actual result = create object from factoryObject.
         FourWayCrossingControllerEntranceStandard actualResult = factoryObject;
         Assertions.assertThat(actualResult).isEqualTo(expectedResult);
