@@ -79,7 +79,6 @@ public class FourWayCrossingControllerEntranceStandardFactoryTest {
     @BeforeEach
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
         //Initialize Behaviour and location
         this.straightTrafficLightBehaviour = Mockito.mock(StraightTrafficLightBehaviour.class);
         this.pedestrianLightBehaviour = Mockito.mock(PedestrianLightBehaviour.class);
