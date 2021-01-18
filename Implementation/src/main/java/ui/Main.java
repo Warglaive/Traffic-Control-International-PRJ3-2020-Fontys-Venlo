@@ -1,5 +1,6 @@
 package ui;
 
+import crossings.crossingControllers.twoWay.TwoWayCrossingController;
 import crossings.fourWay.FourWayCrossing;
 import crossings.fourWay.FourWayCrossingEntranceStandard;
 import crossings.parameterEnums.LaneControllerType;
