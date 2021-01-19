@@ -40,14 +40,14 @@ public class TestUILaneObserver {
         var straightCircleMap = new HashMap();
         var pedestrianCircleMap = new HashMap();
 
-        var mockedCircle = mock(Circle.class);
+        var circle = new Circle();
 
-        straightCircleMap.put("top", mockedCircle);
-        straightCircleMap.put("middle", mockedCircle);
-        straightCircleMap.put("bottom", mockedCircle);
+        straightCircleMap.put("top", circle);
+        straightCircleMap.put("middle", circle);
+        straightCircleMap.put("bottom", circle);
 
-        pedestrianCircleMap.put("top", mockedCircle);
-        pedestrianCircleMap.put("bottom", mockedCircle);
+        pedestrianCircleMap.put("top", circle);
+        pedestrianCircleMap.put("bottom", circle);
 
         straightCircleList.add(straightCircleMap);
         pedestrianCircleList.add(pedestrianCircleMap);

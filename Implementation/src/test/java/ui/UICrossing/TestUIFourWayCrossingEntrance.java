@@ -3,20 +3,13 @@ package ui.UICrossing;
 import crossings.TestUtils;
 import javafx.scene.shape.Circle;
 import lane.Lane;
-import lane.LaneStandard;
-import lane.laneControllers.standard.PedestrianLaneControllerStandard;
-import lane.laneControllers.standard.StraightLaneControllerStandard;
 import lightBehaviours.PedestrianLightBehaviour;
 import lightBehaviours.StraightTrafficLightBehaviour;
 import lights.Location;
-import lights.observer.ObserverLight;
-import lights.observer.PedestrianObserverLightStandard;
-import lights.observer.StraightTrafficObserverLightStandard;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.HashMap;
@@ -35,8 +28,8 @@ public class TestUIFourWayCrossingEntrance {
             bottomStraightIdentifier, bottomPedestrianIdentifier;
 
     Lane leftLane, rightLane, topLane, bottomLane;
-    @Mock
-    Circle mockedCircle;
+
+    Circle circle;
 
 
     @BeforeEach
@@ -44,10 +37,13 @@ public class TestUIFourWayCrossingEntrance {
     public void setUp() {
         MockitoAnnotations.openMocks(this);
         namespace = new HashMap();
+        circle = new Circle();
+
 
         this.setIdentifiers();
         this.createCircles();
         this.createLanes();
+
     }
 
     private void createLanes() {
@@ -87,15 +83,15 @@ public class TestUIFourWayCrossingEntrance {
 
     private void createStraightCircles(String identifier) {
         for(int i = 1; i <= 3; i++) {
-            namespace.put("FourW_TL" + identifier + "_Circle" + i, mockedCircle);
+            namespace.put("FourW_TL" + identifier + "_Circle" + i, circle);
         }
     }
 
     private void createPedestrianCircles(String identifier) {
         var identifierArray = identifier.split(",");
         for(int i = 1; i <= 2; i++) {
-            namespace.put("FourW_PL" + identifierArray[0] + "_Circle" + i, mockedCircle);
-            namespace.put("FourW_PL" + identifierArray[1] + "_Circle" + i, mockedCircle);
+            namespace.put("FourW_PL" + identifierArray[0] + "_Circle" + i, circle);
+            namespace.put("FourW_PL" + identifierArray[1] + "_Circle" + i, circle);
         }
     }
 
@@ -120,13 +116,13 @@ public class TestUIFourWayCrossingEntrance {
             softly.assertThat(returnMap.get(PEDESTRIAN).get(1).size()).isEqualTo(2);
 
             for(var circle : returnMap.get(STRAIGHT).get(0).values()) {
-                softly.assertThat(circle).isEqualTo(mockedCircle);
+                softly.assertThat(circle).isEqualTo(this.circle);
             }
             for(var circle : returnMap.get(PEDESTRIAN).get(0).values()) {
-                softly.assertThat(circle).isEqualTo(mockedCircle);
+                softly.assertThat(circle).isEqualTo(this.circle);
             }
             for(var circle : returnMap.get(PEDESTRIAN).get(1).values()) {
-                softly.assertThat(circle).isEqualTo(mockedCircle);
+                softly.assertThat(circle).isEqualTo(this.circle);
             }
         });
     }
