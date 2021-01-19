@@ -9,19 +9,28 @@ import ui.UILight.UILight;
 
 import java.util.Map;
 
-public class UIPedestrianLight implements UILight  {
+public class UIPedestrianLight implements UILight {
 
     private Map<String, Color[]> countrySpecificLightRepresentationMap;
     private ObserverLight businessLight;
     private UICountryLightMapper uiCountryLightMapper;
     protected TwoLightsRepresentation pedestrianLightRepresentation;
 
+    /**
+     * @param businessLight                 - take observer light in order to change color and to notify observers
+     * @param country                       - to be extended
+     * @param pedestrianLightRepresentation - a light representation
+     */
     public UIPedestrianLight(ObserverLight businessLight, Country country, TwoLightsRepresentation pedestrianLightRepresentation) {
         this.businessLight = businessLight;
         this.pedestrianLightRepresentation = pedestrianLightRepresentation;
         this.uiCountryLightMapper = new UICountryLightMapper();
     }
 
+    /**
+     * @param color
+     * @return an Color[]
+     */
     @Override
     public Color[] getColorArray(String color) {
         switch (color.toLowerCase()) {
@@ -34,6 +43,9 @@ public class UIPedestrianLight implements UILight  {
         }
     }
 
+    /**
+     * change pedestrian light to either red or green
+     */
     @Override
     public void changeColor(Color[] colors) {
         this.pedestrianLightRepresentation.setColor(colors);
