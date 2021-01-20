@@ -25,7 +25,7 @@ public class UIPedestrianLight implements UILight {
         this.businessLight = businessLight;
         this.pedestrianLightRepresentation = pedestrianLightRepresentation;
         this.uiCountryLightMapper = new UICountryLightMapper();
-        //TODO: Country makes no sense here, pedestrian lights do not relate to countries
+        //default is same as GERMANY use case since there is no difference at the moment for different countries.
         switch (country) {
             case GERMANY:
                 this.countrySpecificLightRepresentationMap = this.uiCountryLightMapper.pedestrianStandardLightMap();
